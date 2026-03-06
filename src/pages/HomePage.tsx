@@ -213,7 +213,7 @@ function ParallaxSection() {
   return (
     <section
       className="relative h-[60vh] md:h-[70vh] bg-fixed bg-center bg-cover flex items-center justify-center"
-      style={{ backgroundImage: 'url("/images/parallax-news.png")' }}
+      style={{ backgroundImage: 'url("/images/parallaxhome.png")' }}
     >
       {/* Overlay to ensure some contrast if needed */}
       <div className="absolute inset-0 bg-black/10 z-10" />
