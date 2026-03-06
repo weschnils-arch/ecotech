@@ -13,7 +13,7 @@ function IntroSection() {
     <SubpageHero
       title={t('aboutpage.intro.title')}
       subtitle={t('about.description')}
-      image="/images/hero-bg.jpg"
+      image="/images/about-hero.png"
     />
   );
 }
