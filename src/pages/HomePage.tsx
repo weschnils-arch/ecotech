@@ -112,7 +112,7 @@ function AboutSection() {
             <div className="glass-card p-8 lg:p-12">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">10+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
                   <div className="text-sm text-ecotech-grey/60">Jahre Erfahrung</div>
                 </div>
                 <div className="text-center p-4">
@@ -340,8 +340,8 @@ function NewsSection() {
       image: '/images/news-1.jpg',
       titleDe: 'EcoTech Styria gegründet',
       titleEn: 'EcoTech Styria Founded',
-      excerptDe: 'Mit mehr als 10 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
-      excerptEn: 'With over 10 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
+      excerptDe: 'Mit mehr als 15 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
+      excerptEn: 'With over 15 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
     },
     {
       image: '/images/hero-sales-new.png',

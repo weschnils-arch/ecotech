@@ -14,8 +14,8 @@ export function NewsPage() {
       date: '15. Januar 2025',
       titleDe: 'EcoTech Styria GmbH gegründet',
       titleEn: 'EcoTech Styria GmbH Founded',
-      excerptDe: 'Mit mehr als 10 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
-      excerptEn: 'With over 10 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
+      excerptDe: 'Mit mehr als 15 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
+      excerptEn: 'With over 15 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
     },
     {
       image: '/images/news-2.jpg',

@@ -31,7 +31,7 @@ const translations = {
 
     // About Section
     'about.title': 'Über uns',
-    'about.description': 'Gegründet 2024. Kernkompetenz: Lösungen zur fest-flüssig Trennung. Kernprodukt: Filterschneckenpresse. Mit mehr als 10 Jahren Erfahrung in der Entwicklung und technischen Anwendungen im Maschinenbau und Anlagenaufbau mit einem Schwerpunkt Separations- und Umwelttechnik.',
+    'about.description': 'Gegründet 2024. Kernkompetenz: Lösungen zur fest-flüssig Trennung. Kernprodukt: Filterschneckenpresse. Mit mehr als 15 Jahren Erfahrung in der Entwicklung und technischen Anwendungen im Maschinenbau und Anlagenaufbau mit einem Schwerpunkt Separations- und Umwelttechnik.',
     'about.link': 'Zur Unternehmensseite',
 
     // Applications Section
@@ -91,7 +91,7 @@ const translations = {
     'aboutpage.team.title': 'Unser Team',
     'aboutpage.team.ceo.name': 'Heinz Leitner',
     'aboutpage.team.ceo.role': 'CEO',
-    'aboutpage.team.ceo.bio': '10 Jahre Leitung F&E Projekte für Fahrzeugindustrie und Sondermaschinenbau. 15 Jahre CEO Komptech Gruppe. CEO Inno2lead GmbH: Strategieberatung für Maschinenbau und Recyclingtechnikunternehmen.',
+    'aboutpage.team.ceo.bio': '15 Jahre Leitung F&E Projekte für Fahrzeugindustrie und Sondermaschinenbau. 15 Jahre CEO Komptech Gruppe. CEO Inno2lead GmbH: Strategieberatung für Maschinenbau und Recyclingtechnikunternehmen.',
     'aboutpage.team.coo.name': 'Gernot Pauger',
     'aboutpage.team.coo.role': 'COO',
     'aboutpage.team.coo.bio': 'Eigentümer Pauger Maschinenbau GmbH. Jahrelange Erfahrung im Bereich Sondermaschinenbau für Umwelttechnik.',
@@ -170,7 +170,7 @@ const translations = {
 
     // About Section
     'about.title': 'About Us',
-    'about.description': 'Founded in 2024. Core competence: Solid-liquid separation solutions. Core product: Filter Screw Press / Separator. With more than 10 years of experience in the development of technical applications in mechanical engineering and plant construction with a focus on separation and environmental technology.',
+    'about.description': 'Founded in 2024. Core competence: Solid-liquid separation solutions. Core product: Filter Screw Press / Separator. With more than 15 years of experience in the development of technical applications in mechanical engineering and plant construction with a focus on separation and environmental technology.',
     'about.link': 'To Company Page',
 
     // Applications Section
@@ -230,7 +230,7 @@ const translations = {
     'aboutpage.team.title': 'Our Team',
     'aboutpage.team.ceo.name': 'Heinz Leitner',
     'aboutpage.team.ceo.role': 'CEO',
-    'aboutpage.team.ceo.bio': '10 years of experience in leading R&D projects in the field of automotive industry and special machinery construction. CEO of Komptech group for 15 years (till end of 2023). CEO Inno2lead GmbH: strategy consulting for companies in the field of mechanical engineering and recycling.',
+    'aboutpage.team.ceo.bio': '15 years of experience in leading R&D projects in the field of automotive industry and special machinery construction. CEO of Komptech group for 15 years (till end of 2023). CEO Inno2lead GmbH: strategy consulting for companies in the field of mechanical engineering and recycling.',
     'aboutpage.team.coo.name': 'Gernot Pauger',
     'aboutpage.team.coo.role': 'COO',
     'aboutpage.team.coo.bio': 'Owner Pauger Maschinenbau GmbH. Many years of experience in the field of special machine construction and environmental machinery.',
