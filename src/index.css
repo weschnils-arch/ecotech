@@ -266,6 +266,26 @@
   .stagger-8 {
     transition-delay: 0.8s;
   }
+
+  /* Neon Glow Flow Animation */
+  @keyframes neon-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-neon-flow {
+    background-size: 200% 100%;
+    animation: neon-flow 4s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
