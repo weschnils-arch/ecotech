@@ -225,14 +225,14 @@ function ParallaxSection() {
       {/* Top Angled White Mask */}
       <div
         className="absolute -top-1 left-0 right-0 h-[calc(30vh+4px)] md:h-[calc(40vh+4px)] z-20 bg-white"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%)' }}
+        style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
       ></div>
 
       {/* Top Fading Green Line */}
       <div
         className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
-          clipPath: 'polygon(0 calc(0% - 2px), 100% calc(100% - 2px), 100% calc(100% + 2px), 0 calc(0% + 2px))',
+          clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
           background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
         }}
       ></div>
@@ -240,14 +240,14 @@ function ParallaxSection() {
       {/* Bottom Angled White Mask */}
       <div
         className="absolute -bottom-1 left-0 right-0 h-[calc(30vh+4px)] md:h-[calc(40vh+4px)] z-20 bg-white"
-        style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}
+        style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
       ></div>
 
       {/* Bottom Fading Green Line */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
-          clipPath: 'polygon(0 calc(0% - 2px), 100% calc(100% - 2px), 100% calc(100% + 2px), 0 calc(0% + 2px))',
+          clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
           background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
         }}
       ></div>
