@@ -42,6 +42,7 @@ export function NewsPage() {
     { name: 'Technisches Datenblatt BGI-400', type: 'PDF', size: '720 KB', icon: FileText },
     { name: 'Produktbilder BGII-800', type: 'ZIP', size: '12.4 MB', icon: Image },
     { name: 'Produktbilder BGI-400', type: 'ZIP', size: '8.2 MB', icon: Image },
+    { name: 'Anwendungsblatt Kunststoffrecycling', type: 'PDF', size: '8.8 MB', icon: FileText },
   ];
 
   return (

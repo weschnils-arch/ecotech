@@ -35,7 +35,7 @@ export function IntegrationPage() {
       />
 
       {/* Planning Section */}
-      <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
+      <section ref={ref} className="section-container py-24 lg:py-32">
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

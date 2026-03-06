@@ -116,8 +116,8 @@ function AboutSection() {
                   <div className="text-sm text-ecotech-grey/60">Jahre Erfahrung</div>
                 </div>
                 <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75</div>
-                  <div className="text-sm text-ecotech-grey/60">m³/h Durchsatz</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
+                  <div className="text-sm text-ecotech-grey/60">Teammitglieder</div>
                 </div>
                 <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
@@ -204,6 +204,24 @@ function ApplicationsSection() {
           })}
         </div>
       </div>
+    </section>
+  );
+}
+
+// Parallax Section
+function ParallaxSection() {
+  return (
+    <section className="relative h-[60vh] overflow-hidden">
+      <div
+        className="absolute inset-0 z-0 bg-fixed bg-center bg-cover"
+        style={{
+          backgroundImage: 'url("/images/parallax-news.png")',
+          transform: 'translateZ(0)',
+        }}
+      />
+      {/* Overlay to ensure some contrast if needed, subtle dark/tint */}
+      <div className="absolute inset-0 bg-black/10 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-20" />
     </section>
   );
 }
@@ -421,6 +439,7 @@ export function HomePage() {
       <HeroSection />
       <AboutSection />
       <ApplicationsSection />
+      <ParallaxSection />
       <ProductsSection />
       <WhySection />
       <NewsSection />
