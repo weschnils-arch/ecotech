@@ -93,9 +93,11 @@ function AboutSection() {
     <section ref={ref} className="relative z-30">
       {/* Mirrored Green Diagonal Shape */}
       <div
-        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-0 bg-ecotech-green pointer-events-none"
+        className="absolute -top-[1px] left-0 right-0 h-[calc(30vh+2px)] md:h-[calc(40vh+2px)] z-0 bg-ecotech-green pointer-events-none"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%)' }}
-      ></div>
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
+      </div>
 
       <div className="section-container relative z-10 py-16 lg:py-24">
         <div className="section-inner">
