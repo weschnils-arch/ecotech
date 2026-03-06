@@ -112,7 +112,7 @@ function AboutSection() {
       <div className="section-container relative z-10 py-16 lg:py-24">
         <div className="section-inner">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="pt-4 lg:pt-8">
+            <div className="pt-24 lg:pt-40">
               <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
                 {t('about.title')}
               </span>
