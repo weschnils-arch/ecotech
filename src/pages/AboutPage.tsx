@@ -28,7 +28,7 @@ function VisionSection() {
       <div className="section-inner">
         <div className={`space-y-32 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Vision Section */}
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             <span className="text-ecotech-green font-bold text-xs uppercase tracking-[0.3em] mb-8 block opacity-80">
               {t('aboutpage.vision.label')}
             </span>
@@ -45,7 +45,7 @@ function VisionSection() {
           </div>
 
           {/* Mission Section */}
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             <span className="text-ecotech-green font-bold text-xs uppercase tracking-[0.3em] mb-8 block opacity-80">
               {t('aboutpage.mission.label')}
             </span>
