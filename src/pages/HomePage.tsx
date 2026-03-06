@@ -99,6 +99,16 @@ function AboutSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
       </div>
 
+      {/* Neon Green Fading Line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-10 pointer-events-none"
+        style={{
+          clipPath: 'polygon(0 calc(0% - 2px), 100% calc(100% - 2px), 100% calc(100% + 2px), 0 calc(0% + 2px))',
+          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)',
+          filter: 'brightness(1.5) drop-shadow(0 0 4px #62a731)'
+        }}
+      ></div>
+
       <div className="section-container relative z-10 py-16 lg:py-24">
         <div className="section-inner">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -239,12 +249,13 @@ function ParallaxSection() {
         style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
       ></div>
 
-      {/* Top Fading Green Line */}
+      {/* Top Neon Green Fading Line */}
       <div
         className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
           clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
-          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
+          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)',
+          filter: 'brightness(1.5) drop-shadow(0 0 4px #62a731)'
         }}
       ></div>
 
@@ -254,12 +265,13 @@ function ParallaxSection() {
         style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
       ></div>
 
-      {/* Bottom Fading Green Line */}
+      {/* Bottom Neon Green Fading Line */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
           clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
-          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
+          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)',
+          filter: 'brightness(1.5) drop-shadow(0 0 4px #62a731)'
         }}
       ></div>
     </section>
