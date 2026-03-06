@@ -90,42 +90,51 @@ function AboutSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="section-container pb-24 lg:pb-32 relative z-30 -mt-20 lg:-mt-40">
-      <div className="section-inner">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="pt-24 lg:pt-40">
-            <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              {t('about.title')}
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-8">
-              {t('hero.headline')}
-            </h2>
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed mb-8">
-              {t('about.description')}
-            </p>
-            <Link to="/about" className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300">
-              {t('about.link')}
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="relative lg:-mt-64 z-40">
-            <div className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass-lg rounded-2xl p-8 lg:p-12 hover:bg-white/80 transition-all duration-500">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
-                  <div className="text-sm text-ecotech-grey/80 font-medium">Jahre Erfahrung</div>
-                </div>
-                <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
-                  <div className="text-sm text-ecotech-grey/80 font-medium">Teammitglieder</div>
-                </div>
-                <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
-                  <div className="text-sm text-ecotech-grey/80 font-medium">TS-Gehalt</div>
-                </div>
-                <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
-                  <div className="text-sm text-ecotech-grey/80 font-medium">Anwendungen</div>
+    <section ref={ref} className="relative z-30">
+      {/* Mirrored Green Diagonal Shape */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-0 bg-ecotech-green pointer-events-none"
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%)' }}
+      ></div>
+
+      <div className="section-container relative z-10 py-16 lg:py-24">
+        <div className="section-inner">
+          <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="pt-4 lg:pt-8">
+              <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
+                {t('about.title')}
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-8">
+                {t('hero.headline')}
+              </h2>
+              <p className="text-lg text-ecotech-grey/70 leading-relaxed mb-8">
+                {t('about.description')}
+              </p>
+              <Link to="/about" className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300">
+                {t('about.link')}
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+            {/* Box position: overlap top green diagonally */}
+            <div className="relative mt-8 lg:-mt-32 z-40">
+              <div className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass-lg rounded-2xl p-8 lg:p-12 hover:bg-white/80 transition-all duration-500">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center p-4">
+                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
+                    <div className="text-sm text-ecotech-grey/80 font-medium">Jahre Erfahrung</div>
+                  </div>
+                  <div className="text-center p-4">
+                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
+                    <div className="text-sm text-ecotech-grey/80 font-medium">Teammitglieder</div>
+                  </div>
+                  <div className="text-center p-4">
+                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
+                    <div className="text-sm text-ecotech-grey/80 font-medium">TS-Gehalt</div>
+                  </div>
+                  <div className="text-center p-4">
+                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
+                    <div className="text-sm text-ecotech-grey/80 font-medium">Anwendungen</div>
+                  </div>
                 </div>
               </div>
             </div>
