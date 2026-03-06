@@ -211,17 +211,18 @@ function ApplicationsSection() {
 // Parallax Section
 function ParallaxSection() {
   return (
-    <section className="relative h-[60vh] overflow-hidden">
-      <div
-        className="absolute inset-0 z-0 bg-fixed bg-center bg-cover"
-        style={{
-          backgroundImage: 'url("/images/parallax-news.png")',
-          transform: 'translateZ(0)',
-        }}
-      />
-      {/* Overlay to ensure some contrast if needed, subtle dark/tint */}
+    <section
+      className="relative h-[60vh] md:h-[70vh] bg-fixed bg-center bg-cover flex items-center justify-center"
+      style={{ backgroundImage: 'url("/images/parallax-news.png")' }}
+    >
+      {/* Overlay to ensure some contrast if needed */}
       <div className="absolute inset-0 bg-black/10 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-20" />
+
+      {/* Top Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent z-20" />
+
+      {/* Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20" />
     </section>
   );
 }
