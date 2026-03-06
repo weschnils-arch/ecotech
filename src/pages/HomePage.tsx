@@ -99,7 +99,7 @@ function AboutSection() {
 
       {/* Neon Green Fading Line */}
       <div
-        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-10 pointer-events-none animate-neon-flow"
+        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-10 pointer-events-none animate-neon-flow-reverse"
         style={{
           clipPath: 'polygon(0 calc(0% - 2px), 100% calc(100% - 2px), 100% calc(100% + 2px), 0 calc(0% + 2px))'
         }}
