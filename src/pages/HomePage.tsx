@@ -2,7 +2,6 @@ import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ArrowRight, ChevronRight, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check } from 'lucide-react';
-import { BackgroundBlob } from '@/components/BackgroundBlob';
 
 // Hero Section
 function HeroSection() {
@@ -13,7 +12,7 @@ function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-bg-bw.webp"
+          src="/images/hero-home-new.png"
           alt="Separation Technology"
           className="w-full h-full object-cover"
         />
@@ -91,21 +90,8 @@ function AboutSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 relative overflow-hidden">
-      <BackgroundBlob
-        variant="green"
-        position="top-20 -left-20"
-        size="w-[500px] h-[500px]"
-        opacity="opacity-15"
-      />
-      <BackgroundBlob
-        variant="blue"
-        position="-bottom-20 -right-20"
-        size="w-[600px] h-[600px]"
-        opacity="opacity-10"
-      />
-
-      <div className="section-inner relative z-10">
+    <section ref={ref} className="section-container py-24 lg:py-32">
+      <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
@@ -125,19 +111,19 @@ function AboutSection() {
           <div className="relative">
             <div className="glass-card p-8 lg:p-12">
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
+                <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">10+</div>
                   <div className="text-sm text-ecotech-grey/60">Jahre Erfahrung</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75</div>
                   <div className="text-sm text-ecotech-grey/60">m³/h Durchsatz</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
                   <div className="text-sm text-ecotech-grey/60">TS-Gehalt</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
                   <div className="text-sm text-ecotech-grey/60">Anwendungen</div>
                 </div>
@@ -167,21 +153,8 @@ function ApplicationsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-gradient-to-b from-white to-ecotech-grey-light/20 relative overflow-hidden">
-      <BackgroundBlob
-        variant="orange"
-        position="top-40 right-20"
-        size="w-[400px] h-[400px]"
-        opacity="opacity-10"
-      />
-      <BackgroundBlob
-        variant="cyan"
-        position="bottom-20 left-10"
-        size="w-[500px] h-[500px]"
-        opacity="opacity-10"
-      />
-
-      <div className="section-inner relative z-10">
+    <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
+      <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             Bereiche
@@ -207,9 +180,9 @@ function ApplicationsSection() {
                     alt={t(`applications.${app.key}.title`)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ecotech-grey/80 to-transparent" />
+                  <div className="absolute inset-0 bg-ecotech-grey/50" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-10 h-10 rounded-lg bg-ecotech-green/90 backdrop-blur flex items-center justify-center mb-2">
+                    <div className="w-10 h-10 rounded-lg bg-ecotech-green flex items-center justify-center mb-2">
                       <Icon size={20} className="text-white" />
                     </div>
                   </div>
@@ -254,15 +227,8 @@ function ProductsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 relative overflow-hidden">
-      <BackgroundBlob
-        variant="purple"
-        position="top-10 left-1/2 -translate-x-1/2"
-        size="w-[800px] h-[800px]"
-        opacity="opacity-5"
-      />
-
-      <div className="section-inner relative z-10">
+    <section ref={ref} className="section-container py-24 lg:py-32">
+      <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             Produkte
@@ -333,14 +299,9 @@ function WhySection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-grey text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-ecotech-green rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-ecotech-green rounded-full blur-3xl" />
-      </div>
+    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-grey text-white">
 
-      <div className="section-inner relative z-10">
+      <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             Vorteile
@@ -354,11 +315,11 @@ function WhySection() {
           {benefits.map((benefit, index) => (
             <div
               key={benefit}
-              className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-ecotech-green/20 flex items-center justify-center mb-4">
-                <Check size={24} className="text-ecotech-green" />
+              <div className="w-10 h-10 rounded-lg bg-ecotech-green/15 flex items-center justify-center mb-4">
+                <Check size={20} className="text-ecotech-green" />
               </div>
               <p className="text-lg font-medium">{t(benefit)}</p>
             </div>
@@ -383,14 +344,14 @@ function NewsSection() {
       excerptEn: 'With over 10 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
     },
     {
-      image: '/images/news-2.jpg',
+      image: '/images/hero-sales-new.png',
       titleDe: 'BGII-800: Unser Flaggschiff vorgestellt',
       titleEn: 'BGII-800: Our Flagship Unveiled',
       excerptDe: 'Die Filterschneckenpresse BGII-800 setzt neue Maßstäbe in der Industrie mit bis zu 75m³/h Durchsatz und patentierter Schneckengeometrie.',
       excerptEn: 'The Filter Press Screw BGII-800 sets new standards in the industry with up to 75m³/h throughput and patented auger geometry.',
     },
     {
-      image: '/images/news-3.jpg',
+      image: '/images/hero-sales-new.png',
       titleDe: 'Expansion des Vertriebsnetzwerks',
       titleEn: 'Expansion of Distribution Network',
       excerptDe: 'Wir freuen uns, Farmtech d.o.o. (Slowenien), IWZ GmbH (Österreich) und Vanderloop Equipment (USA) als Vertriebspartner begrüßen zu dürfen.',
@@ -399,21 +360,8 @@ function NewsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 relative overflow-hidden">
-      <BackgroundBlob
-        variant="green"
-        position="top-0 right-0"
-        size="w-[300px] h-[300px]"
-        opacity="opacity-10"
-      />
-      <BackgroundBlob
-        variant="blue"
-        position="bottom-0 left-0"
-        size="w-[400px] h-[400px]"
-        opacity="opacity-10"
-      />
-
-      <div className="section-inner relative z-10">
+    <section ref={ref} className="section-container py-24 lg:py-32">
+      <div className="section-inner">
         <div className={`flex flex-col md:flex-row md:items-end md:justify-between mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">

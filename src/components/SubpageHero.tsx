@@ -9,6 +9,7 @@ interface SubpageHeroProps {
     image: string;
     ctaText?: string;
     ctaLink?: string;
+    imagePosition?: string;
     cuttingStyle?: 'diagonal-bottom' | 'wave-bottom' | 'none'; // Future-proofing
 }
 
@@ -18,6 +19,7 @@ export function SubpageHero({
     image,
     ctaText,
     ctaLink,
+    imagePosition = 'object-center',
 }: SubpageHeroProps) {
     const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
@@ -28,10 +30,11 @@ export function SubpageHero({
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${imagePosition}`}
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-ecotech-grey/90 via-ecotech-grey/60 to-transparent" />
+                {/* Dark overlay for text readability (matching HomePage style) */}
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent" />
             </div>
 
             {/* Shapes / Cutting Effect */}

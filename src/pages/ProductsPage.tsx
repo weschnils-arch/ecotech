@@ -138,7 +138,7 @@ function BGI400Section() {
   ];
 
   return (
-    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-gradient-to-b from-white to-ecotech-grey-light/20 scroll-mt-24">
+    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-[#f7f7f6] scroll-mt-24">
       <div className="section-inner">
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           <div className={`order-2 lg:order-1 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -235,7 +235,7 @@ export function ProductsPage() {
       <SubpageHero
         title={t('products.title')}
         subtitle="Entdecken Sie unsere innovativen Separationslösungen für maximale Effizienz und Langlebigkeit."
-        image="/images/product-bgii800.jpg"
+        image="/images/hero-products-new.png"
       />
 
       <BGII800Section />

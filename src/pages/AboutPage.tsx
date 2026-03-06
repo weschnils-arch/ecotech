@@ -24,41 +24,32 @@ function VisionSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="section-container py-20 bg-gradient-to-b from-white to-ecotech-grey-light/20">
+    <section ref={ref} className="section-container py-24 lg:py-40 bg-white">
       <div className="section-inner">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card p-8 lg:p-12">
-            <div className="w-14 h-14 rounded-xl bg-ecotech-green/10 flex items-center justify-center mb-6">
-              <span className="text-2xl font-bold text-ecotech-green">V</span>
-            </div>
-            <h3 className="text-sm font-medium text-ecotech-grey/60 uppercase tracking-wider mb-3">
+        <div className={`space-y-32 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* Vision Section */}
+          <div className="max-w-5xl mx-auto text-center">
+            <span className="text-ecotech-green font-bold text-xs uppercase tracking-[0.3em] mb-8 block opacity-80">
               {t('aboutpage.vision.label')}
-            </h3>
-            <p className="text-2xl lg:text-3xl font-bold text-ecotech-grey">
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-ecotech-grey leading-[1.1] tracking-tight">
               {t('aboutpage.vision.text')}
-            </p>
+            </h2>
           </div>
 
-          <div className="glass-card p-8 lg:p-12">
-            <div className="w-14 h-14 rounded-xl bg-ecotech-green/10 flex items-center justify-center mb-6">
-              <span className="text-2xl font-bold text-ecotech-green">S</span>
-            </div>
-            <h3 className="text-sm font-medium text-ecotech-grey/60 uppercase tracking-wider mb-3">
-              {t('aboutpage.slogan.label')}
-            </h3>
-            <p className="text-2xl lg:text-3xl font-bold text-ecotech-green">
-              {t('aboutpage.slogan.text')}
-            </p>
+          {/* Decorative Divider */}
+          <div className="flex justify-center items-center gap-4">
+            <div className="w-12 h-[1px] bg-ecotech-grey/10" />
+            <div className="w-2 h-2 rounded-full bg-ecotech-green/20" />
+            <div className="w-12 h-[1px] bg-ecotech-grey/10" />
           </div>
 
-          <div className="lg:col-span-2 glass-card p-8 lg:p-12">
-            <div className="w-14 h-14 rounded-xl bg-ecotech-green/10 flex items-center justify-center mb-6">
-              <span className="text-2xl font-bold text-ecotech-green">M</span>
-            </div>
-            <h3 className="text-sm font-medium text-ecotech-grey/60 uppercase tracking-wider mb-3">
+          {/* Mission Section */}
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="text-ecotech-green font-bold text-xs uppercase tracking-[0.3em] mb-8 block opacity-80">
               {t('aboutpage.mission.label')}
-            </h3>
-            <p className="text-xl lg:text-2xl text-ecotech-grey leading-relaxed">
+            </span>
+            <p className="text-xl md:text-2xl lg:text-3xl text-ecotech-grey/80 leading-relaxed font-light">
               {t('aboutpage.mission.text')}
             </p>
           </div>
@@ -74,10 +65,10 @@ function TeamSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const team = [
-    { key: 'ceo', image: '/images/team-ceo.jpg' },
-    { key: 'coo', image: '/images/team-coo.jpg' },
-    { key: 'cto', image: '/images/team-cto.jpg' },
-    { key: 'cso', image: '/images/team-cso.jpg' },
+    { key: 'ceo', image: '/images/team-leitner.png' },
+    { key: 'coo', image: '/images/team-pauger.png' },
+    { key: 'cto', image: '/images/team-kampl.png' },
+    { key: 'cso', image: '/images/team-pirker.png' },
   ];
 
   return (
@@ -105,7 +96,7 @@ function TeamSection() {
                   alt={t(`aboutpage.team.${member.key}.name`)}
                   className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ecotech-grey/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-ecotech-grey/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <h3 className="text-xl font-bold text-ecotech-grey mb-1">
                 {t(`aboutpage.team.${member.key}.name`)}
@@ -305,8 +296,8 @@ export function AboutPage() {
   return (
     <main>
       <IntroSection />
-      <VisionSection />
       <TeamSection />
+      <VisionSection />
       <ContactSection />
       <LocationSection />
       <CareersSection />

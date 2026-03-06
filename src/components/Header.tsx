@@ -31,19 +31,28 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-white/85 backdrop-blur-glass shadow-glass'
+        ? 'bg-white border-b border-ecotech-grey-light/50 shadow-sm'
         : 'bg-transparent'
         }`}
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <img
-              src="/images/logo.png"
-              alt="EcoTech Styria"
+              src="/images/logo-signet.png"
+              alt="EcoTech Logo"
               className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
             />
+            <div className="flex flex-col leading-none">
+              <span className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-ecotech-grey' : 'text-white'
+                }`}>
+                ecotech
+              </span>
+              <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 -mt-0.5 ${isScrolled ? 'text-ecotech-green' : 'text-white'
+                }`}>
+                styria
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -84,7 +93,8 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-ecotech-grey hover:text-ecotech-green transition-colors"
+            className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-ecotech-grey' : 'text-white'
+              } hover:text-ecotech-green`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

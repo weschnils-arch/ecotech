@@ -67,9 +67,9 @@ function ApplicationCard({ app, index }: { app: typeof applications[0]; index: n
               alt={t(`applications.${app.key}.title`)}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ecotech-grey/40 to-transparent lg:bg-gradient-to-l" />
+            <div className="absolute inset-0 bg-ecotech-grey/40" />
             <div className="absolute top-6 left-6">
-              <div className="w-14 h-14 rounded-xl bg-ecotech-green/90 backdrop-blur flex items-center justify-center">
+              <div className="w-14 h-14 rounded-xl bg-ecotech-green flex items-center justify-center">
                 <Icon size={28} className="text-white" />
               </div>
             </div>
@@ -109,7 +109,7 @@ export function ApplicationsPage() {
       <SubpageHero
         title={t('applications.title')}
         subtitle="Entdecken Sie die vielfältigen Einsatzbereiche unserer Separationstechnologie – von der Landwirtschaft bis zur Lebensmittelindustrie."
-        image="/images/app-recycling.jpg"
+        image="/images/hero-apps-new.png"
       />
 
       {/* Applications Grid */}

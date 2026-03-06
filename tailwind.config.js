@@ -57,15 +57,7 @@ module.exports = {
           "grey-light": "#D9D9D6",
           white: "#FFFFFF",
           black: "#000000",
-          // Additional CI Colors from Vorlage
-          "blue-dark": "#0E2841", // from pptx dk2
-          "blue-medium": "#156082", // pptx accent1
-          orange: "#E97132",      // from pptx accent2
-          "green-ppt": "#196B24", // pptx accent3
-          cyan: "#0F9ED5",        // pptx accent4
-          purple: "#A02B93",      // pptx accent5
-          "green-light": "#4EA72E", // pptx accent6
-          "grey-lighter": "#E8E8E8", // pptx lt2
+          "grey-lighter": "#E8E8E8",
         },
       },
       fontFamily: {

@@ -31,11 +31,11 @@ export function IntegrationPage() {
       <SubpageHero
         title={t('nav.integration')}
         subtitle="Von der Planung bis zur Inbetriebnahme – wir begleiten Sie bei der Integration unserer Separationstechnologie in Ihre bestehenden Anlagen."
-        image="/images/app-municipal.jpg"
+        image="/images/hero-integration-new.png"
       />
 
       {/* Planning Section */}
-      <section ref={ref} className="section-container py-24 lg:py-32 bg-gradient-to-b from-white to-ecotech-grey-light/20">
+      <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

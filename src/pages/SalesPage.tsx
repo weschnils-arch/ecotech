@@ -50,7 +50,7 @@ function BecomePartnerSection() {
   };
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-gradient-to-b from-white to-ecotech-grey-light/20">
+    <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
       <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
@@ -260,10 +260,11 @@ export function SalesPage() {
       <SubpageHero
         title={t('sales.findPartner.title')}
         subtitle={t('sales.findPartner.desc')}
-        image="/images/sales-hero-bw.webp"
+        image="/images/hero-sales-v2.webp"
+        imagePosition="object-top"
       />
-      <FindPartnerSection />
       <BecomePartnerSection />
+      <FindPartnerSection />
       <SparePartsSection />
       <ServiceSection />
     </main>

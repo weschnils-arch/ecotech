@@ -14,6 +14,8 @@ export function Footer() {
 
   return (
     <footer className="bg-ecotech-grey text-white">
+      {/* Green accent line with fade effect */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
       {/* Main Footer */}
       <div className="section-container py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">

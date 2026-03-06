@@ -26,7 +26,7 @@ export function NewsPage() {
       excerptEn: 'The Filter Press Screw BGII-800 sets new standards in the industry with up to 75m³/h throughput and patented auger geometry.',
     },
     {
-      image: '/images/news-3.jpg',
+      image: '/images/hero-sales-new.png',
       date: '1. Februar 2025',
       titleDe: 'Expansion des Vertriebsnetzwerks',
       titleEn: 'Expansion of Distribution Network',
@@ -50,7 +50,7 @@ export function NewsPage() {
       <SubpageHero
         title={t('newspage.title')}
         subtitle="Bleiben Sie auf dem Laufenden über Neuigkeiten, Erfolgsgeschichten und Entwicklungen bei EcoTech Styria."
-        image="/images/news-hero-bw.webp"
+        image="/images/news-v2.webp"
       />
 
       {/* News Section */}
@@ -94,7 +94,7 @@ export function NewsPage() {
       </section>
 
       {/* Downloads Section */}
-      <section className="section-container py-24 lg:py-32 bg-gradient-to-b from-white to-ecotech-grey-light/20">
+      <section className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
         <div className="section-inner">
           <div className={`max-w-4xl mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
