@@ -90,10 +90,10 @@ function AboutSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32">
+    <section ref={ref} className="section-container pb-24 lg:pb-32 relative z-30 -mt-20 lg:-mt-40">
       <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div>
+          <div className="pt-24 lg:pt-40">
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
               {t('about.title')}
             </span>
@@ -108,24 +108,24 @@ function AboutSection() {
               <ArrowRight size={18} />
             </Link>
           </div>
-          <div className="relative">
-            <div className="glass-card p-8 lg:p-12">
+          <div className="relative lg:-mt-64 z-40">
+            <div className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass-lg rounded-2xl p-8 lg:p-12 hover:bg-white/80 transition-all duration-500">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
-                  <div className="text-sm text-ecotech-grey/60">Jahre Erfahrung</div>
+                  <div className="text-sm text-ecotech-grey/80 font-medium">Jahre Erfahrung</div>
                 </div>
                 <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
-                  <div className="text-sm text-ecotech-grey/60">Teammitglieder</div>
+                  <div className="text-sm text-ecotech-grey/80 font-medium">Teammitglieder</div>
                 </div>
                 <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
-                  <div className="text-sm text-ecotech-grey/60">TS-Gehalt</div>
+                  <div className="text-sm text-ecotech-grey/80 font-medium">TS-Gehalt</div>
                 </div>
                 <div className="text-center p-4">
                   <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
-                  <div className="text-sm text-ecotech-grey/60">Anwendungen</div>
+                  <div className="text-sm text-ecotech-grey/80 font-medium">Anwendungen</div>
                 </div>
               </div>
             </div>
