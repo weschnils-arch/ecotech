@@ -153,7 +153,7 @@ function ApplicationsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
+    <section ref={ref} className="section-container py-24 lg:py-32">
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
@@ -346,7 +346,7 @@ function WhySection() {
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-grey text-white">
+    <section ref={ref} className="section-container py-24 lg:py-32 text-ecotech-grey">
 
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -362,7 +362,7 @@ function WhySection() {
           {benefits.map((benefit, index) => (
             <div
               key={benefit}
-              className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`glass-card p-6 transition-all duration-700 hover:bg-black/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="w-10 h-10 rounded-lg bg-ecotech-green/15 flex items-center justify-center mb-4">
