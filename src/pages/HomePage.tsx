@@ -211,7 +211,7 @@ function ApplicationsSection() {
 // Parallax Section
 function ParallaxSection() {
   return (
-    <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative h-[60vh] md:h-[100vh] flex items-center justify-center overflow-hidden bg-white my-8">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <div
@@ -224,33 +224,33 @@ function ParallaxSection() {
 
       {/* Top Angled White Mask */}
       <div
-        className="absolute z-20 bg-white"
+        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-20 bg-white"
+        style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      ></div>
+
+      {/* Top Fading Green Line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
-          top: '-50%',
-          left: '-20%',
-          right: '-20%',
-          height: '70%',
-          transform: 'rotate(-5deg)',
-          transformOrigin: 'bottom center',
+          clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
+          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
         }}
-      >
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
-      </div>
+      ></div>
 
       {/* Bottom Angled White Mask */}
       <div
-        className="absolute z-20 bg-white"
+        className="absolute bottom-0 left-0 right-0 h-[30vh] md:h-[40vh] z-20 bg-white"
+        style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
+      ></div>
+
+      {/* Bottom Fading Green Line */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[30vh] md:h-[40vh] z-30 pointer-events-none"
         style={{
-          bottom: '-50%',
-          left: '-20%',
-          right: '-20%',
-          height: '70%',
-          transform: 'rotate(-5deg)',
-          transformOrigin: 'top center',
+          clipPath: 'polygon(0 calc(100% - 2px), 100% -2px, 100% 2px, 0 calc(100% + 2px))',
+          background: 'linear-gradient(90deg, transparent 0%, #62a731 20%, #62a731 80%, transparent 100%)'
         }}
-      >
-        <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
-      </div>
+      ></div>
     </section>
   );
 }
