@@ -211,24 +211,46 @@ function ApplicationsSection() {
 // Parallax Section
 function ParallaxSection() {
   return (
-    <section
-      className="relative h-[60vh] md:h-[70vh] bg-fixed bg-center bg-cover flex items-center justify-center overflow-hidden"
-      style={{ backgroundImage: 'url("/images/parallaxhome.png")' }}
-    >
-      {/* Overlay to ensure some contrast if needed */}
-      <div className="absolute inset-0 bg-black/10 z-10" />
+    <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-white">
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="w-full h-full bg-fixed bg-center bg-cover"
+          style={{ backgroundImage: 'url("/images/parallaxhome.png")' }}
+        />
+        {/* Overlay to ensure some contrast if needed */}
+        <div className="absolute inset-0 bg-black/10" />
+      </div>
 
-      {/* Top Angled Green Shape */}
+      {/* Top Angled White Mask */}
       <div
-        className="absolute top-0 left-0 right-0 h-[8vh] md:h-[12vh] z-20 bg-ecotech-green"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 0)' }}
-      ></div>
+        className="absolute z-20 bg-white"
+        style={{
+          top: '-50%',
+          left: '-20%',
+          right: '-20%',
+          height: '70%',
+          transform: 'rotate(-5deg)',
+          transformOrigin: 'bottom center',
+        }}
+      >
+        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
+      </div>
 
-      {/* Bottom Angled Green Shape */}
+      {/* Bottom Angled White Mask */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-[8vh] md:h-[12vh] z-20 bg-ecotech-green"
-        style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 100%)' }}
-      ></div>
+        className="absolute z-20 bg-white"
+        style={{
+          bottom: '-50%',
+          left: '-20%',
+          right: '-20%',
+          height: '70%',
+          transform: 'rotate(-5deg)',
+          transformOrigin: 'top center',
+        }}
+      >
+        <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
+      </div>
     </section>
   );
 }
