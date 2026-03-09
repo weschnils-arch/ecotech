@@ -108,6 +108,24 @@ module.exports = {
           from: { opacity: "0", transform: "scale(0.95)" },
           to: { opacity: "1", transform: "scale(1)" },
         },
+        "float-up": {
+          "0%": { transform: "translateY(10px)", opacity: "0" },
+          "20%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { transform: "translateY(-40px)", opacity: "0" },
+        },
+        "drift-down": {
+          "0%": { transform: "translateY(-15px) rotate(-5deg)", opacity: "0" },
+          "20%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { transform: "translateY(30px) rotate(15deg)", opacity: "0" },
+        },
+        "float-random": {
+          "0%": { transform: "translate(0, 0) rotate(0deg)", opacity: "0" },
+          "20%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { transform: "translate(15px, -20px) rotate(45deg)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -118,6 +136,9 @@ module.exports = {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
         "pulse-slow": "pulse-slow 8s ease-in-out infinite",
+        "float-up": "float-up 4s ease-in-out infinite",
+        "drift-down": "drift-down 5s ease-in-out infinite",
+        "float-random": "float-random 6s ease-in-out infinite",
       },
       backdropBlur: {
         xs: '2px',

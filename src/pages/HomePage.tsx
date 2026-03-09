@@ -1,7 +1,8 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ArrowRight, ChevronRight, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronUp, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check } from 'lucide-react';
+import { useState } from 'react';
 
 // Hero Section
 function HeroSection() {
@@ -162,11 +163,11 @@ function ApplicationsSection() {
     { key: 'agriculture', icon: Leaf, image: '/images/app-agriculture.jpg' },
     { key: 'bedding', icon: Droplets, image: '/images/app-bedding.jpg' },
     { key: 'biogas', icon: Factory, image: '/images/app-biogas.jpg' },
-    { key: 'recycling', icon: Recycle, image: '/images/app-recycling.jpg' },
+    { key: 'recycling', icon: Recycle, image: '/images/app-recycling.png', imageScale: 'scale-[1.35] origin-top-left group-hover:scale-[1.45]' },
     { key: 'municipal', icon: Building2, image: '/images/app-municipal.jpg' },
     { key: 'paper', icon: FileText, image: '/images/app-paper.jpg' },
-    { key: 'mdf', icon: Factory, image: '/images/app-mdf.jpg' },
-    { key: 'food', icon: Utensils, image: '/images/app-food.jpg' },
+    { key: 'mdf', icon: Factory, image: '/images/app-mdf.png' },
+    { key: 'food', icon: Utensils, image: '/images/app-food.png' },
   ];
 
   return (
@@ -195,7 +196,7 @@ function ApplicationsSection() {
                   <img
                     src={app.image}
                     alt={t(`applications.${app.key}.title`)}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-ecotech-grey/50" />
                   <div className="absolute bottom-4 left-4">
@@ -277,8 +278,8 @@ function ProductsSection() {
 
   const products = [
     {
-      key: 'bgii800',
-      image: '/images/product-bgii800.jpg',
+      key: 'bg2',
+      image: '/images/product-bg2.jpg',
       features: ['feature1', 'feature2', 'feature3'],
     },
     {
@@ -396,17 +397,18 @@ function WhySection() {
 function NewsSection() {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const news = [
     {
-      image: '/images/news-1.jpg',
+      image: '/images/hero-home-new.png',
       titleDe: 'EcoTech Styria gegründet',
       titleEn: 'EcoTech Styria Founded',
       excerptDe: 'Mit mehr als 15 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
       excerptEn: 'With over 15 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
     },
     {
-      image: '/images/hero-sales-new.png',
+      image: '/images/product-bg2.jpg',
       titleDe: 'BGII-800: Unser Flaggschiff vorgestellt',
       titleEn: 'BGII-800: Our Flagship Unveiled',
       excerptDe: 'Die Filterschneckenpresse BGII-800 setzt neue Maßstäbe in der Industrie mit bis zu 75m³/h Durchsatz und patentierter Schneckengeometrie.',
@@ -443,33 +445,43 @@ function NewsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {news.map((item, index) => (
-            <article
-              key={index}
-              className={`group glass-card overflow-hidden card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={language === 'de' ? item.titleDe : item.titleEn}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
-                  {language === 'de' ? item.titleDe : item.titleEn}
-                </h3>
-                <p className="text-ecotech-grey/60 mb-4 line-clamp-2">
-                  {language === 'de' ? item.excerptDe : item.excerptEn}
-                </p>
-                <span className="inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
-                  {t('news.readMore')}
-                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </article>
-          ))}
+          {news.map((item, index) => {
+            const isExpanded = expandedId === index;
+            return (
+              <article
+                key={index}
+                className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className="relative h-52 overflow-hidden shrink-0">
+                  <img
+                    src={item.image}
+                    alt={language === 'de' ? item.titleDe : item.titleEn}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
+                    {language === 'de' ? item.titleDe : item.titleEn}
+                  </h3>
+                  <p className={`text-ecotech-grey/60 mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-2'}`}>
+                    {language === 'de' ? item.excerptDe : item.excerptEn}
+                  </p>
+                  <button
+                    onClick={() => setExpandedId(isExpanded ? null : index)}
+                    className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium cursor-pointer max-w-fit outline-none"
+                  >
+                    {isExpanded
+                      ? (language === 'de' ? 'Weniger anzeigen' : 'Show less')
+                      : t('news.readMore')}
+                    {isExpanded
+                      ? <ChevronUp size={16} />
+                      : <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />}
+                  </button>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

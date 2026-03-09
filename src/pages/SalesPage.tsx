@@ -1,7 +1,7 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { SubpageHero } from '@/components/SubpageHero';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Phone, Mail, Settings, Wrench, Package, Send } from 'lucide-react';
+import { Phone, Mail, Settings, Wrench, Package, Send, MessageSquare, Lightbulb } from 'lucide-react';
 import { useState } from 'react';
 
 // Find Partner Section
@@ -50,7 +50,7 @@ function BecomePartnerSection() {
   };
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-[#f7f7f6]">
+    <section ref={ref} className="section-container py-24 lg:py-32 bg-white">
       <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
@@ -200,10 +200,10 @@ function ServiceSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const services = [
-    { title: 'Wartung', desc: 'Regelmäßige Inspektion und Wartung Ihrer Anlagen' },
-    { title: 'Reparatur', desc: 'Schnelle und zuverlässige Reparaturleistungen' },
-    { title: 'Technische Beratung', desc: 'Expertenwissen für Ihre Separationprozesse' },
-    { title: 'Inbetriebnahme', desc: 'Professionelle Installation und Einweisung' },
+    { title: 'Wartung', desc: 'Regelmäßige Inspektion und Wartung Ihrer Anlagen', icon: Settings },
+    { title: 'Reparatur', desc: 'Schnelle und zuverlässige Reparaturleistungen', icon: Wrench },
+    { title: 'Technische Beratung', desc: 'Expertenwissen für Ihre Separationprozesse', icon: MessageSquare },
+    { title: 'Inbetriebnahme', desc: 'Professionelle Installation und Einweisung', icon: Lightbulb },
   ];
 
   return (
@@ -222,19 +222,22 @@ function ServiceSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-ecotech-green/20 flex items-center justify-center mb-4">
-                <Wrench size={24} className="text-ecotech-green" />
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.title}
+                className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-ecotech-green/20 flex items-center justify-center mb-4">
+                  <Icon size={24} className="text-ecotech-green" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">{service.title}</h3>
+                <p className="text-white/60 text-sm">{service.desc}</p>
               </div>
-              <h3 className="text-lg font-bold mb-2">{service.title}</h3>
-              <p className="text-white/60 text-sm">{service.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={`mt-12 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>

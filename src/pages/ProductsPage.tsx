@@ -4,29 +4,22 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Check, ArrowRight, Settings, Gauge } from 'lucide-react';
 
-// BGII-800 Product Section
-function BGII800Section() {
+// BG2 Product Section
+function BG2Section() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  const features = [
-    'Edelstahlkonstruktion',
-    'Engster Spalt zwischen Sieb und Schnecke',
-    'Bis zu 0,5bar Zulaufdruck',
-    'Bis zu 75% TS-Gehalt im Feststoff',
-    'Direkte Separation von Waschwasser ohne Voreindickung, bis zu 75m³/h',
-    'Geschlossenes System mit automatischer Wascheinrichtung',
-    'Vollautomatische Kontrolle und Überwachung',
-    'Selbst entwickelte Software mit offener Schnittstelle',
-    'Verminderter Verschleiß durch patentierte Schneckengeometrie',
-  ];
+  const features = t('productpage.bg2.features.items').split('|');
+  const indApps = t('productpage.bg2.applications.ind.items').split('|');
+  const agrApps = t('productpage.bg2.applications.agr.items').split('|');
+  const benefits = t('productpage.bg2.benefits.items').split('|');
 
   const technicalData = [
-    { label: 'Antrieb', value: '5,5 - 11,0 kW' },
-    { label: 'Durchsatz', value: 'bis zu 75m³/h' },
-    { label: 'Spaltweite', value: '100 - 1000µm' },
-    { label: 'TS-Gehalt organische Fasern', value: 'bis zu 42%' },
-    { label: 'TS-Gehalt anorganische Fasern', value: 'bis zu 75%' },
+    { label: t('productpage.bg2.tech.drive'), value: t('productpage.bg2.tech.drive.val') },
+    { label: t('productpage.bg2.tech.throughput'), value: t('productpage.bg2.tech.throughput.val') },
+    { label: t('productpage.bg2.tech.gap'), value: t('productpage.bg2.tech.gap.val') },
+    { label: t('productpage.bg2.tech.dry_org'), value: t('productpage.bg2.tech.dry_org.val') },
+    { label: t('productpage.bg2.tech.dry_inorg'), value: t('productpage.bg2.tech.dry_inorg.val') },
   ];
 
   const options = [
@@ -41,17 +34,17 @@ function BGII800Section() {
   ];
 
   return (
-    <section ref={ref} id="bgii800" className="section-container pt-32 pb-20 scroll-mt-24">
+    <section ref={ref} id="bg2" className="section-container pt-32 pb-20 scroll-mt-24">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             Flaggschiff
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ecotech-grey mb-6">
-            {t('productpage.bgii800.title')}
+            {t('productpage.bg2.title')}
           </h1>
           <p className="text-xl text-ecotech-grey/70 max-w-4xl mb-12">
-            {t('productpage.bgii800.desc')}
+            {t('productpage.bg2.desc')}
           </p>
         </div>
 
@@ -60,7 +53,7 @@ function BGII800Section() {
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             <div className="glass-card overflow-hidden">
               <img
-                src="/images/product-bgii800.jpg"
+                src="/images/product-bg2.jpg"
                 alt="Filterschneckenpresse BGII-800"
                 className="w-full aspect-square object-cover"
               />
@@ -69,7 +62,7 @@ function BGII800Section() {
 
           {/* Features */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
-            <h3 className="text-2xl font-bold text-ecotech-grey mb-6">Merkmale</h3>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.features.title')}</h3>
             <ul className="space-y-3">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -83,10 +76,55 @@ function BGII800Section() {
           </div>
         </div>
 
+        {/* Applications */}
+        <div className={`grid lg:grid-cols-2 gap-12 mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '350ms' }}>
+          {/* Industrial Applications */}
+          <div>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.applications.ind.title')}</h3>
+            <ul className="space-y-3">
+              {indApps.map((app, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey/70">{app}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Agricultural Applications */}
+          <div>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.applications.agr.title')}</h3>
+            <ul className="space-y-3">
+              {agrApps.map((app, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey/70">{app}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Benefits */}
+        <div className={`glass-card p-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '375ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.benefits.title')}</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="flex items-start gap-3 p-4 bg-ecotech-grey-light/30 rounded-lg">
+                <Check size={18} className="text-ecotech-green flex-shrink-0 mt-0.5" />
+                <span className="text-ecotech-grey/70 font-medium">{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Technical Data */}
         <div className={`glass-card p-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
-          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">Technische Daten</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.tech.title')}</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                 <p className="text-sm text-ecotech-grey/60 mb-1">{item.label}</p>
@@ -94,6 +132,7 @@ function BGII800Section() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-ecotech-grey/60 italic">{t('productpage.bg2.tech.disclaimer')}</p>
         </div>
 
         {/* Options */}
@@ -138,7 +177,7 @@ function BGI400Section() {
   ];
 
   return (
-    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-[#f7f7f6] scroll-mt-24">
+    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
       <div className="section-inner">
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           <div className={`order-2 lg:order-1 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -173,7 +212,7 @@ function BGI400Section() {
           <div className={`order-1 lg:order-2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             <div className="glass-card overflow-hidden">
               <img
-                src="/images/product-bgi400.jpg"
+                src="/images/product-bgi400-v2.jpg"
                 alt="Filterschneckenpresse BGI-400"
                 className="w-full aspect-square object-cover"
               />
@@ -238,7 +277,7 @@ export function ProductsPage() {
         image="/images/hero-products-new.png"
       />
 
-      <BGII800Section />
+      <BG2Section />
       <BGI400Section />
       <CTASection />
     </main>

@@ -18,6 +18,7 @@ export function Header() {
   }, []);
 
   const navItems = [
+    { path: '/' as const, label: t('nav.home') },
     { path: '/about' as const, label: t('nav.about') },
     { path: '/sales' as const, label: t('nav.sales') },
     { path: '/applications' as const, label: t('nav.applications') },

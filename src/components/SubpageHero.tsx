@@ -19,22 +19,24 @@ export function SubpageHero({
     image,
     ctaText,
     ctaLink,
-    imagePosition = 'object-center',
 }: SubpageHeroProps) {
     const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
     return (
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden mb-12 border-none ring-0 outline-none">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src={image}
-                    alt={title}
-                    className={`w-full h-full object-cover ${imagePosition}`}
-                />
-                {/* Dark overlay for text readability (matching HomePage style) */}
-                <div className="absolute inset-0 bg-black/20" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent" />
+            {/* Background Image Container */}
+            <div className="absolute inset-0 z-0 bg-[#282F2D]">
+                <div className="absolute inset-0 w-full h-full">
+                    <img
+                        src={image}
+                        alt={title}
+                        className={`w-full h-full object-cover object-right`}
+                    />
+                    {/* Dark overlay for text readability and fading hard edges into the solid color */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#282F2D] via-[#282F2D]/80 to-transparent/10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#282F2D] via-transparent to-transparent hidden md:block w-3/4" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
+                </div>
             </div>
 
             {/* Shapes / Cutting Effect */}

@@ -1,16 +1,18 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { SubpageHero } from '@/components/SubpageHero';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ArrowRight, Download, Calendar, FileText, Image, BookOpen } from 'lucide-react';
+import { ArrowRight, Download, Calendar, FileText, Image, BookOpen, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 export function NewsPage() {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
 
   const news = [
     {
-      image: '/images/news-1.jpg',
+      image: '/images/hero-home-new.png',
       date: '15. Januar 2025',
       titleDe: 'EcoTech Styria GmbH gegründet',
       titleEn: 'EcoTech Styria GmbH Founded',
@@ -18,7 +20,7 @@ export function NewsPage() {
       excerptEn: 'With over 15 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
     },
     {
-      image: '/images/news-2.jpg',
+      image: '/images/product-bg2.jpg',
       date: '20. Januar 2025',
       titleDe: 'BGII-800: Unser Flaggschiff vorgestellt',
       titleEn: 'BGII-800: Our Flagship Unveiled',
@@ -59,37 +61,47 @@ export function NewsPage() {
         <div className="section-inner">
           <h2 className="text-2xl font-bold text-ecotech-grey mb-8">News & Erfolgsgeschichten</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {news.map((item, index) => (
-              <article
-                key={index}
-                className={`group glass-card overflow-hidden card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={language === 'de' ? item.titleDe : item.titleEn}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-ecotech-grey/50 mb-3">
-                    <Calendar size={14} />
-                    {item.date}
+            {news.map((item, index) => {
+              const isExpanded = expandedId === index;
+              return (
+                <article
+                  key={index}
+                  className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className="relative h-52 overflow-hidden shrink-0">
+                    <img
+                      src={item.image}
+                      alt={language === 'de' ? item.titleDe : item.titleEn}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
-                    {language === 'de' ? item.titleDe : item.titleEn}
-                  </h3>
-                  <p className="text-ecotech-grey/60 mb-4 line-clamp-3">
-                    {language === 'de' ? item.excerptDe : item.excerptEn}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
-                    Weiterlesen
-                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </article>
-            ))}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 text-sm text-ecotech-grey/50 mb-3">
+                      <Calendar size={14} />
+                      {item.date}
+                    </div>
+                    <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
+                      {language === 'de' ? item.titleDe : item.titleEn}
+                    </h3>
+                    <p className={`text-ecotech-grey/60 mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-3'}`}>
+                      {language === 'de' ? item.excerptDe : item.excerptEn}
+                    </p>
+                    <button
+                      onClick={() => setExpandedId(isExpanded ? null : index)}
+                      className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium cursor-pointer max-w-fit outline-none"
+                    >
+                      {isExpanded
+                        ? (language === 'de' ? 'Weniger anzeigen' : 'Show less')
+                        : (language === 'de' ? 'Weiterlesen' : 'Read more')}
+                      {isExpanded
+                        ? <ChevronUp size={16} />
+                        : <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
