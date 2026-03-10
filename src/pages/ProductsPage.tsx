@@ -43,7 +43,7 @@ function BG2Section() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ecotech-grey mb-6">
             {t('productpage.bg2.title')}
           </h1>
-          <p className="text-xl text-ecotech-grey/70 max-w-4xl mb-12">
+          <p className="text-xl text-ecotech-grey max-w-4xl mb-12">
             {t('productpage.bg2.desc')}
           </p>
         </div>
@@ -69,7 +69,7 @@ function BG2Section() {
                   <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check size={12} className="text-ecotech-green" />
                   </div>
-                  <span className="text-ecotech-grey/70">{feature}</span>
+                  <span className="text-ecotech-grey">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -87,7 +87,7 @@ function BG2Section() {
                   <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check size={12} className="text-ecotech-green" />
                   </div>
-                  <span className="text-ecotech-grey/70">{app}</span>
+                  <span className="text-ecotech-grey">{app}</span>
                 </li>
               ))}
             </ul>
@@ -101,7 +101,7 @@ function BG2Section() {
                   <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check size={12} className="text-ecotech-green" />
                   </div>
-                  <span className="text-ecotech-grey/70">{app}</span>
+                  <span className="text-ecotech-grey">{app}</span>
                 </li>
               ))}
             </ul>
@@ -115,7 +115,7 @@ function BG2Section() {
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-3 p-4 bg-ecotech-grey-light/30 rounded-lg">
                 <Check size={18} className="text-ecotech-green flex-shrink-0 mt-0.5" />
-                <span className="text-ecotech-grey/70 font-medium">{benefit}</span>
+                <span className="text-ecotech-grey font-medium">{benefit}</span>
               </div>
             ))}
           </div>
@@ -127,12 +127,12 @@ function BG2Section() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
-                <p className="text-sm text-ecotech-grey/60 mb-1">{item.label}</p>
+                <p className="text-sm text-ecotech-grey mb-1">{item.label}</p>
                 <p className="font-bold text-ecotech-grey">{item.value}</p>
               </div>
             ))}
           </div>
-          <p className="text-sm text-ecotech-grey/60 italic">{t('productpage.bg2.tech.disclaimer')}</p>
+          <p className="text-sm text-ecotech-grey italic">{t('productpage.bg2.tech.disclaimer')}</p>
         </div>
 
         {/* Options */}
@@ -142,7 +142,7 @@ function BG2Section() {
             {options.map((option, index) => (
               <div key={index} className="flex items-start gap-3 p-4 glass-card">
                 <Settings size={18} className="text-ecotech-green flex-shrink-0 mt-0.5" />
-                <span className="text-ecotech-grey/70">{option}</span>
+                <span className="text-ecotech-grey">{option}</span>
               </div>
             ))}
           </div>
@@ -187,7 +187,7 @@ function BGI400Section() {
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
               {t('productpage.bgi400.title')}
             </h2>
-            <p className="text-lg text-ecotech-grey/70 mb-8">
+            <p className="text-lg text-ecotech-grey mb-8">
               {t('productpage.bgi400.desc')}
             </p>
 
@@ -203,7 +203,7 @@ function BGI400Section() {
                   <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check size={12} className="text-ecotech-green" />
                   </div>
-                  <span className="text-ecotech-grey/70">{feature}</span>
+                  <span className="text-ecotech-grey">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -226,7 +226,7 @@ function BGI400Section() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
-                <p className="text-sm text-ecotech-grey/60 mb-1">{item.label}</p>
+                <p className="text-sm text-ecotech-grey mb-1">{item.label}</p>
                 <p className="font-bold text-ecotech-grey">{item.value}</p>
               </div>
             ))}

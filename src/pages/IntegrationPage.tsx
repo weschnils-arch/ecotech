@@ -45,7 +45,7 @@ export function IntegrationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
                 {t('integration.planning.title')}
               </h2>
-              <p className="text-lg text-ecotech-grey/70 mb-8">
+              <p className="text-lg text-ecotech-grey mb-8">
                 {t('integration.planning.desc')}
               </p>
               <ul className="space-y-4">
@@ -54,7 +54,7 @@ export function IntegrationPage() {
                     <div className="w-6 h-6 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check size={14} className="text-ecotech-green" />
                     </div>
-                    <span className="text-ecotech-grey/70">{step}</span>
+                    <span className="text-ecotech-grey">{step}</span>
                   </li>
                 ))}
               </ul>
@@ -64,15 +64,15 @@ export function IntegrationPage() {
               <div className="space-y-4">
                 <div className="p-4 bg-ecotech-green/5 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Maßgeschneiderte Lösungen</h4>
-                  <p className="text-sm text-ecotech-grey/60">Jede Integration wird individuell auf Ihre Anforderungen angepasst.</p>
+                  <p className="text-sm text-ecotech-grey">Jede Integration wird individuell auf Ihre Anforderungen angepasst.</p>
                 </div>
                 <div className="p-4 bg-ecotech-green/5 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Erfahrene Experten</h4>
-                  <p className="text-sm text-ecotech-grey/60">Unser Team verfügt über jahrelange Erfahrung in der Anlagenintegration.</p>
+                  <p className="text-sm text-ecotech-grey">Unser Team verfügt über jahrelange Erfahrung in der Anlagenintegration.</p>
                 </div>
                 <div className="p-4 bg-ecotech-green/5 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Effiziente Planung</h4>
-                  <p className="text-sm text-ecotech-grey/60">Minimale Stillstandszeiten durch professionelles Projektmanagement.</p>
+                  <p className="text-sm text-ecotech-grey">Minimale Stillstandszeiten durch professionelles Projektmanagement.</p>
                 </div>
               </div>
             </div>
@@ -89,15 +89,15 @@ export function IntegrationPage() {
               <div className="space-y-4">
                 <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Weltweiter Service</h4>
-                  <p className="text-sm text-ecotech-grey/60">Installation und Inbetriebnahme weltweit durch unsere Partner.</p>
+                  <p className="text-sm text-ecotech-grey">Installation und Inbetriebnahme weltweit durch unsere Partner.</p>
                 </div>
                 <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Qualitätssicherung</h4>
-                  <p className="text-sm text-ecotech-grey/60">Umfassende Tests und Qualitätskontrollen vor der Übergabe.</p>
+                  <p className="text-sm text-ecotech-grey">Umfassende Tests und Qualitätskontrollen vor der Übergabe.</p>
                 </div>
                 <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                   <h4 className="font-bold text-ecotech-grey mb-1">Langfristige Betreuung</h4>
-                  <p className="text-sm text-ecotech-grey/60">Kontinuierlicher Support auch nach der Inbetriebnahme.</p>
+                  <p className="text-sm text-ecotech-grey">Kontinuierlicher Support auch nach der Inbetriebnahme.</p>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ export function IntegrationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
                 {t('integration.installation.title')}
               </h2>
-              <p className="text-lg text-ecotech-grey/70 mb-8">
+              <p className="text-lg text-ecotech-grey mb-8">
                 {t('integration.installation.desc')}
               </p>
               <ul className="space-y-4">
@@ -117,7 +117,7 @@ export function IntegrationPage() {
                     <div className="w-6 h-6 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check size={14} className="text-ecotech-green" />
                     </div>
-                    <span className="text-ecotech-grey/70">{step}</span>
+                    <span className="text-ecotech-grey">{step}</span>
                   </li>
                 ))}
               </ul>

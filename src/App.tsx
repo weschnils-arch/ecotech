@@ -9,6 +9,7 @@ import { ApplicationsPage } from '@/pages/ApplicationsPage';
 import { ProductsPage } from '@/pages/ProductsPage';
 import { IntegrationPage } from '@/pages/IntegrationPage';
 import { NewsPage } from '@/pages/NewsPage';
+import { AgriculturePage } from '@/pages/AgriculturePage';
 import { TermsPage, PrivacyPage, ImprintPage, DealersPage } from '@/pages/LegalPages';
 
 function RouterContent() {
@@ -24,6 +25,8 @@ function RouterContent() {
         return <SalesPage />;
       case '/applications':
         return <ApplicationsPage />;
+      case '/applications/agriculture':
+        return <AgriculturePage />;
       case '/products':
         return <ProductsPage />;
       case '/integration':

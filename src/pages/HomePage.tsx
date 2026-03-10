@@ -116,7 +116,7 @@ function AboutSection() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-8">
                 {t('hero.headline')}
               </h2>
-              <p className="text-lg text-ecotech-grey/70 leading-relaxed mb-8">
+              <p className="text-lg text-ecotech-grey leading-relaxed mb-8">
                 {t('about.description')}
               </p>
               <Link to="/about" className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300">
@@ -130,19 +130,19 @@ function AboutSection() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-4">
                     <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
-                    <div className="text-sm text-ecotech-grey/80 font-medium">Jahre Erfahrung</div>
+                    <div className="text-sm text-ecotech-grey font-medium">Jahre Erfahrung</div>
                   </div>
                   <div className="text-center p-4">
                     <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
-                    <div className="text-sm text-ecotech-grey/80 font-medium">Teammitglieder</div>
+                    <div className="text-sm text-ecotech-grey font-medium">Teammitglieder</div>
                   </div>
                   <div className="text-center p-4">
                     <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
-                    <div className="text-sm text-ecotech-grey/80 font-medium">TS-Gehalt</div>
+                    <div className="text-sm text-ecotech-grey font-medium">TS-Gehalt</div>
                   </div>
                   <div className="text-center p-4">
                     <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
-                    <div className="text-sm text-ecotech-grey/80 font-medium">Anwendungen</div>
+                    <div className="text-sm text-ecotech-grey font-medium">Anwendungen</div>
                   </div>
                 </div>
               </div>
@@ -188,11 +188,11 @@ function ApplicationsSection() {
             return (
               <Link
                 key={app.key}
-                to="/applications"
-                className={`group glass-card overflow-hidden card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                to={app.key === 'agriculture' ? '/applications/agriculture' : '/applications'}
+                className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden shrink-0">
                   <img
                     src={app.image}
                     alt={t(`applications.${app.key}.title`)}
@@ -205,14 +205,14 @@ function ApplicationsSection() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-lg font-bold text-ecotech-grey mb-2 group-hover:text-ecotech-green transition-colors">
                     {t(`applications.${app.key}.title`)}
                   </h3>
-                  <p className="text-sm text-ecotech-grey/60 mb-4 line-clamp-2">
+                  <p className="text-sm text-ecotech-grey mb-4 line-clamp-2">
                     {t(`applications.${app.key}.desc`)}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
+                  <span className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
                     {t('applications.learnMore')}
                     <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
                   </span>
@@ -322,7 +322,7 @@ function ProductsSection() {
                   </h3>
                   <ul className="space-y-3 mb-6">
                     {product.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3 text-ecotech-grey/70">
+                      <li key={feature} className="flex items-center gap-3 text-ecotech-grey">
                         <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0">
                           <Check size={12} className="text-ecotech-green" />
                         </div>
@@ -382,7 +382,7 @@ function WhySection() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="w-10 h-10 rounded-lg bg-ecotech-green/15 flex items-center justify-center mb-4">
-                <Check size={20} className="text-ecotech-green" />
+                <img src="/images/logo-signet.png" alt="EcoTech Icon" className="w-5 h-auto opacity-80" />
               </div>
               <p className="text-lg font-medium">{t(benefit)}</p>
             </div>
@@ -464,7 +464,7 @@ function NewsSection() {
                   <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
                     {language === 'de' ? item.titleDe : item.titleEn}
                   </h3>
-                  <p className={`text-ecotech-grey/60 mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-2'}`}>
+                  <p className={`text-ecotech-grey mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-2'}`}>
                     {language === 'de' ? item.excerptDe : item.excerptEn}
                   </p>
                   <button

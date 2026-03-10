@@ -49,7 +49,7 @@ function VisionSection() {
             <span className="text-ecotech-green font-bold text-xs uppercase tracking-[0.3em] mb-8 block opacity-80">
               {t('aboutpage.mission.label')}
             </span>
-            <p className="text-xl md:text-2xl lg:text-3xl text-ecotech-grey/80 leading-relaxed font-light">
+            <p className="text-xl md:text-2xl lg:text-3xl text-ecotech-grey leading-relaxed font-light">
               {t('aboutpage.mission.text')}
             </p>
           </div>
@@ -104,7 +104,7 @@ function TeamSection() {
               <p className="text-ecotech-green font-medium mb-3">
                 {t(`aboutpage.team.${member.key}.role`)}
               </p>
-              <p className="text-sm text-ecotech-grey/60 leading-relaxed">
+              <p className="text-sm text-ecotech-grey leading-relaxed">
                 {t(`aboutpage.team.${member.key}.bio`)}
               </p>
             </div>
@@ -147,7 +147,7 @@ function PartnerSection() {
               </h3>
               <ul className="space-y-4 flex flex-col w-fit mx-auto text-left">
                 {[1, 2, 3, 4].map(idx => (
-                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey/90 italic font-medium">
+                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey italic font-medium">
                     <Check className="text-ecotech-green shrink-0" size={20} strokeWidth={3} />
                     <span>{t(`aboutpage.partner.ecotech.bullet${idx}`)}</span>
                   </li>
@@ -176,7 +176,7 @@ function PartnerSection() {
               </h3>
               <ul className="space-y-4 flex flex-col w-fit mx-auto text-left">
                 {[1, 2, 3].map(idx => (
-                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey/90 italic font-medium">
+                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey italic font-medium">
                     <Check className="text-ecotech-green shrink-0" size={20} strokeWidth={3} />
                     <span>{t(`aboutpage.partner.pauger.bullet${idx}`)}</span>
                   </li>
@@ -222,26 +222,26 @@ function ContactSection() {
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <MapPin size={20} className="mt-1 flex-shrink-0 text-ecotech-green" />
-                    <div className="text-ecotech-grey/70">
+                    <div className="text-ecotech-grey">
                       <p>Judenburgerstraße 176</p>
                       <p>A-8580 Köflach, Österreich</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={20} className="flex-shrink-0 text-ecotech-green" />
-                    <a href="tel:+43314470477" className="text-ecotech-grey/70 hover:text-ecotech-green transition-colors">
+                    <a href="tel:+43314470477" className="text-ecotech-grey hover:text-ecotech-green transition-colors">
                       +43 3144 / 70477
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={20} className="flex-shrink-0 text-ecotech-green" />
-                    <a href="mailto:office@ecotechstyria.com" className="text-ecotech-grey/70 hover:text-ecotech-green transition-colors">
+                    <a href="mailto:office@ecotechstyria.com" className="text-ecotech-grey hover:text-ecotech-green transition-colors">
                       office@ecotechstyria.com
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Globe size={20} className="flex-shrink-0 text-ecotech-green" />
-                    <a href="https://www.ecotechstyria.com" target="_blank" rel="noopener noreferrer" className="text-ecotech-grey/70 hover:text-ecotech-green transition-colors">
+                    <a href="https://www.ecotechstyria.com" target="_blank" rel="noopener noreferrer" className="text-ecotech-grey hover:text-ecotech-green transition-colors">
                       www.ecotechstyria.com
                     </a>
                   </div>

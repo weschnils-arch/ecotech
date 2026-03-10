@@ -8,7 +8,34 @@ export function NewsPage() {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [expandedEventId, setExpandedEventId] = useState<number | null>(null);
 
+  const events = [
+    {
+      image: '/images/event-agritechnica.png',
+      date: '12. - 18. November 2025',
+      titleDe: 'Messeauftritt auf der Agritechnica',
+      titleEn: 'Exhibition at Agritechnica',
+      excerptDe: 'Besuchen Sie uns auf der Weltleitmesse für Landtechnik in Hannover. Wir präsentieren unsere neuesten Innovationen in der Separationstechnologie.',
+      excerptEn: 'Visit us at the world\'s leading trade fair for agricultural machinery in Hanover. We will present our latest innovations in separation technology.',
+    },
+    {
+      image: '/images/event-ifat.png',
+      date: '10. - 14. Mai 2026',
+      titleDe: 'EcoTech auf der IFAT München',
+      titleEn: 'EcoTech at IFAT Munich',
+      excerptDe: 'Die Weltleitmesse für Umwelttechnologien ist der perfekte Ort, um unsere leistungsstarken Filterschneckenpressen für die kommunale und industrielle Abwasserreinigung vorzustellen.',
+      excerptEn: 'The world\'s leading trade fair for environmental technologies is the perfect place to present our high-performance filter screw presses for municipal and industrial wastewater treatment.',
+    },
+    {
+      image: '/images/event-eurotier.png',
+      date: '13. - 16. November 2026',
+      titleDe: 'EuroTier 2026 Hannover',
+      titleEn: 'EuroTier 2026 Hanover',
+      excerptDe: 'Innovationen für die Tierhaltung und effiziente Gülle-Separation. Erfahren Sie mehr über unsere maßgeschneiderten Lösungen für die Landwirtschaft.',
+      excerptEn: 'Innovations for animal husbandry and efficient manure separation. Learn more about our tailor-made solutions for agriculture.',
+    },
+  ];
 
   const news = [
     {
@@ -77,14 +104,14 @@ export function NewsPage() {
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center gap-2 text-sm text-ecotech-grey/50 mb-3">
+                    <div className="flex items-center gap-2 text-sm text-ecotech-grey mb-3">
                       <Calendar size={14} />
                       {item.date}
                     </div>
                     <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
                       {language === 'de' ? item.titleDe : item.titleEn}
                     </h3>
-                    <p className={`text-ecotech-grey/60 mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-3'}`}>
+                    <p className={`text-ecotech-grey mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-3'}`}>
                       {language === 'de' ? item.excerptDe : item.excerptEn}
                     </p>
                     <button
@@ -94,6 +121,56 @@ export function NewsPage() {
                       {isExpanded
                         ? (language === 'de' ? 'Weniger anzeigen' : 'Show less')
                         : (language === 'de' ? 'Weiterlesen' : 'Read more')}
+                      {isExpanded
+                        ? <ChevronUp size={16} />
+                        : <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section className="section-container pb-24">
+        <div className="section-inner">
+          <h2 className="text-2xl font-bold text-ecotech-grey mb-8">Messe & Events</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events.map((item, index) => {
+              const isExpanded = expandedEventId === index;
+              return (
+                <article
+                  key={index}
+                  className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className="relative h-52 overflow-hidden shrink-0">
+                    <img
+                      src={item.image}
+                      alt={language === 'de' ? item.titleDe : item.titleEn}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 text-sm text-ecotech-grey mb-3">
+                      <Calendar size={14} />
+                      {item.date}
+                    </div>
+                    <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
+                      {language === 'de' ? item.titleDe : item.titleEn}
+                    </h3>
+                    <p className={`text-ecotech-grey mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-3'}`}>
+                      {language === 'de' ? item.excerptDe : item.excerptEn}
+                    </p>
+                    <button
+                      onClick={() => setExpandedEventId(isExpanded ? null : index)}
+                      className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium cursor-pointer max-w-fit outline-none"
+                    >
+                      {isExpanded
+                        ? (language === 'de' ? 'Weniger anzeigen' : 'Show less')
+                        : (language === 'de' ? 'Mehr erfahren' : 'Read more')}
                       {isExpanded
                         ? <ChevronUp size={16} />
                         : <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />}
@@ -116,7 +193,7 @@ export function NewsPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
               {t('newspage.downloads.title')}
             </h2>
-            <p className="text-lg text-ecotech-grey/70">
+            <p className="text-lg text-ecotech-grey">
               {t('newspage.downloads.text')}
             </p>
           </div>
@@ -136,9 +213,9 @@ export function NewsPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-ecotech-grey truncate">{download.name}</p>
-                    <p className="text-sm text-ecotech-grey/50">{download.type} • {download.size}</p>
+                    <p className="text-sm text-ecotech-grey">{download.type} • {download.size}</p>
                   </div>
-                  <Download size={20} className="text-ecotech-grey/30 flex-shrink-0" />
+                  <Download size={20} className="text-ecotech-grey flex-shrink-0" />
                 </div>
               );
             })}

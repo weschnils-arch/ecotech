@@ -1,16 +1,17 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 
-type Route = 
-  | '/' 
-  | '/about' 
-  | '/sales' 
-  | '/applications' 
-  | '/products' 
-  | '/integration' 
-  | '/news' 
-  | '/terms' 
-  | '/privacy' 
-  | '/imprint' 
+type Route =
+  | '/'
+  | '/about'
+  | '/sales'
+  | '/applications'
+  | '/applications/agriculture'
+  | '/products'
+  | '/integration'
+  | '/news'
+  | '/terms'
+  | '/privacy'
+  | '/imprint'
   | '/dealers';
 
 interface RouterContextType {
@@ -57,7 +58,7 @@ interface LinkProps {
 
 export function Link({ to, children, className = '', style, onClick }: LinkProps) {
   const { navigate, path } = useRouter();
-  
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     navigate(to);
@@ -68,8 +69,8 @@ export function Link({ to, children, className = '', style, onClick }: LinkProps
   const activeClass = isActive ? 'nav-active' : '';
 
   return (
-    <a 
-      href={`#${to}`} 
+    <a
+      href={`#${to}`}
       onClick={handleClick}
       className={`${className} ${activeClass}`}
       style={style}

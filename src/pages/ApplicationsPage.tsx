@@ -157,14 +157,14 @@ function ApplicationCard({ app, index }: { app: typeof applications[0]; index: n
           <h2 className="text-2xl lg:text-3xl font-bold text-ecotech-grey mb-4">
             {t(`applications.${app.key}.title`)}
           </h2>
-          <p className="text-lg text-ecotech-grey/70 mb-6 leading-relaxed">
+          <p className="text-lg text-ecotech-grey mb-6 leading-relaxed">
             {t(`applications.${app.key}.desc`)}
           </p>
           <Link
-            to="/products"
+            to={app.key === 'agriculture' ? '/applications/agriculture' : '/products'}
             className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300 self-start"
           >
-            Passendes Produkt finden
+            {app.key === 'agriculture' ? 'Mehr erfahren' : 'Passendes Produkt finden'}
             <ArrowRight size={18} />
           </Link>
         </div>

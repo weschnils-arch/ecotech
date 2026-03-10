@@ -19,6 +19,7 @@ export function SubpageHero({
     image,
     ctaText,
     ctaLink,
+    imagePosition,
 }: SubpageHeroProps) {
     const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
@@ -30,7 +31,7 @@ export function SubpageHero({
                     <img
                         src={image}
                         alt={title}
-                        className={`w-full h-full object-cover object-right`}
+                        className={`w-full h-full object-cover ${imagePosition || 'object-right'}`}
                     />
                     {/* Dark overlay for text readability and fading hard edges into the solid color */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#282F2D] via-[#282F2D]/80 to-transparent/10" />

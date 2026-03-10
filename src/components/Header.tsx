@@ -20,8 +20,8 @@ export function Header() {
   const navItems = [
     { path: '/' as const, label: t('nav.home') },
     { path: '/about' as const, label: t('nav.about') },
-    { path: '/sales' as const, label: t('nav.sales') },
     { path: '/applications' as const, label: t('nav.applications') },
+    { path: '/sales' as const, label: t('nav.sales') },
     { path: '/products' as const, label: t('nav.products') },
     { path: '/integration' as const, label: t('nav.integration') },
     { path: '/news' as const, label: t('nav.news') },
@@ -127,7 +127,7 @@ export function Header() {
 
           {/* Mobile Language Switcher */}
           <div className="flex items-center gap-2 px-4 pt-4 border-t border-ecotech-grey-light/50 mt-2">
-            <span className="text-sm text-ecotech-grey/60">Language:</span>
+            <span className="text-sm text-ecotech-grey">Language:</span>
             <button
               onClick={() => setLanguage('de')}
               className={`lang-switch ${language === 'de' ? 'active' : ''}`}

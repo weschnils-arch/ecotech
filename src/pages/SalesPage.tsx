@@ -60,7 +60,7 @@ function BecomePartnerSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
               {t('sales.becomePartner.title')}
             </h2>
-            <p className="text-lg text-ecotech-grey/70 mb-8">
+            <p className="text-lg text-ecotech-grey mb-8">
               Werden Sie Teil unseres globalen Vertriebsnetzwerks und profitieren Sie von unserer Expertise in der Separationstechnologie.
             </p>
             <div className="space-y-4">
@@ -70,7 +70,7 @@ function BecomePartnerSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-ecotech-grey">Technische Schulung</h4>
-                  <p className="text-sm text-ecotech-grey/60">Umfassende Produkt- und Anwendungsschulungen</p>
+                  <p className="text-sm text-ecotech-grey">Umfassende Produkt- und Anwendungsschulungen</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -79,7 +79,7 @@ function BecomePartnerSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-ecotech-grey">Marketing Support</h4>
-                  <p className="text-sm text-ecotech-grey/60">Werbematerialien und Vertriebsunterstützung</p>
+                  <p className="text-sm text-ecotech-grey">Werbematerialien und Vertriebsunterstützung</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ function BecomePartnerSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-ecotech-grey">Service-Backup</h4>
-                  <p className="text-sm text-ecotech-grey/60">Technischer Support und Ersatzteilverfügbarkeit</p>
+                  <p className="text-sm text-ecotech-grey">Technischer Support und Ersatzteilverfügbarkeit</p>
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@ function SparePartsSection() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-ecotech-grey mb-3">
                   {t('sales.spareparts.title')}
                 </h2>
-                <p className="text-lg text-ecotech-grey/70 max-w-2xl">
+                <p className="text-lg text-ecotech-grey max-w-2xl">
                   {t('sales.spareparts.desc')}
                 </p>
               </div>

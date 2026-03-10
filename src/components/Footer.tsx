@@ -1,6 +1,6 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
-import { Phone, Mail, Globe, MapPin } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin, Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -18,7 +18,7 @@ export function Footer() {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-ecotech-green to-transparent opacity-80" />
       {/* Main Footer */}
       <div className="section-container py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
@@ -56,6 +56,37 @@ export function Footer() {
                 </a>
               </div>
             </div>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Social Media</h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
+                  <Youtube size={20} />
+                  <span>YouTube</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
+                  <Instagram size={20} />
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
+                  <Facebook size={20} />
+                  <span>Facebook</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Quick Links */}
@@ -114,10 +145,13 @@ export function Footer() {
         <div className="section-container py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
             <p>&copy; {new Date().getFullYear()} EcoTech Styria GmbH. All rights reserved.</p>
-            <p className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-ecotech-green animate-pulse"></span>
-              Next Level Separation
-            </p>
+            <div className="flex items-center gap-2">
+              <img
+                src="/images/logo.png"
+                alt="EcoTech Styria"
+                className="h-6 w-auto brightness-0 invert opacity-60"
+              />
+            </div>
           </div>
         </div>
       </div>
