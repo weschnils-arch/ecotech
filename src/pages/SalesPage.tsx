@@ -85,7 +85,7 @@ function BecomePartnerSection() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">Unternehmen</label>
+                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('sales.form.company')}</label>
                 <input
                   type="text"
                   value={formData.company}
@@ -105,7 +105,7 @@ function BecomePartnerSection() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">Telefon</label>
+                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('sales.form.phone')}</label>
                 <input
                   type="tel"
                   value={formData.phone}
@@ -120,7 +120,7 @@ function BecomePartnerSection() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all resize-none"
-                  placeholder="Erzählen Sie uns von Ihrem Unternehmen und Ihrer Region..."
+                  placeholder={t('sales.form.placeholder')}
                 />
               </div>
               <button type="submit" className="btn-primary w-full justify-center">
@@ -162,7 +162,7 @@ function SparePartsSection() {
               to="/sales/ersatzteile"
               className="btn-primary whitespace-nowrap"
             >
-              Mehr erfahren
+              {t('applications.learnMore')}
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -177,11 +177,12 @@ function ServiceSection() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
+  const serviceItems = t('sales.service.items').split('|');
   const services = [
-    { title: 'Wartung', desc: 'Regelmäßige Inspektion und Wartung Ihrer Anlagen', icon: Settings },
-    { title: 'Reparatur', desc: 'Schnelle und zuverlässige Reparaturleistungen', icon: Wrench },
-    { title: 'Technische Beratung', desc: 'Expertenwissen für Ihre Separationprozesse', icon: MessageSquare },
-    { title: 'Inbetriebnahme', desc: 'Professionelle Installation und Einweisung', icon: Lightbulb },
+    { title: serviceItems[0], desc: serviceItems[1], icon: Settings },
+    { title: serviceItems[2], desc: serviceItems[3], icon: Wrench },
+    { title: serviceItems[4], desc: serviceItems[5], icon: MessageSquare },
+    { title: serviceItems[6], desc: serviceItems[7], icon: Lightbulb },
   ];
 
   return (
@@ -189,7 +190,7 @@ function ServiceSection() {
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Support
+            {t('sales.service.support')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {t('sales.service.title')}

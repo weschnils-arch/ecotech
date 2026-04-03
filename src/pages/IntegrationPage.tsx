@@ -9,28 +9,15 @@ export function IntegrationPage() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
 
-  const planningSteps = [
-    'Analyse Ihrer bestehenden Prozesse',
-    'Machbarkeitsstudie und Konzeptentwicklung',
-    '3D-Planung und Integration in Ihre Anlage',
-    'Schnittstellenklärung mit vorhandenen Systemen',
-    'Zeitplanung und Projektmanagement',
-  ];
-
-  const installationSteps = [
-    'Professionelle Montage vor Ort',
-    'Anschluss an vorhandene Systeme',
-    'Inbetriebnahme und Erstbefüllung',
-    'Schulung Ihrer Mitarbeiter',
-    'Dokumentation und Übergabe',
-  ];
+  const planningSteps = t('integration.planning.steps').split('|');
+  const installationSteps = t('integration.installation.steps').split('|');
 
   return (
     <main>
       {/* Hero Section */}
       <SubpageHero
         title={t('nav.integration')}
-        subtitle="Von der Planung bis zur Inbetriebnahme – wir begleiten Sie bei der Integration unserer Separationstechnologie in Ihre bestehenden Anlagen."
+        subtitle={t('integration.planning.desc')}
         image="/images/hero-integration-new.png"
       />
 
@@ -60,20 +47,14 @@ export function IntegrationPage() {
               </ul>
             </div>
             <div className={`glass-card p-8 lg:p-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-              <h3 className="text-xl font-bold text-ecotech-grey mb-6">Ihre Vorteile</h3>
+              <h3 className="text-xl font-bold text-ecotech-grey mb-6">{t('integration.benefits.title')}</h3>
               <div className="space-y-4">
-                <div className="p-4 bg-ecotech-green/5 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Maßgeschneiderte Lösungen</h4>
-                  <p className="text-sm text-ecotech-grey">Jede Integration wird individuell auf Ihre Anforderungen angepasst.</p>
-                </div>
-                <div className="p-4 bg-ecotech-green/5 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Erfahrene Experten</h4>
-                  <p className="text-sm text-ecotech-grey">Unser Team verfügt über jahrelange Erfahrung in der Anlagenintegration.</p>
-                </div>
-                <div className="p-4 bg-ecotech-green/5 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Effiziente Planung</h4>
-                  <p className="text-sm text-ecotech-grey">Minimale Stillstandszeiten durch professionelles Projektmanagement.</p>
-                </div>
+                {[1,2,3].map(i => (
+                  <div key={i} className="p-4 bg-ecotech-green/5 rounded-lg">
+                    <h4 className="font-bold text-ecotech-grey mb-1">{t(`integration.benefits.${i}.title`)}</h4>
+                    <p className="text-sm text-ecotech-grey">{t(`integration.benefits.${i}.desc`)}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -85,20 +66,14 @@ export function IntegrationPage() {
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className={`order-2 lg:order-1 glass-card p-8 lg:p-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-              <h3 className="text-xl font-bold text-ecotech-grey mb-6">Unser Service</h3>
+              <h3 className="text-xl font-bold text-ecotech-grey mb-6">{t('integration.service.title')}</h3>
               <div className="space-y-4">
-                <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Weltweiter Service</h4>
-                  <p className="text-sm text-ecotech-grey">Installation und Inbetriebnahme weltweit durch unsere Partner.</p>
-                </div>
-                <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Qualitätssicherung</h4>
-                  <p className="text-sm text-ecotech-grey">Umfassende Tests und Qualitätskontrollen vor der Übergabe.</p>
-                </div>
-                <div className="p-4 bg-ecotech-grey-light/30 rounded-lg">
-                  <h4 className="font-bold text-ecotech-grey mb-1">Langfristige Betreuung</h4>
-                  <p className="text-sm text-ecotech-grey">Kontinuierlicher Support auch nach der Inbetriebnahme.</p>
-                </div>
+                {[1,2,3].map(i => (
+                  <div key={i} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
+                    <h4 className="font-bold text-ecotech-grey mb-1">{t(`integration.service.${i}.title`)}</h4>
+                    <p className="text-sm text-ecotech-grey">{t(`integration.service.${i}.desc`)}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className={`order-1 lg:order-2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -131,16 +106,16 @@ export function IntegrationPage() {
         <div className="section-inner">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Bereit für die Integration?
+              {t('integration.cta.title')}
             </h2>
             <p className="text-xl text-white/70 mb-8">
-              Kontaktieren Sie uns für eine unverbindliche Beratung und ein individuelles Angebot.
+              {t('integration.cta.desc')}
             </p>
             <Link
               to="/about"
               className="inline-flex items-center justify-center gap-2 bg-white text-ecotech-green px-8 py-4 rounded-lg font-medium hover:bg-white/90 transition-all duration-300"
             >
-              Kontakt aufnehmen
+              {t('integration.cta.button')}
               <ArrowRight size={18} />
             </Link>
           </div>

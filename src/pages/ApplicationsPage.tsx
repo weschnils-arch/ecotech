@@ -164,7 +164,7 @@ function ApplicationCard({ app, index }: { app: typeof applications[0]; index: n
             to={app.key === 'agriculture' ? '/applications/agriculture' : '/products'}
             className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300 self-start"
           >
-            {app.key === 'agriculture' ? 'Mehr erfahren' : 'Passendes Produkt finden'}
+            {app.key === 'agriculture' ? t('applications.learnMore') : t('applications.findProduct')}
             <ArrowRight size={18} />
           </Link>
         </div>
@@ -180,7 +180,7 @@ export function ApplicationsPage() {
     <main>
       <SubpageHero
         title={t('applications.title')}
-        subtitle="Entdecken Sie die vielfältigen Einsatzbereiche unserer Separationstechnologie – von der Landwirtschaft bis zur Lebensmittelindustrie."
+        subtitle={t('applications.page.subtitle')}
         image="/images/hero-apps-new.png"
       />
 

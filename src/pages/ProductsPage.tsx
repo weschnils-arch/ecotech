@@ -51,23 +51,14 @@ function BG2Section() {
     { label: t('productpage.bg2.tech.dry_inorg'), value: t('productpage.bg2.tech.dry_inorg.val') },
   ];
 
-  const options = [
-    'Automatische Wascheinrichtung für Filter- und Presssieb',
-    'Sensorpakete zur Überwachung',
-    'Steuerung ECO mit manueller Regelung',
-    'Steuerung PRO mit HMI-Panel und ProfiNET',
-    'Zulaufverrohrung mit Teleskoprohr',
-    'Steuerungsmodul für Zulaufpumpen',
-    'Zusätzlicher Fußrahmen für höhere Arbeitshöhe',
-    'Kundenspezifische Optionen nach Bedarf',
-  ];
+  const options = t('productpage.bg2.options').split('|');
 
   return (
     <section ref={ref} id="bg2" className="section-container pt-32 pb-20 scroll-mt-24">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Flaggschiff
+            {t('productpage.flagship')}
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ecotech-grey mb-6">
             {t('productpage.bg2.title')}
@@ -180,7 +171,7 @@ function BG2Section() {
 
         {/* Options */}
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '500ms' }}>
-          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">Optionen</h3>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.options')}</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {options.map((option, index) => (
               <div key={index} className="flex items-start gap-3 p-4 glass-card">
@@ -200,16 +191,7 @@ function BGI400Section() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  const features = [
-    'Kompakte, günstige Maschine hauptsächlich für Agrar-Anwendungen',
-    'Hoher TS-Gehalt im Feststoff, geeignet zur Produktion von Einstreu',
-    'Einfache Plug&Play-Lösung mit angebautem Frequenzumrichter',
-    'Ausführung in Edelstahl (1.4301 / AISI 304)',
-    'Edelstahlschnecke mit Panzerung',
-    'Edelstahl-Spaltsiebe',
-    'Zulaufdruck bis 0,5 bar',
-    'Zulaufverrohrung mit Teleskoprohr und Überlaufrohr',
-  ];
+  const features = t('productpage.bgi400.features').split('|');
 
   const technicalData = [
     { label: 'Antrieb', value: '2,2 - 3,0 kW' },
@@ -225,7 +207,7 @@ function BGI400Section() {
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           <div className={`order-2 lg:order-1 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Kompakt
+              {t('productpage.compact')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
               {t('productpage.bgi400.title')}
@@ -239,7 +221,7 @@ function BGI400Section() {
               {t('productpage.bgi400.availability')}
             </div>
 
-            <h3 className="text-xl font-bold text-ecotech-grey mb-4">Merkmale</h3>
+            <h3 className="text-xl font-bold text-ecotech-grey mb-4">{t('productpage.features')}</h3>
             <ul className="space-y-3">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -282,6 +264,7 @@ function BGI400Section() {
 
 // CTA Section
 function CTASection() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -289,18 +272,18 @@ function CTASection() {
       <div className="section-inner">
         <div className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Individuelle Beratung gewünscht?
+            {t('productpage.cta.title')}
           </h2>
           <p className="text-xl text-white/70 mb-8">
-            Unser Vertriebsteam steht Ihnen für eine persönliche Beratung zur Verfügung.
+            {t('productpage.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/sales" className="inline-flex items-center justify-center gap-2 bg-ecotech-green text-white px-8 py-4 rounded-lg font-medium hover:bg-ecotech-green-dark transition-all duration-300">
-              Vertriebspartner finden
+              {t('productpage.cta.find')}
               <ArrowRight size={18} />
             </Link>
             <Link to="/about" className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all duration-300">
-              Kontakt aufnehmen
+              {t('productpage.cta.contact')}
             </Link>
           </div>
         </div>
@@ -360,7 +343,7 @@ export function ProductsPage() {
     <main>
       <SubpageHero
         title={t('products.title')}
-        subtitle="Entdecken Sie unsere innovativen Separationslösungen für maximale Effizienz und Langlebigkeit."
+        subtitle={t('productpage.subtitle')}
         image="/images/hero-products-new.png"
       />
 
