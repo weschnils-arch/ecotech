@@ -23,19 +23,19 @@ function BecomePartnerSection() {
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Partnerschaft
+              {t('sales.partner.label')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
               {t('sales.becomePartner.title')}
             </h2>
             <p className="text-lg text-ecotech-grey/70 mb-8">
-              Sie haben keinen passenden Vertriebspartner gefunden? Werden Sie Teil unseres globalen Vertriebsnetzwerks und profitieren Sie von unserer Expertise in der Separationstechnologie.
+              {t('sales.partner.desc')}
             </p>
             <div className="space-y-4 mb-8">
               <p className="text-ecotech-grey/70 mb-2">
-                Siehe{' '}
+                {t('sales.partner.tcs')}{' '}
                 <a href="https://www.tcs-umwelttechnik.at/ueber-uns/vertriebspartner/" target="_blank" rel="noopener noreferrer" className="text-ecotech-green font-medium underline hover:no-underline">
-                  Partner der TCS Umwelttechnik
+                  {t('sales.partner.tcs.link')}
                 </a>
               </p>
               <div className="flex items-center gap-4">
@@ -43,7 +43,7 @@ function BecomePartnerSection() {
                   <Settings size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Vertriebspartner finden</h4>
+                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.find')}</h4>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -51,7 +51,7 @@ function BecomePartnerSection() {
                   <MessageSquare size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Sie haben keinen passenden Vertriebspartner gefunden</h4>
+                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.notfound')}</h4>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -59,12 +59,12 @@ function BecomePartnerSection() {
                   <Lightbulb size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Sie möchten Vertriebspartner werden</h4>
+                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.become')}</h4>
                 </div>
               </div>
             </div>
             <div className="glass-card p-6">
-              <p className="font-bold text-ecotech-grey mb-2">Ansprechpartner Vertrieb:</p>
+              <p className="font-bold text-ecotech-grey mb-2">{t('sales.partner.contact')}</p>
               <div className="space-y-2 text-sm text-ecotech-grey/70">
                 <p><strong>Günther Pirker</strong> — T: +43 664 155 4896 — g.pirker@ecotechstyria.com</p>
                 <p><strong>Heinz Leitner</strong> — T: +43 664 120 8711 — h.leitner@ecotechstyria.com</p>

@@ -153,24 +153,14 @@ function BG2Section() {
 
         {/* USPs (Slides 35-38) */}
         <div className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '390ms' }}>
-          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">USP – Patentierte Technologie</h3>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.usp.title')}</h3>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="glass-card p-6">
-              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Patentierte Filterschneckengeometrie</h4>
-              <p className="text-sm text-ecotech-grey/70">Die patentierte Filterschneckengeometrie mit zusätzlichen Schneckenflügeln im Filterbereich sorgt für gesteigerten spezifischen Durchsatz und verringerten Verschleiß.</p>
-            </div>
-            <div className="glass-card p-6">
-              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Patentiertes Stützgehäuse</h4>
-              <p className="text-sm text-ecotech-grey/70">Das patentierte Stützgehäuse stützt den Presssieb und absorbiert den Berstdruck. Ermöglicht höheren Pressdruck und damit höheren TS-Gehalt im Feststoff bei reduziertem Verschleiß.</p>
-            </div>
-            <div className="glass-card p-6">
-              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Automatische TS-Regelung</h4>
-              <p className="text-sm text-ecotech-grey/70">Die automatische TS-Regelung reagiert auf Änderungen in Zulaufmenge und -konsistenz. Erhöht die Prozesssicherheit und ermöglicht konstanten Betriebszustand.</p>
-            </div>
-            <div className="glass-card p-6">
-              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Vollautomatische Wascheinrichtung</h4>
-              <p className="text-sm text-ecotech-grey/70">360° Sprühdüsen verhindern Anhaftungen und Verstopfungen an den Siebkörben. Arbeitet in automatischen Intervallen oder bei händischer Betätigung.</p>
-            </div>
+            {[1,2,3,4].map(i => (
+              <div key={i} className="glass-card p-6">
+                <h4 className="text-lg font-bold text-ecotech-grey mb-2">{t(`productpage.usp.${i}.title`)}</h4>
+                <p className="text-sm text-ecotech-grey/70">{t(`productpage.usp.${i}.desc`)}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -321,17 +311,18 @@ function CTASection() {
 
 // Voreindicker Placeholder (#25)
 function VoreindicherSection() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   return (
     <section ref={ref} id="voreindicker" className="section-container py-24 lg:py-32 scroll-mt-24">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">Neu</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">Voreindicker / Pre-Thickener</h2>
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.voreindicker.title')}</h2>
           <div className="glass-card p-8 lg:p-12">
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed">Weitere Informationen zu unserem Voreindicker folgen in Kürze. Kontaktieren Sie uns für Details.</p>
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed">{t('productpage.voreindicker.desc')}</p>
             <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary mt-6 inline-flex">
-              Anfrage stellen <ArrowRight size={18} />
+              {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -342,17 +333,18 @@ function VoreindicherSection() {
 
 // Circulyizer Placeholder (#26)
 function CirculyizerSection() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   return (
     <section ref={ref} id="circulyizer" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">Neu</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">Circulyizer</h2>
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.circulyizer.title')}</h2>
           <div className="glass-card p-8 lg:p-12">
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed">Weitere Informationen zu unserem Circulyizer folgen in Kürze. Kontaktieren Sie uns für Details.</p>
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed">{t('productpage.circulyizer.desc')}</p>
             <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulyizer" className="btn-primary mt-6 inline-flex">
-              Anfrage stellen <ArrowRight size={18} />
+              {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
           </div>
         </div>
