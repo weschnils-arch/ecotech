@@ -2,7 +2,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { SubpageHero } from '@/components/SubpageHero';
 
-import { MapPin, Phone, Mail, Globe, Send, Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Send } from 'lucide-react';
 import { useState } from 'react';
 
 // Introduction Section
@@ -53,6 +53,7 @@ function VisionSection() {
               {t('aboutpage.mission.text')}
             </p>
           </div>
+
         </div>
       </div>
     </section>
@@ -65,7 +66,7 @@ function TeamSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const team = [
-    { key: 'ceo', image: '/images/team-leitner.png' },
+    { key: 'ceo', image: '/images/team-leitner.webp' },
     { key: 'coo', image: '/images/team-pauger.png' },
     { key: 'cto', image: '/images/team-kampl.png' },
     { key: 'cso', image: '/images/team-pirker.png' },
@@ -110,81 +111,11 @@ function TeamSection() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-// Partner Section
-function PartnerSection() {
-  const { t } = useLanguage();
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
-
-  return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden my-8 w-full">
-      {/* Angled Green Background */}
-      <div
-        className="absolute top-[20%] bottom-[20%] w-full bg-ecotech-green"
-        style={{ clipPath: 'polygon(0 15%, 100% 0, 100% 85%, 0 100%)' }}
-      ></div>
-
-      <div className="section-inner max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className={`bg-white/80 backdrop-blur-md border border-white rounded-3xl p-10 md:p-14 lg:p-20 shadow-2xl relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-
-          <div className="text-center mb-24 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold text-ecotech-green">
-              {t('aboutpage.partner.title')}
-            </h2>
-          </div>
-
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-8 relative z-10">
-
-            {/* Ecotech Side */}
-            <div className="flex-1 w-full flex flex-col items-center text-center">
-              <img src="/images/logo.png" alt="Ecotech Logo" className="h-8 md:h-10 mb-10 object-contain drop-shadow-sm" />
-              <h3 className="text-xl lg:text-2xl font-bold text-ecotech-grey italic mb-8">
-                {t('aboutpage.partner.ecotech.subtitle')}
-              </h3>
-              <ul className="space-y-4 flex flex-col w-fit mx-auto text-left">
-                {[1, 2, 3, 4].map(idx => (
-                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey italic font-medium">
-                    <Check className="text-ecotech-green shrink-0" size={20} strokeWidth={3} />
-                    <span>{t(`aboutpage.partner.ecotech.bullet${idx}`)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Middle Connection */}
-            <div className="flex-none lg:w-48 flex flex-col items-center justify-center py-8 lg:py-0 relative mt-0 lg:mt-6">
-              <div className="hidden lg:block absolute top-[28px] left-1/2 -translate-x-1/2 w-[300px] xl:w-[450px] h-[1px] bg-ecotech-grey/20 -z-10" />
-              <div className="bg-white rounded-xl px-6 py-4 shadow-sm border border-ecotech-grey-lighter relative flex flex-col items-center min-w-[180px] z-10">
-                <div className="text-ecotech-green font-bold text-center uppercase tracking-[0.05em] text-[10px] mb-1">
-                  {t('aboutpage.partner.exclusive').split(' ')[0]}
-                </div>
-                <div className="text-ecotech-grey font-bold text-center text-[15px] whitespace-nowrap">
-                  {t('aboutpage.partner.exclusive').split(' ').slice(1).join(' ')}
-                </div>
-              </div>
-            </div>
-
-            {/* Pauger Side */}
-            <div className="flex-1 w-full flex flex-col items-center text-center">
-              <img src="/images/logo-pauger-grey.svg" alt="Pauger Logo" className="h-[2rem] md:h-[2.5rem] mb-[2.5rem] object-contain drop-shadow-sm" />
-              <h3 className="text-xl lg:text-2xl font-bold text-ecotech-grey italic mb-8">
-                {t('aboutpage.partner.pauger.subtitle')}
-              </h3>
-              <ul className="space-y-4 flex flex-col w-fit mx-auto text-left">
-                {[1, 2, 3].map(idx => (
-                  <li key={idx} className="flex items-center gap-3 text-lg text-ecotech-grey italic font-medium">
-                    <Check className="text-ecotech-green shrink-0" size={20} strokeWidth={3} />
-                    <span>{t(`aboutpage.partner.pauger.bullet${idx}`)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
+        <div className={`max-w-4xl mx-auto mt-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
+          <p className="text-lg text-ecotech-grey/70 leading-relaxed">
+            {t('aboutpage.team.description')}
+          </p>
         </div>
       </div>
     </section>
@@ -339,33 +270,7 @@ function LocationSection() {
   );
 }
 
-// Careers Section
-function CareersSection() {
-  const { t } = useLanguage();
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-green text-white">
-      <div className="section-inner">
-        <div className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {t('aboutpage.careers.title')}
-          </h2>
-          <p className="text-xl text-white/80 mb-8">
-            {t('aboutpage.careers.text')}
-          </p>
-          <a
-            href="mailto:office@ecotechstyria.com"
-            className="inline-flex items-center gap-2 bg-white text-ecotech-green px-8 py-4 rounded-lg font-medium hover:bg-white/90 transition-all duration-300"
-          >
-            <Mail size={18} />
-            {t('form.sendApplication')}
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // Main AboutPage Component
 export function AboutPage() {
@@ -373,11 +278,9 @@ export function AboutPage() {
     <main>
       <IntroSection />
       <TeamSection />
-      <PartnerSection />
       <VisionSection />
       <ContactSection />
       <LocationSection />
-      <CareersSection />
     </main>
   );
 }

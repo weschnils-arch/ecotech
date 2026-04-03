@@ -11,6 +11,8 @@ import { IntegrationPage } from '@/pages/IntegrationPage';
 import { NewsPage } from '@/pages/NewsPage';
 import { AgriculturePage } from '@/pages/AgriculturePage';
 import { TermsPage, PrivacyPage, ImprintPage, DealersPage } from '@/pages/LegalPages';
+import { ErsatzteilePage } from '@/pages/ErsatzteilePage';
+import { ServicePage } from '@/pages/ServicePage';
 
 function RouterContent() {
   const { path } = useRouter();
@@ -41,6 +43,10 @@ function RouterContent() {
         return <ImprintPage />;
       case '/dealers':
         return <DealersPage />;
+      case '/sales/ersatzteile':
+        return <ErsatzteilePage />;
+      case '/sales/service':
+        return <ServicePage />;
       default:
         return <HomePage />;
     }

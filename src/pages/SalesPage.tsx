@@ -1,41 +1,9 @@
+import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { SubpageHero } from '@/components/SubpageHero';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Phone, Mail, Settings, Wrench, Package, Send, MessageSquare, Lightbulb } from 'lucide-react';
+import { Phone, Settings, Wrench, Package, Send, MessageSquare, Lightbulb, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
-
-// Find Partner Section
-function FindPartnerSection() {
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
-
-  const dealers = [
-    { name: 'Farmtech d.o.o.', location: 'SLO', flag: '🇸🇮' },
-    { name: 'IWZ GmbH', location: 'AUT', flag: '🇦🇹' },
-    { name: 'Vanderloop Equipment', location: 'WI / USA', flag: '🇺🇸' },
-  ];
-
-  return (
-    <section ref={ref} className="section-container pb-20 pt-12">
-      <div className="section-inner">
-        <div className="grid md:grid-cols-3 gap-6">
-          {dealers.map((dealer, index) => (
-            <div
-              key={dealer.name}
-              className={`glass-card p-8 text-center card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="text-4xl mb-4">{dealer.flag}</div>
-              <h3 className="text-xl font-bold text-ecotech-grey mb-2">{dealer.name}</h3>
-              <span className="inline-block px-3 py-1 bg-ecotech-green/10 text-ecotech-green text-sm rounded-full">
-                {dealer.location}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // Become Partner Section
 function BecomePartnerSection() {
@@ -50,7 +18,7 @@ function BecomePartnerSection() {
   };
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-white">
+    <section ref={ref} className="section-container py-16 lg:py-20 bg-white">
       <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
@@ -60,36 +28,46 @@ function BecomePartnerSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
               {t('sales.becomePartner.title')}
             </h2>
-            <p className="text-lg text-ecotech-grey mb-8">
-              Werden Sie Teil unseres globalen Vertriebsnetzwerks und profitieren Sie von unserer Expertise in der Separationstechnologie.
+            <p className="text-lg text-ecotech-grey/70 mb-8">
+              Sie haben keinen passenden Vertriebspartner gefunden? Werden Sie Teil unseres globalen Vertriebsnetzwerks und profitieren Sie von unserer Expertise in der Separationstechnologie.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
+              <p className="text-ecotech-grey/70 mb-2">
+                Siehe{' '}
+                <a href="https://www.tcs-umwelttechnik.at/ueber-uns/vertriebspartner/" target="_blank" rel="noopener noreferrer" className="text-ecotech-green font-medium underline hover:no-underline">
+                  Partner der TCS Umwelttechnik
+                </a>
+              </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
                   <Settings size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Technische Schulung</h4>
-                  <p className="text-sm text-ecotech-grey">Umfassende Produkt- und Anwendungsschulungen</p>
+                  <h4 className="font-bold text-ecotech-grey">Vertriebspartner finden</h4>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
-                  <Package size={24} className="text-ecotech-green" />
+                  <MessageSquare size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Marketing Support</h4>
-                  <p className="text-sm text-ecotech-grey">Werbematerialien und Vertriebsunterstützung</p>
+                  <h4 className="font-bold text-ecotech-grey">Sie haben keinen passenden Vertriebspartner gefunden</h4>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
-                  <Wrench size={24} className="text-ecotech-green" />
+                  <Lightbulb size={24} className="text-ecotech-green" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ecotech-grey">Service-Backup</h4>
-                  <p className="text-sm text-ecotech-grey">Technischer Support und Ersatzteilverfügbarkeit</p>
+                  <h4 className="font-bold text-ecotech-grey">Sie möchten Vertriebspartner werden</h4>
                 </div>
+              </div>
+            </div>
+            <div className="glass-card p-6">
+              <p className="font-bold text-ecotech-grey mb-2">Ansprechpartner Vertrieb:</p>
+              <div className="space-y-2 text-sm text-ecotech-grey/70">
+                <p><strong>Günther Pirker</strong> — T: +43 664 155 4896 — g.pirker@ecotechstyria.com</p>
+                <p><strong>Heinz Leitner</strong> — T: +43 664 120 8711 — h.leitner@ecotechstyria.com</p>
               </div>
             </div>
           </div>
@@ -163,7 +141,7 @@ function SparePartsSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32">
+    <section ref={ref} className="section-container py-12 lg:py-16">
       <div className="section-inner">
         <div className={`glass-card p-8 lg:p-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
@@ -180,13 +158,13 @@ function SparePartsSection() {
                 </p>
               </div>
             </div>
-            <a
-              href="mailto:office@ecotechstyria.com?subject=Ersatzteilanfrage"
+            <Link
+              to="/sales/ersatzteile"
               className="btn-primary whitespace-nowrap"
             >
-              <Mail size={18} />
-              Anfrage stellen
-            </a>
+              Mehr erfahren
+              <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </div>
@@ -267,7 +245,6 @@ export function SalesPage() {
         imagePosition="object-top"
       />
       <BecomePartnerSection />
-      <FindPartnerSection />
       <SparePartsSection />
       <ServiceSection />
     </main>

@@ -124,29 +124,6 @@ function AboutSection() {
                 <ArrowRight size={18} />
               </Link>
             </div>
-            {/* Box position: overlap top green diagonally */}
-            <div className="relative mt-8 lg:-mt-32 z-40">
-              <div className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass-lg rounded-2xl p-8 lg:p-12 hover:bg-white/80 transition-all duration-500">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4">
-                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">15+</div>
-                    <div className="text-sm text-ecotech-grey font-medium">Jahre Erfahrung</div>
-                  </div>
-                  <div className="text-center p-4">
-                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">35</div>
-                    <div className="text-sm text-ecotech-grey font-medium">Teammitglieder</div>
-                  </div>
-                  <div className="text-center p-4">
-                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">75%</div>
-                    <div className="text-sm text-ecotech-grey font-medium">TS-Gehalt</div>
-                  </div>
-                  <div className="text-center p-4">
-                    <div className="text-4xl lg:text-5xl font-bold text-ecotech-green mb-2">8</div>
-                    <div className="text-sm text-ecotech-grey font-medium">Anwendungen</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -160,14 +137,14 @@ function ApplicationsSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const applications = [
-    { key: 'agriculture', icon: Leaf, image: '/images/app-agriculture.jpg' },
-    { key: 'bedding', icon: Droplets, image: '/images/app-bedding.jpg' },
-    { key: 'biogas', icon: Factory, image: '/images/app-biogas.jpg' },
+    { key: 'agriculture', icon: Leaf, image: '/images/app-agriculture.webp' },
+    { key: 'bedding', icon: Droplets, image: '/images/app-bedding.webp' },
+    { key: 'biogas', icon: Factory, image: '/images/app-biogas.webp' },
     { key: 'recycling', icon: Recycle, image: '/images/app-recycling.png', imageScale: 'scale-[1.35] origin-top-left group-hover:scale-[1.45]' },
     { key: 'municipal', icon: Building2, image: '/images/app-municipal.jpg' },
-    { key: 'paper', icon: FileText, image: '/images/app-paper.jpg' },
+    { key: 'paper', icon: FileText, image: '/images/app-paper.webp' },
     { key: 'mdf', icon: Factory, image: '/images/app-mdf.png' },
-    { key: 'food', icon: Utensils, image: '/images/app-food.png' },
+    { key: 'food', icon: Utensils, image: '/images/app-food.webp' },
   ];
 
   return (
@@ -496,8 +473,8 @@ export function HomePage() {
       <AboutSection />
       <ApplicationsSection />
       <ParallaxSection />
-      <ProductsSection />
       <WhySection />
+      <ProductsSection />
       <NewsSection />
     </main>
   );

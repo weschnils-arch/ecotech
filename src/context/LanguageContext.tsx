@@ -32,7 +32,7 @@ const translations = {
 
     // About Section
     'about.title': 'Über uns',
-    'about.description': 'Gegründet 2024. Kernkompetenz: Lösungen zur fest-flüssig Trennung. Kernprodukt: Filterschneckenpresse. Mit mehr als 15 Jahren Erfahrung in der Entwicklung und technischen Anwendungen im Maschinenbau und Anlagenaufbau mit einem Schwerpunkt Separations- und Umwelttechnik.',
+    'about.description': 'Mit mehr als 15 Jahren Erfahrung in der Entwicklung und technischen Anwendungen im Maschinenbau und Anlagenaufbau mit einem Schwerpunkt Separations- und Umwelttechnik.',
     'about.link': 'Zur Unternehmensseite',
 
     // Applications Section
@@ -50,10 +50,10 @@ const translations = {
     'applications.municipal.desc': 'Primär- und Sekundärschlämme aus Kläranlagen',
     'applications.paper.title': 'Papierindustrie',
     'applications.paper.desc': 'Rejekte und Sekundärschlämme',
-    'applications.mdf.title': 'MDF',
-    'applications.mdf.desc': 'Produktionsabwässer',
-    'applications.food.title': 'Lebensmittelindustrie',
-    'applications.food.desc': ' ',
+    'applications.mdf.title': 'Prozessmedien und Abwässer',
+    'applications.mdf.desc': 'Produktionsabwässer und Prozessmedien aus industriellen Anlagen',
+    'applications.food.title': 'Nebenprodukte und Abwässer',
+    'applications.food.desc': 'Schlachthausabwasser, Waschwasser, Brauereiabfälle und industrielle Nebenprodukte',
 
     // Products Section
     'products.title': 'Produkte',
@@ -73,8 +73,15 @@ const translations = {
     'why.point2': 'Wiederverwendung der Feststoffe',
     'why.point3': 'Reduktion der Entsorgungskosten',
     'why.point4': 'Wiederverwendung der Flüssigphase als Prozesswasser',
-    'why.point5': 'Einhaltung von Umweltvorgaben',
-    'why.point6': 'Verbesserte Eigenschaften der separierten Phasen',
+    'why.point5': 'Reduktion der Energiekosten',
+    'why.point6': 'Reduktion von Prozesskosten',
+    'why.point7': 'Einhaltung von Umweltvorgaben',
+    'why.point8': 'Verbesserte Eigenschaften der separierten Phasen',
+
+    // Optimization Section
+    'optimization.label': 'Prozessoptimierung',
+    'optimization.title': 'Messbar effizienter',
+    'optimization.text': 'Wir machen Separationsprozesse messbar effizienter. Durch intelligente Optimierungen reduzieren wir Energieverbrauch, Verschleiß und Betriebskosten – und steigern gleichzeitig die Leistungsfähigkeit bestehender Systeme. Dabei bleibt es nicht bei der Analyse: Wir setzen Verbesserungen gemeinsam mit unseren Kunden konsequent um und schaffen so nachhaltigen Mehrwert.',
 
     // News Section
     'news.title': 'News & Erfolgsgeschichten',
@@ -88,20 +95,21 @@ const translations = {
     'aboutpage.slogan.label': 'Slogan:',
     'aboutpage.slogan.text': 'Next Level Separation',
     'aboutpage.mission.label': 'Mission:',
-    'aboutpage.mission.text': 'Hohe Vielfalt in den Anwendungen, etablierte Prozesse im Sinne der Kunden weiterentwicklung mit deutlich höherer Effizienz in den unterschiedlichen Anwendungen und Prozessen mit niedrigeren TCO (weniger Energie, weniger Verschleiß). Optimierungen nicht nur aufzeigen sondern auch realisieren!',
+    'aboutpage.mission.text': 'Wir machen Separationsprozesse messbar effizienter. Durch intelligente Optimierungen reduzieren wir Energieverbrauch, Verschleiß und Betriebskosten – und steigern gleichzeitig die Leistungsfähigkeit bestehender Systeme. Dabei bleibt es nicht bei der Analyse: Wir setzen Verbesserungen gemeinsam mit unseren Kunden konsequent um und schaffen so nachhaltigen Mehrwert.',
     'aboutpage.team.title': 'Unser Team',
     'aboutpage.team.ceo.name': 'Heinz Leitner',
     'aboutpage.team.ceo.role': 'CEO',
-    'aboutpage.team.ceo.bio': '10 Jahre Erfahrung in der Leitung von R&D-Projekten im Bereich der Automobilindustrie und des Sondermaschinenbaus. CEO der Komptech Gruppe für 15 Jahre (bis Ende 2023). CEO Inno2lead GmbH: Strategieberatung für Unternehmen im Bereich Maschinenbau und Recycling.',
+    'aboutpage.team.ceo.bio': '>15 Jahre einschlägige Managementerfahrung im internationalen Umwelttechnikmaschinen- und Anlagenbau',
     'aboutpage.team.coo.name': 'Gernot Pauger',
     'aboutpage.team.coo.role': 'COO',
-    'aboutpage.team.coo.bio': 'Eigentümer Pauger Maschinenbau GmbH. Langjährige Erfahrung im Bereich Sondermaschinenbau und Umwelttechnik.',
+    'aboutpage.team.coo.bio': '>15 Jahre Erfahrung in der Entwicklung und Produktion von Sondermaschinen für Umwelt- und Landtechnik',
     'aboutpage.team.cto.name': 'Thomas Kampl',
     'aboutpage.team.cto.role': 'CTO',
-    'aboutpage.team.cto.bio': '14 Jahre Erfahrung in der Entwicklung von Schneckenpressen als Produktmanager und Konstruktionsleiter.',
+    'aboutpage.team.cto.bio': '>15 Jahre Erfahrung als Anwendungsspezialist im Bereich von Separationstechnik für Fest-Flüssigtrennung',
     'aboutpage.team.cso.name': 'Günther Pirker',
     'aboutpage.team.cso.role': 'CSO',
-    'aboutpage.team.cso.bio': 'Langjährige Erfahrung in Management- und Vertriebspositionen bei Komptech / Farmtech. CEO Farmtech – Slowenien.',
+    'aboutpage.team.cso.bio': '>15 Jahre Branchenerfahrung mit Schwerpunkt Produktion und internationalem Vertrieb von Land- und Umwelttechnikmaschinen',
+    'aboutpage.team.description': 'Wir sind ein interdisziplinäres Team aus Ingenieuren, Anwendungsspezialisten und Branchenkennern, das eines verbindet: der Anspruch, technologisch führende Lösungen für die Separation von flüssigen und festen Stoffen zu entwickeln. Unser Ansatz ist systemorientiert und lösungsfokussiert. Wir analysieren etablierte Aufbereitungsprozesse ganzheitlich, entwickeln maßgeschneiderte Maschinen- und Anlagenkonzepte mit deutlich höherer Effizienz und setzen auf eine enge Zusammenarbeit mit unseren Kund:innen.',
 
     // Partner Section
     'aboutpage.partner.title': 'Ecotech Styria - Partner',
@@ -123,7 +131,7 @@ const translations = {
 
     // Sales Page
     'sales.findPartner.title': 'Vertriebspartner finden',
-    'sales.findPartner.desc': 'Unsere Vertriebspartner sind spezialisiert auf Separationstechnologie und bieten lokale Unterstützung und Expertise.',
+    'sales.findPartner.desc': 'Siehe Partner der TCS Umwelttechnik. Sie haben keinen passenden Vertriebspartner gefunden? Sie möchten Vertriebspartner werden?',
     'sales.becomePartner.title': 'Sie möchten unser Vertriebspartner werden?',
     'sales.spareparts.title': 'Ersatzteile',
     'sales.spareparts.desc': 'Wir bieten ein umfassendes Sortiment an Ersatzteilen für alle unsere Maschinen. Kontaktieren Sie uns für ein Angebot.',
@@ -161,7 +169,7 @@ const translations = {
 
     // Integration Page
     'integration.planning.title': 'Integrationsplanung',
-    'integration.planning.desc': 'Wir planen die Integration unserer Maschinen in Ihre bestehenden Anlagen. Unsere Experten analysieren Ihre Prozesse und entwickeln maßgeschneiderte Lösungen.',
+    'integration.planning.desc': 'Planung und Fertigung eines verbundenen Teilbereiches einer Anlage inklusive diverser Einzelkomponenten. Unsere Experten analysieren Ihre Prozesse und entwickeln maßgeschneiderte Lösungen.',
     'integration.installation.title': 'Installation & Inbetriebnahme',
     'integration.installation.desc': 'Unser erfahrenes Team führt die Installation und Inbetriebnahme durch und stellt sicher, dass alles optimal funktioniert.',
 
@@ -208,7 +216,7 @@ const translations = {
 
     // About Section
     'about.title': 'About Us',
-    'about.description': 'Founded in 2024. Core competence: Solid-liquid separation solutions. Core product: Filter Screw Press / Separator. With more than 15 years of experience in the development of technical applications in mechanical engineering and plant construction with a focus on separation and environmental technology.',
+    'about.description': 'With more than 15 years of experience in the development of technical applications in mechanical engineering and plant construction with a focus on separation and environmental technology.',
     'about.link': 'To Company Page',
 
     // Applications Section
@@ -226,10 +234,10 @@ const translations = {
     'applications.municipal.desc': 'Primary and secondary sludge from sewage treatment plants',
     'applications.paper.title': 'Pulp & Paper',
     'applications.paper.desc': 'Rejects and secondary sludge',
-    'applications.mdf.title': 'MDF',
-    'applications.mdf.desc': 'Production wastewater',
-    'applications.food.title': 'Food Industry',
-    'applications.food.desc': ' ',
+    'applications.mdf.title': 'Process Media & Wastewater',
+    'applications.mdf.desc': 'Production wastewater and process media from industrial plants',
+    'applications.food.title': 'By-Products & Wastewater',
+    'applications.food.desc': 'Slaughterhouse wastewater, washing water, brewery waste and industrial by-products',
 
     // Products Section
     'products.title': 'Products',
@@ -249,8 +257,15 @@ const translations = {
     'why.point2': 'Reuse of the solids',
     'why.point3': 'Reduction of disposal costs',
     'why.point4': 'Reuse of the effluent as process water',
-    'why.point5': 'Compliance with environmental regulations',
-    'why.point6': 'Improved properties of the individual phases after separation',
+    'why.point5': 'Reduction of energy costs',
+    'why.point6': 'Reduction of process costs',
+    'why.point7': 'Compliance with environmental regulations',
+    'why.point8': 'Improved properties of the individual phases after separation',
+
+    // Optimization Section
+    'optimization.label': 'Process Optimization',
+    'optimization.title': 'Measurably More Efficient',
+    'optimization.text': 'We make separation processes measurably more efficient. Through intelligent optimizations, we reduce energy consumption, wear, and operating costs – while simultaneously increasing the performance of existing systems. It does not stop at the analysis: We implement improvements together with our customers consistently and create sustainable added value.',
 
     // News Section
     'news.title': 'News & Success Stories',
@@ -264,20 +279,21 @@ const translations = {
     'aboutpage.slogan.label': 'Slogan:',
     'aboutpage.slogan.text': 'Next Level Separation',
     'aboutpage.mission.label': 'Mission:',
-    'aboutpage.mission.text': 'High variety in applications, established processes in the sense of customer further development with significantly higher efficiency in the different applications and processes with lower TCO (less energy, less wear). Not only show optimizations but also realize them!',
+    'aboutpage.mission.text': 'We make separation processes measurably more efficient. Through intelligent optimizations, we reduce energy consumption, wear, and operating costs – while simultaneously increasing the performance of existing systems. It does not stop at the analysis: We implement improvements together with our customers consistently and create sustainable added value.',
     'aboutpage.team.title': 'Our Team',
     'aboutpage.team.ceo.name': 'Heinz Leitner',
     'aboutpage.team.ceo.role': 'CEO',
-    'aboutpage.team.ceo.bio': '10 years of experience in leading R&D projects in the field of automotive industry and special machinery construction. CEO of Komptech group for 15 years (till end of 2023). CEO Inno2lead GmbH: strategy consulting for companies in the field of mechanical engineering and recycling.',
+    'aboutpage.team.ceo.bio': '>15 years of management experience in international environmental technology machinery and plant construction',
     'aboutpage.team.coo.name': 'Gernot Pauger',
     'aboutpage.team.coo.role': 'COO',
-    'aboutpage.team.coo.bio': 'Owner Pauger Maschinenbau GmbH. Many years of experience in the field of special machine construction and environmental machinery.',
+    'aboutpage.team.coo.bio': '>15 years of experience in the development and production of special machines for environmental and agricultural technology',
     'aboutpage.team.cto.name': 'Thomas Kampl',
     'aboutpage.team.cto.role': 'CTO',
-    'aboutpage.team.cto.bio': '14 years of experience in the development of screw presses as a product manager, construction engineer and head of construction department.',
+    'aboutpage.team.cto.bio': '>15 years of experience as an application specialist in separation technology for solid-liquid separation',
     'aboutpage.team.cso.name': 'Günther Pirker',
     'aboutpage.team.cso.role': 'CSO',
-    'aboutpage.team.cso.bio': 'Many years of experience in Management and Sales positions at Komptech / Farmtech. CEO Farmtech – Slovenia.',
+    'aboutpage.team.cso.bio': '>15 years of industry experience with focus on production and international sales of agricultural and environmental technology machinery',
+    'aboutpage.team.description': 'We are an interdisciplinary team of engineers, application specialists and industry experts united by one goal: to develop technologically leading solutions for the separation of liquid and solid materials. Our approach is system-oriented and solution-focused. We holistically analyze established processing methods, develop customized machine and plant concepts with significantly higher efficiency, and rely on close cooperation with our customers.',
 
     // Partner Section
     'aboutpage.partner.title': 'Ecotech Styria - Partner',

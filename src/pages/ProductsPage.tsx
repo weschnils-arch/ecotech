@@ -2,7 +2,36 @@ import { Link } from '@/router';
 import { SubpageHero } from '@/components/SubpageHero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Check, ArrowRight, Settings, Gauge } from 'lucide-react';
+import { Check, ArrowRight, Settings, Gauge, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+
+// Image Gallery Component
+function ImageGallery({ images }: { images: { src: string; alt: string }[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const next = () => setActiveIndex((i) => (i + 1) % images.length);
+  const prev = () => setActiveIndex((i) => (i - 1 + images.length) % images.length);
+
+  return (
+    <div className="relative">
+      <div className="glass-card overflow-hidden">
+        <img src={images[activeIndex].src} alt={images[activeIndex].alt} className="w-full aspect-square object-cover transition-opacity duration-500" />
+      </div>
+      <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+        <ChevronLeft size={20} className="text-ecotech-grey" />
+      </button>
+      <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+        <ChevronRight size={20} className="text-ecotech-grey" />
+      </button>
+      <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
+        {images.map((img, index) => (
+          <button key={index} onClick={() => setActiveIndex(index)} className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === activeIndex ? 'border-ecotech-green scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+            <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // BG2 Product Section
 function BG2Section() {
@@ -49,15 +78,16 @@ function BG2Section() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Product Image */}
+          {/* Product Image Gallery */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-            <div className="glass-card overflow-hidden">
-              <img
-                src="/images/product-bg2.jpg"
-                alt="Filterschneckenpresse BGII-800"
-                className="w-full aspect-square object-cover"
-              />
-            </div>
+            <ImageGallery images={[
+              { src: '/images/product-bg2.jpg', alt: 'BGII-800 Hauptansicht' },
+              { src: '/images/product-bg2-gallery-1.webp', alt: 'BGII-800 Detail' },
+              { src: '/images/product-bg2-gallery-2.webp', alt: 'BGII-800 Seitenansicht' },
+              { src: '/images/product-bg2-gallery-3.webp', alt: 'BGII-800 Nahaufnahme' },
+              { src: '/images/product-bg2-gallery-4.webp', alt: 'BGII-800 Komponenten' },
+              { src: '/images/product-bg2-patent.webp', alt: 'Patentiert' },
+            ]} />
           </div>
 
           {/* Features */}
@@ -118,6 +148,29 @@ function BG2Section() {
                 <span className="text-ecotech-grey font-medium">{benefit}</span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* USPs (Slides 35-38) */}
+        <div className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '390ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">USP – Patentierte Technologie</h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="glass-card p-6">
+              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Patentierte Filterschneckengeometrie</h4>
+              <p className="text-sm text-ecotech-grey/70">Die patentierte Filterschneckengeometrie mit zusätzlichen Schneckenflügeln im Filterbereich sorgt für gesteigerten spezifischen Durchsatz und verringerten Verschleiß.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Patentiertes Stützgehäuse</h4>
+              <p className="text-sm text-ecotech-grey/70">Das patentierte Stützgehäuse stützt den Presssieb und absorbiert den Berstdruck. Ermöglicht höheren Pressdruck und damit höheren TS-Gehalt im Feststoff bei reduziertem Verschleiß.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Automatische TS-Regelung</h4>
+              <p className="text-sm text-ecotech-grey/70">Die automatische TS-Regelung reagiert auf Änderungen in Zulaufmenge und -konsistenz. Erhöht die Prozesssicherheit und ermöglicht konstanten Betriebszustand.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h4 className="text-lg font-bold text-ecotech-grey mb-2">Vollautomatische Wascheinrichtung</h4>
+              <p className="text-sm text-ecotech-grey/70">360° Sprühdüsen verhindern Anhaftungen und Verstopfungen an den Siebkörben. Arbeitet in automatischen Intervallen oder bei händischer Betätigung.</p>
+            </div>
           </div>
         </div>
 
@@ -210,13 +263,13 @@ function BGI400Section() {
           </div>
 
           <div className={`order-1 lg:order-2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-            <div className="glass-card overflow-hidden">
-              <img
-                src="/images/product-bgi400-v2.jpg"
-                alt="Filterschneckenpresse BGI-400"
-                className="w-full aspect-square object-cover"
-              />
-            </div>
+            <ImageGallery images={[
+              { src: '/images/product-bgi400-v2.jpg', alt: 'BGI-400 Hauptansicht' },
+              { src: '/images/product-bgi-gallery-1.webp', alt: 'BGI-400 Detail' },
+              { src: '/images/product-bgi-gallery-2.webp', alt: 'BGI-400 Seitenansicht' },
+              { src: '/images/product-bgi-gallery-3.webp', alt: 'BGI-400 Perspektive' },
+              { src: '/images/product-bgi-gallery-4.webp', alt: 'BGI-400 Nahaufnahme' },
+            ]} />
           </div>
         </div>
 
@@ -266,6 +319,48 @@ function CTASection() {
   );
 }
 
+// Voreindicker Placeholder (#25)
+function VoreindicherSection() {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  return (
+    <section ref={ref} id="voreindicker" className="section-container py-24 lg:py-32 scroll-mt-24">
+      <div className="section-inner">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">Neu</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">Voreindicker / Pre-Thickener</h2>
+          <div className="glass-card p-8 lg:p-12">
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed">Weitere Informationen zu unserem Voreindicker folgen in Kürze. Kontaktieren Sie uns für Details.</p>
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary mt-6 inline-flex">
+              Anfrage stellen <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Circulyizer Placeholder (#26)
+function CirculyizerSection() {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  return (
+    <section ref={ref} id="circulyizer" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
+      <div className="section-inner">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">Neu</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">Circulyizer</h2>
+          <div className="glass-card p-8 lg:p-12">
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed">Weitere Informationen zu unserem Circulyizer folgen in Kürze. Kontaktieren Sie uns für Details.</p>
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulyizer" className="btn-primary mt-6 inline-flex">
+              Anfrage stellen <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ProductsPage() {
   const { t } = useLanguage();
 
@@ -279,6 +374,8 @@ export function ProductsPage() {
 
       <BG2Section />
       <BGI400Section />
+      <VoreindicherSection />
+      <CirculyizerSection />
       <CTASection />
     </main>
   );

@@ -12,7 +12,9 @@ type Route =
   | '/terms'
   | '/privacy'
   | '/imprint'
-  | '/dealers';
+  | '/dealers'
+  | '/sales/ersatzteile'
+  | '/sales/service';
 
 interface RouterContextType {
   path: Route;

@@ -8,17 +8,17 @@ const applications = [
   {
     key: 'agriculture',
     icon: Leaf,
-    image: '/images/app-agriculture.jpg',
+    image: '/images/app-agriculture.webp',
   },
   {
     key: 'bedding',
     icon: Droplets,
-    image: '/images/app-bedding.jpg',
+    image: '/images/app-bedding.webp',
   },
   {
     key: 'biogas',
     icon: Factory,
-    image: '/images/app-biogas.jpg',
+    image: '/images/app-biogas.webp',
   },
   {
     key: 'recycling',
@@ -34,7 +34,7 @@ const applications = [
   {
     key: 'paper',
     icon: FileText,
-    image: '/images/app-paper.jpg',
+    image: '/images/app-paper.webp',
   },
   {
     key: 'mdf',
@@ -44,7 +44,7 @@ const applications = [
   {
     key: 'food',
     icon: Utensils,
-    image: '/images/app-food.png',
+    image: '/images/app-food.webp',
   },
 ];
 
