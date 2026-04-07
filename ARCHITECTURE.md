@@ -6,7 +6,7 @@
 
 Trigger war eine E-Mail von Heinz Leitner (2026-04-07): Anwendungen ohne Subpages, Service/Ersatzteile-Texte nicht voll sichtbar, "Siehe Partner der TCS Umwelttechnik" steht öffentlich auf der Seite. Meeting mit dem Client geplant für **Mittwoch 2026-04-08 15:00**.
 
-**Was gebaut wurde:**
+**Was gebaut wurde — Code & Inhalt:**
 
 1. **TCS-Bug eliminiert** — alle "TCS Umwelttechnik"-Referenzen aus `LanguageContext.tsx` (DE+EN) und `SalesPage.tsx` entfernt. Bug ist tot.
 2. **Vertriebspartner-Finder im TCS-Stil** — neue `PartnerFinder.tsx` Komponente mit `Land wählen` Dropdown. Daten in `src/data/partners.ts` (aktuell nur Pirker + Leitner unter Österreich; andere DACH+CEE-Länder im Dropdown sichtbar mit Empty-State-CTA, damit der Client später einfach Partner anhängen kann).
@@ -16,14 +16,49 @@ Trigger war eine E-Mail von Heinz Leitner (2026-04-07): Anwendungen ohne Subpage
 6. **`/sales` enriched** — substanzielle Preview-Sektionen für Ersatzteile und Service direkt auf der Hauptseite, damit der Client die Inhalte ohne Klick sieht.
 7. **`/sales/service` Prioritäten-Sektion** — drei Tile Cards aus PDF Folie 10 (Hohe Anlagenverfügbarkeit, Niedrigste Aufbereitungskosten, Wartungsfreundliches Design) ergänzt.
 8. **Router** — dynamische `/applications/:slug` Pattern in `App.tsx`, plus `hashchange` Listener in `router.tsx` (Browser-Back/Forward funktioniert jetzt).
-9. **Zu GitHub gepusht** — Commit `a9e823c7` auf `main`. Vercel auto-deployed.
+
+**Was gebaut wurde — neue Bilder vom Client (5 Stück):**
+
+Heinz/Günther haben gegen Ende der Session 5 hochauflösende PNG-Bilder im Asset-Ordner abgelegt:
+- **Source:** `ECOTECH BU_March/Informationen:Content:Daten/Bilder und Videos/Navigation/`
+- **Konvertierung:** PNG → WebP mit `cwebp -q 82` (Total 41 MB → 2 MB, Qualität bleibt erstklassig)
+
+| Source PNG | Neues WebP | Eingebunden in |
+|---|---|---|
+| `Anwendungen Hero.png` (8.6M) | `hero-applications-v2.webp` (324K) | `/applications` Hero — `ApplicationsPage.tsx:181` |
+| `Systemintegration Hero.png` (5.5M) | `hero-systemintegration-v2.webp` (374K) | `/integration` Hero — `IntegrationPage.tsx:21` ⭐ Blueprint-Style — fixt das Close-up-Problem |
+| `Kommunalwirtschaft_Anwendungen.png` (10M) | `app-municipal-v2.webp` (705K) | `kommunale-anwendungen` Karte + Subpage-Hero |
+| `Prozessmedien Abwässer_Anwendungen.png` (10M) | `app-prozessmedien-v2.webp` (323K) | `prozessmedien-und-abwaesser` Karte + Subpage-Hero |
+| `produkte Hero.png` (8.7M) | `hero-products-v2.webp` (285K) | `/products` Hero — `ProductsPage.tsx:347` |
+
+`ErsatzteilePage` und `ServicePage` zeigen weiterhin den alten `hero-products-new.png` — bewusst nicht ersetzt, da der neue Produkt-Hero zu produkt-spezifisch ist.
+
+**Git-State:** alles auf `main` gepusht. Letzte Commits:
+- `a9e823c7` — Subpages, PartnerFinder, TCS removal
+- `9b70f2c2` — Vier neue Hero-Bilder + ARCHITECTURE.md Update
+- `f9b0f943` — Produkte Hero Bild
+
+Vercel auto-deployed.
 
 **Spec-Doc:** `docs/specs/2026-04-08-client-feedback-round-design.md` (vollständige Begründung + Build-Order)
 
 **Wo morgen anfangen:**
-1. Erst auf https://ecotech-nine.vercel.app/ checken ob der Vercel-Deploy sauber durchgelaufen ist.
-2. Meeting mit Heinz Leitner um 15:00 — die offenen Punkte aus dem Markup-Sweep durchgehen (siehe `## Offene Punkte` unten). Vor allem klären: DSC-Fotos für Produktgalerien, Voreindicker/Circulyizer Inhalte, Spareparts-Telefonnummer, Technik/Einkauf-Kontakt.
-3. Nach dem Meeting: priorisierte Liste aus den offenen Punkten abarbeiten.
+1. **Erst Vercel-Deploy verifizieren** — https://ecotech-nine.vercel.app/ — alle 5 neuen Bilder sollten sichtbar sein (Anwendungen, Integration, Kommunal-Subpage, Prozessmedien-Subpage, Products).
+2. **Meeting mit Heinz Leitner um 15:00 (heute, 2026-04-08)** — Agenda:
+   - Zeigen was gebaut wurde (TCS weg, 8 Subpages, Partner-Finder, neue Bilder).
+   - DSC-Fotos für Produktgalerien einfordern (Markup #22, #24).
+   - Voreindicker / Circulyizer Inhalte einfordern (Markup #25, #26).
+   - Spareparts-Telefonnummer und Technik/Einkauf-Kontakt einfordern (PDF hat noch `xxxx` Platzhalter).
+   - Eventuell weitere Bilder einfordern: Vertriebspartner-Hero, Über-uns-Hero, Karriere-Hero (falls Karriere wieder rein soll).
+   - Engineering-Subpages besprechen (PDF hat 2 Seiten Inhalt für Systemintegration Planung + Installation).
+3. **Nach dem Meeting:** priorisierte Liste aus den offenen Punkten abarbeiten — siehe `## Offene Punkte` unten.
+
+**Wichtige Erinnerung:** Workflow für neue Bilder vom Client ist jetzt klar dokumentiert:
+1. Client legt PNG/JPG in `ECOTECH BU_March/Informationen:Content:Daten/Bilder und Videos/<Ordner>/`
+2. Mit `cwebp -q 82 input.png -o output.webp` in `ECOTECH/Ecotech_Website/public/images/` konvertieren
+3. Filename-Konvention: `<context>-<name>-v2.webp` (z. B. `hero-applications-v2.webp`)
+4. Referenzen in den Pages und ggf. in `data/applications.ts` aktualisieren
+5. Build → push → Vercel deployt automatisch
 
 ---
 
@@ -118,16 +153,43 @@ src/
 
 ## Bilder
 
-Alle Bilder in `public/images/`. Formate: WebP bevorzugt, einige noch JPG/PNG.
+Alle Bilder in `public/images/`. Formate: WebP bevorzugt, einige noch JPG/PNG (legacy).
 
+**Hero-Bilder (neu vom Client am 2026-04-08, Suffix `-v2.webp`):**
+- `hero-applications-v2.webp` — `/applications` Hero (3D-Render Separator + Wasserspritzer + Netzwerk-Overlay)
+- `hero-systemintegration-v2.webp` — `/integration` Hero (Blueprint-Stil isometrische Anlagen-Zeichnung mit EcoTech-Logo)
+- `hero-products-v2.webp` — `/products` Hero (Cinematic Close-up der BG-Filterschneckenpresse)
+- `app-municipal-v2.webp` — Kommunale Anwendungen (Foto eines echten Klärwerks)
+- `app-prozessmedien-v2.webp` — Prozessmedien & Abwässer (industrielle Edelstahl-Verrohrung)
+
+**Weitere Heroes:**
 - `hero-home-new.png` — Homepage Hero (NICHT ÄNDERN)
-- `hero-*` — Subpage Heroes
-- `app-*.webp` — Anwendungsbilder (5 neue vom 2026-04-03)
+- `hero-products-new.png` — alter Produkte-Hero, jetzt nur noch in `ErsatzteilePage` und `ServicePage` verwendet
+- `hero-sales-v2.webp` — `/sales` Hero
+- `hero-bg.webp`, `hero-apps-new.png` — alte/legacy Heroes
+
+**Anwendungsbilder (Karten + Subpages):**
+- `app-agriculture.webp`, `app-bedding.webp`, `app-biogas.webp`, `app-recycling.png`, `app-paper.webp` — bestehende Anwendungen
+- `app-municipal-v2.webp`, `app-prozessmedien-v2.webp` — neu (siehe oben)
+- `app-mdf.png`, `app-municipal.jpg`, `app-food.webp` — legacy, nicht mehr direkt referenziert
+
+**Produkt-Bilder:**
 - `product-bg2*.webp` — BGII-800 Gallery (6 Bilder)
 - `product-bgi*.webp` — BGI-400 Gallery (5 Bilder)
+
+**Sonstige:**
 - `team-*.png/.webp` — Teamfotos
 - `logo.png`, `logo-signet.png` — Logos
 - `parallaxhome.png` — Parallax-Sektion
+
+### Konvention für neue Bilder
+
+1. Source vom Client liegt in `ECOTECH BU_March/Informationen:Content:Daten/Bilder und Videos/<Ordner>/`
+2. Konvertieren: `cwebp -q 82 input.png -o output.webp`
+3. Filename: `<context>-<name>-v2.webp` (z. B. `hero-karriere-v2.webp`)
+4. Speichern in `public/images/`
+5. Referenz in der entsprechenden Page oder in `data/applications.ts` aktualisieren
+6. Build → push → Vercel auto-deployt
 
 ## Homepage Section-Reihenfolge
 
