@@ -18,7 +18,7 @@ export function IntegrationPage() {
       <SubpageHero
         title={t('nav.integration')}
         subtitle={t('integration.planning.desc')}
-        image="/images/hero-integration-new.png"
+        image="/images/hero-systemintegration-v2.webp"
       />
 
       {/* Planning Section */}

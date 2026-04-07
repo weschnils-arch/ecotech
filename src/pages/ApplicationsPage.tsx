@@ -178,7 +178,7 @@ export function ApplicationsPage() {
       <SubpageHero
         title={t('applications.title')}
         subtitle={t('applications.page.subtitle')}
-        image="/images/hero-apps-new.png"
+        image="/images/hero-applications-v2.webp"
       />
 
       <section className="section-container py-12 pb-24 lg:pb-32">

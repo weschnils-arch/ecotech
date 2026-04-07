@@ -2,6 +2,31 @@
 
 > Stand: 2026-04-08
 
+## Letzte Session (2026-04-08)
+
+Trigger war eine E-Mail von Heinz Leitner (2026-04-07): Anwendungen ohne Subpages, Service/Ersatzteile-Texte nicht voll sichtbar, "Siehe Partner der TCS Umwelttechnik" steht öffentlich auf der Seite. Meeting mit dem Client geplant für **Mittwoch 2026-04-08 15:00**.
+
+**Was gebaut wurde:**
+
+1. **TCS-Bug eliminiert** — alle "TCS Umwelttechnik"-Referenzen aus `LanguageContext.tsx` (DE+EN) und `SalesPage.tsx` entfernt. Bug ist tot.
+2. **Vertriebspartner-Finder im TCS-Stil** — neue `PartnerFinder.tsx` Komponente mit `Land wählen` Dropdown. Daten in `src/data/partners.ts` (aktuell nur Pirker + Leitner unter Österreich; andere DACH+CEE-Länder im Dropdown sichtbar mit Empty-State-CTA, damit der Client später einfach Partner anhängen kann).
+3. **Alle 8 Anwendungs-Subpages live** — gerendert von einer einzigen `AnwendungLayout.tsx` Komponente, gefüttert aus `src/data/applications.ts`. Inhalte direkt aus `Content Homepage_v1.pdf` übernommen.
+4. **Markup #6/#7 Labels umgesetzt** — "MDF" → "Prozessmedien und Abwässer", "Lebensmittel" → "Nebenprodukte und Abwässer". Sowohl auf den Karten als auch auf den Subpage-h1.
+5. **`AgriculturePage.tsx` gelöscht** — Inhalt in den `landwirtschaft`-Eintrag des Data-Files migriert.
+6. **`/sales` enriched** — substanzielle Preview-Sektionen für Ersatzteile und Service direkt auf der Hauptseite, damit der Client die Inhalte ohne Klick sieht.
+7. **`/sales/service` Prioritäten-Sektion** — drei Tile Cards aus PDF Folie 10 (Hohe Anlagenverfügbarkeit, Niedrigste Aufbereitungskosten, Wartungsfreundliches Design) ergänzt.
+8. **Router** — dynamische `/applications/:slug` Pattern in `App.tsx`, plus `hashchange` Listener in `router.tsx` (Browser-Back/Forward funktioniert jetzt).
+9. **Zu GitHub gepusht** — Commit `a9e823c7` auf `main`. Vercel auto-deployed.
+
+**Spec-Doc:** `docs/specs/2026-04-08-client-feedback-round-design.md` (vollständige Begründung + Build-Order)
+
+**Wo morgen anfangen:**
+1. Erst auf https://ecotech-nine.vercel.app/ checken ob der Vercel-Deploy sauber durchgelaufen ist.
+2. Meeting mit Heinz Leitner um 15:00 — die offenen Punkte aus dem Markup-Sweep durchgehen (siehe `## Offene Punkte` unten). Vor allem klären: DSC-Fotos für Produktgalerien, Voreindicker/Circulyizer Inhalte, Spareparts-Telefonnummer, Technik/Einkauf-Kontakt.
+3. Nach dem Meeting: priorisierte Liste aus den offenen Punkten abarbeiten.
+
+---
+
 ## Projekt
 
 - **Client:** EcoTech Styria GmbH (Köflach, Österreich) — Fest-Flüssig-Separation

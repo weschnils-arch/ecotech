@@ -281,7 +281,7 @@ export const applications: Application[] = [
       de: 'Ressourcenschutz, die Rückführung wiederverwertbarer Stoffe in den Wirtschaftskreislauf und eine kostengünstige Entsorgung auf hohem ökologischen Niveau prägen den kommunalen Alltag. Separationstechnologie unterstützt dabei, komplexe Stoffströme effizient und wirtschaftlich zu behandeln.',
       en: 'Resource protection, returning recyclable materials to the economic cycle, and cost-effective disposal at high ecological standards define municipal operations. Separation technology helps handle complex material streams efficiently and economically.',
     },
-    heroImage: '/images/app-municipal.jpg',
+    heroImage: '/images/app-municipal-v2.webp',
     intro: [
       {
         de: 'Kommunale Betriebe arbeiten entlang komplexer Verfahrensketten: mechanisches Aufbereiten, Zerkleinern sowie mehrstufiges Sieben und Filtern bilden die Grundlage für eine hochwertige Aufbereitung der Abfallstoffe. Strenge Reglementierungen erfordern robuste Technik und zuverlässige Prozessqualität.',
@@ -398,7 +398,7 @@ export const applications: Application[] = [
       de: 'In der Hartfaserplattenproduktion ist die zuverlässige Entfernung von Störstoffen entscheidend. Moderne Separationstechnologie stellt saubere Rohstoffströme sicher und senkt gleichzeitig Entsorgungs- und Betriebskosten.',
       en: 'In hardboard production, reliable removal of contaminants is critical. Modern separation technology ensures clean material streams and simultaneously reduces disposal and operating costs.',
     },
-    heroImage: '/images/app-mdf.png',
+    heroImage: '/images/app-prozessmedien-v2.webp',
     intro: [
       {
         de: 'Für die Herstellung von Hartfaserplatten werden große Mengen an Altpapier eingesetzt. Bevor dieses Material in den Produktionsprozess eingebracht werden kann, müssen Verunreinigungen wie Kunststofffolien, Kunststoffstreifen oder metallische Bestandteile zuverlässig entfernt werden. Nur so lassen sich Anlagenstörungen vermeiden und eine gleichbleibend hohe Produktqualität sicherstellen.',

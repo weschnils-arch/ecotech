@@ -153,9 +153,9 @@ function ApplicationsSection() {
     'bio-einstreu': '/images/app-bedding.webp',
     biogas: '/images/app-biogas.webp',
     kunststoffrecycling: '/images/app-recycling.png',
-    'kommunale-anwendungen': '/images/app-municipal.jpg',
+    'kommunale-anwendungen': '/images/app-municipal-v2.webp',
     'zellstoff-papier': '/images/app-paper.webp',
-    'prozessmedien-und-abwaesser': '/images/app-mdf.png',
+    'prozessmedien-und-abwaesser': '/images/app-prozessmedien-v2.webp',
     'nebenprodukte-und-abwaesser': '/images/app-food.webp',
   };
 
