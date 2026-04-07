@@ -1,168 +1,81 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { SubpageHero } from '@/components/SubpageHero';
+import { PartnerFinder, PartnerFooterCtas } from '@/components/PartnerFinder';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Phone, Settings, Wrench, Package, Send, MessageSquare, Lightbulb, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { Package, Wrench, ArrowRight, Check, Phone, Mail } from 'lucide-react';
 
-// Become Partner Section
-function BecomePartnerSection() {
-  const { t } = useLanguage();
+// Spare Parts preview — substantial preview of /sales/ersatzteile content
+function SparePartsPreviewSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
-  const [formData, setFormData] = useState({ name: '', company: '', email: '', phone: '', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Vielen Dank für Ihr Interesse! Wir werden uns bald bei Ihnen melden.');
-    setFormData({ name: '', company: '', email: '', phone: '', message: '' });
-  };
+  const highlights = [
+    'Erstausrüster-Qualität — passgenau, langlebig, einsatzsicher',
+    'Schneckenaufbereitung — „zweites Leben" für Ihre Pressschnecke',
+    'Kompetente Beratung bei Identifizierung & Bestellung',
+    'Kurze Lieferzeiten direkt vom Hersteller',
+  ];
 
   return (
-    <section ref={ref} className="section-container py-16 lg:py-20 bg-white">
+    <section ref={ref} className="section-container py-20 lg:py-28">
       <div className="section-inner">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              {t('sales.partner.label')}
+              Ersatzteile
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
-              {t('sales.becomePartner.title')}
+            <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6 leading-tight">
+              Originale Ersatzteile — für maximale Maschinenperformance
             </h2>
-            <p className="text-lg text-ecotech-grey/70 mb-8">
-              {t('sales.partner.desc')}
+            <p className="text-lg text-ecotech-grey/70 mb-8 leading-relaxed">
+              Ecotech Styria Ersatzteile stehen für passgenaue Fertigung, hohe Standzeiten und
+              verlässliche Verfügbarkeit. Damit Ihre Anlage dauerhaft wirtschaftlich läuft – mit
+              minimalen Betriebskosten und maximaler Prozesssicherheit.
             </p>
-            <div className="space-y-4 mb-8">
-              <p className="text-ecotech-grey/70 mb-2">
-                {t('sales.partner.tcs')}{' '}
-                <a href="https://www.tcs-umwelttechnik.at/ueber-uns/vertriebspartner/" target="_blank" rel="noopener noreferrer" className="text-ecotech-green font-medium underline hover:no-underline">
-                  {t('sales.partner.tcs.link')}
-                </a>
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
-                  <Settings size={24} className="text-ecotech-green" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.find')}</h4>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
-                  <MessageSquare size={24} className="text-ecotech-green" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.notfound')}</h4>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ecotech-green/10 flex items-center justify-center">
-                  <Lightbulb size={24} className="text-ecotech-green" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-ecotech-grey">{t('sales.partner.become')}</h4>
-                </div>
-              </div>
-            </div>
-            <div className="glass-card p-6">
-              <p className="font-bold text-ecotech-grey mb-2">{t('sales.partner.contact')}</p>
-              <div className="space-y-2 text-sm text-ecotech-grey/70">
-                <p><strong>Günther Pirker</strong> — T: +43 664 155 4896 — g.pirker@ecotechstyria.com</p>
-                <p><strong>Heinz Leitner</strong> — T: +43 664 120 8711 — h.leitner@ecotechstyria.com</p>
-              </div>
+            <ul className="space-y-3 mb-8">
+              {highlights.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/sales/ersatzteile" className="btn-primary">
+                Alle Leistungen ansehen
+                <ArrowRight size={18} />
+              </Link>
+              <a href="mailto:spareparts@ecotechstyria.com" className="btn-secondary">
+                <Mail size={18} />
+                spareparts@ecotechstyria.com
+              </a>
             </div>
           </div>
 
-          <div className="glass-card p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('form.name')}</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('sales.form.company')}</label>
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('form.email')}</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('sales.form.phone')}</label>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-ecotech-grey mb-2">{t('form.message')}</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-ecotech-grey-light focus:border-ecotech-green focus:ring-2 focus:ring-ecotech-green/20 outline-none transition-all resize-none"
-                  placeholder={t('sales.form.placeholder')}
-                />
-              </div>
-              <button type="submit" className="btn-primary w-full justify-center">
-                <Send size={18} />
-                {t('form.submit')}
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Spare Parts Section
-function SparePartsSection() {
-  const { t } = useLanguage();
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
-
-  return (
-    <section ref={ref} className="section-container py-12 lg:py-16">
-      <div className="section-inner">
-        <div className={`glass-card p-8 lg:p-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-xl bg-ecotech-green/10 flex items-center justify-center flex-shrink-0">
-                <Package size={32} className="text-ecotech-green" />
-              </div>
-              <div>
-                <h2 className="text-2xl lg:text-3xl font-bold text-ecotech-grey mb-3">
-                  {t('sales.spareparts.title')}
-                </h2>
-                <p className="text-lg text-ecotech-grey max-w-2xl">
-                  {t('sales.spareparts.desc')}
-                </p>
-              </div>
+          <div className="glass-card p-8 lg:p-10 bg-ecotech-green/5 border-ecotech-green/20">
+            <div className="w-16 h-16 rounded-2xl bg-ecotech-green flex items-center justify-center mb-6 shadow-lg">
+              <Package size={32} className="text-white" />
             </div>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-4 leading-tight">
+              Aufbereitung von Schnecken — Qualität im Kern des Separators
+            </h3>
+            <p className="text-ecotech-grey/70 mb-6 leading-relaxed">
+              Schnecken sind die zentralen Funktionselemente in Separatoren. Ecotech Styria
+              bietet die professionelle Aufbereitung Ihrer Pressschnecke an: gezielte
+              Instandsetzung, Anpassung der Geometrie und erneute Verschleißbeschichtung – für
+              ein zweites Leben Ihrer Schnecke.
+            </p>
             <Link
               to="/sales/ersatzteile"
-              className="btn-primary whitespace-nowrap"
+              className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300"
             >
-              {t('applications.learnMore')}
+              Mehr über Schneckenaufbereitung
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -172,61 +85,86 @@ function SparePartsSection() {
   );
 }
 
-// Service Section
-function ServiceSection() {
-  const { t } = useLanguage();
+// Service preview — substantial preview of /sales/service content
+function ServicePreviewSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  const serviceItems = t('sales.service.items').split('|');
-  const services = [
-    { title: serviceItems[0], desc: serviceItems[1], icon: Settings },
-    { title: serviceItems[2], desc: serviceItems[3], icon: Wrench },
-    { title: serviceItems[4], desc: serviceItems[5], icon: MessageSquare },
-    { title: serviceItems[6], desc: serviceItems[7], icon: Lightbulb },
+  const benefits = [
+    'Ungeplante Ausfallzeiten minimieren',
+    'Maschinenwert langfristig erhalten',
+    'Internen Wartungsaufwand reduzieren',
+    'Kalkulierbare, transparente Servicekosten',
   ];
 
   return (
-    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-grey text-white">
+    <section
+      ref={ref}
+      className="section-container py-20 lg:py-28 bg-ecotech-grey text-white"
+    >
       <div className="section-inner">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            {t('sales.service.support')}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {t('sales.service.title')}
-          </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            {t('sales.service.desc')}
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.title}
-                className={`glass-card-dark p-6 transition-all duration-700 hover:bg-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+        <div
+          className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div>
+            <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
+              Service & Inbetriebnahme
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              Professionelle Wartung mit Ecotech Styria
+            </h2>
+            <p className="text-lg text-white/75 mb-8 leading-relaxed">
+              Regelmäßig gewartete Maschinen sind zuverlässiger und haben weniger ungeplante
+              Ausfälle. Schnelle und kompetente Unterstützung durch unsere erfahrenen
+              Servicetechniker — direkt bei Ihnen im Betrieb.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {benefits.map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <Check size={16} className="text-ecotech-green flex-shrink-0" />
+                  <span className="text-white/85">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/sales/service" className="btn-primary">
+                Service-Leistungen ansehen
+                <ArrowRight size={18} />
+              </Link>
+              <a
+                href="tel:+43314470477"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 border border-white/20"
               >
-                <div className="w-12 h-12 rounded-xl bg-ecotech-green/20 flex items-center justify-center mb-4">
-                  <Icon size={24} className="text-ecotech-green" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">{service.title}</h3>
-                <p className="text-white/60 text-sm">{service.desc}</p>
-              </div>
-            );
-          })}
-        </div>
+                <Phone size={18} />
+                +43 3144 / 70477
+              </a>
+            </div>
+          </div>
 
-        <div className={`mt-12 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
-          <a
-            href="tel:+43314470477"
-            className="inline-flex items-center gap-2 bg-ecotech-green text-white px-8 py-4 rounded-lg font-medium hover:bg-ecotech-green-dark transition-all duration-300"
-          >
-            <Phone size={18} />
-            +43 3144 / 70477
-          </a>
+          <div className="glass-card-dark p-8 lg:p-10">
+            <div className="w-16 h-16 rounded-2xl bg-ecotech-green flex items-center justify-center mb-6 shadow-lg">
+              <Wrench size={32} className="text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 leading-tight">
+              Schlüsselfertige Installation & Inbetriebnahme
+            </h3>
+            <p className="text-white/75 mb-6 leading-relaxed">
+              Auf Wunsch übernehmen wir Installation und Inbetriebnahme Ihrer neuen Maschine
+              oder Anlage – inklusive Einschulung für effizientes und sicheres Arbeiten.
+            </p>
+            <div className="space-y-2 text-sm text-white/70 mb-6">
+              <p>Mo–Do: 08:00 – 16:00</p>
+              <p>Fr: 08:00 – 14:00</p>
+            </div>
+            <Link
+              to="/sales/service"
+              className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300"
+            >
+              Mehr zum Service
+              <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -245,9 +183,10 @@ export function SalesPage() {
         image="/images/hero-sales-v2.webp"
         imagePosition="object-top"
       />
-      <BecomePartnerSection />
-      <SparePartsSection />
-      <ServiceSection />
+      <PartnerFinder />
+      <PartnerFooterCtas />
+      <SparePartsPreviewSection />
+      <ServicePreviewSection />
     </main>
   );
 }

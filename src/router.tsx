@@ -1,11 +1,13 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 
-type Route =
+// Static routes that the router knows about. Application subpages use the
+// dynamic /applications/:slug pattern handled in App.tsx — they're allowed
+// values too but typed as `string` rather than enumerated here.
+export type StaticRoute =
   | '/'
   | '/about'
   | '/sales'
   | '/applications'
-  | '/applications/agriculture'
   | '/products'
   | '/integration'
   | '/news'
@@ -16,6 +18,9 @@ type Route =
   | '/sales/ersatzteile'
   | '/sales/service';
 
+// Any string that begins with /applications/ qualifies as an Anwendung subpage.
+export type Route = StaticRoute | `/applications/${string}`;
+
 interface RouterContextType {
   path: Route;
   navigate: (path: Route) => void;
@@ -23,11 +28,20 @@ interface RouterContextType {
 
 const RouterContext = createContext<RouterContextType | undefined>(undefined);
 
+function readHash(): Route {
+  const hash = window.location.hash.slice(1);
+  return (hash || '/') as Route;
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
-  const [path, setPath] = useState<Route>(() => {
-    const hash = window.location.hash.slice(1) as Route;
-    return hash || '/';
-  });
+  const [path, setPath] = useState<Route>(() => readHash());
+
+  // Sync state with browser back/forward navigation.
+  useEffect(() => {
+    const handleHashChange = () => setPath(readHash());
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const navigate = useCallback((newPath: Route) => {
     setPath(newPath);

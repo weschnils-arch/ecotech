@@ -9,15 +9,23 @@ import { ApplicationsPage } from '@/pages/ApplicationsPage';
 import { ProductsPage } from '@/pages/ProductsPage';
 import { IntegrationPage } from '@/pages/IntegrationPage';
 import { NewsPage } from '@/pages/NewsPage';
-import { AgriculturePage } from '@/pages/AgriculturePage';
+import { AnwendungPage } from '@/pages/AnwendungPage';
 import { TermsPage, PrivacyPage, ImprintPage, DealersPage } from '@/pages/LegalPages';
 import { ErsatzteilePage } from '@/pages/ErsatzteilePage';
 import { ServicePage } from '@/pages/ServicePage';
+
+const APPLICATION_PATH_PREFIX = '/applications/';
 
 function RouterContent() {
   const { path } = useRouter();
 
   const renderPage = () => {
+    // Dynamic Anwendung subpage: /applications/<slug>
+    if (path.startsWith(APPLICATION_PATH_PREFIX) && path !== '/applications') {
+      const slug = path.slice(APPLICATION_PATH_PREFIX.length);
+      return <AnwendungPage slug={slug} />;
+    }
+
     switch (path) {
       case '/':
         return <HomePage />;
@@ -27,8 +35,6 @@ function RouterContent() {
         return <SalesPage />;
       case '/applications':
         return <ApplicationsPage />;
-      case '/applications/agriculture':
-        return <AgriculturePage />;
       case '/products':
         return <ProductsPage />;
       case '/integration':

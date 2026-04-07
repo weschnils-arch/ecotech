@@ -1,8 +1,9 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ArrowRight, ChevronRight, ChevronUp, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronUp, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check, type LucideIcon } from 'lucide-react';
 import { useState } from 'react';
+import { applications as anwendungen } from '@/data/applications';
 
 // Hero Section
 function HeroSection() {
@@ -131,21 +132,32 @@ function AboutSection() {
   );
 }
 
-// Applications Section
+// Applications Section — pulls from the central data file (single source of truth)
 function ApplicationsSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  const applications = [
-    { key: 'agriculture', icon: Leaf, image: '/images/app-agriculture.webp' },
-    { key: 'bedding', icon: Droplets, image: '/images/app-bedding.webp' },
-    { key: 'biogas', icon: Factory, image: '/images/app-biogas.webp' },
-    { key: 'recycling', icon: Recycle, image: '/images/app-recycling.png', imageScale: 'scale-[1.35] origin-top-left group-hover:scale-[1.45]' },
-    { key: 'municipal', icon: Building2, image: '/images/app-municipal.jpg' },
-    { key: 'paper', icon: FileText, image: '/images/app-paper.webp' },
-    { key: 'mdf', icon: Factory, image: '/images/app-mdf.png' },
-    { key: 'food', icon: Utensils, image: '/images/app-food.webp' },
-  ];
+  const ICONS: Record<string, LucideIcon> = {
+    landwirtschaft: Leaf,
+    'bio-einstreu': Droplets,
+    biogas: Factory,
+    kunststoffrecycling: Recycle,
+    'kommunale-anwendungen': Building2,
+    'zellstoff-papier': FileText,
+    'prozessmedien-und-abwaesser': Factory,
+    'nebenprodukte-und-abwaesser': Utensils,
+  };
+
+  const HOMEPAGE_IMAGES: Record<string, string> = {
+    landwirtschaft: '/images/app-agriculture.webp',
+    'bio-einstreu': '/images/app-bedding.webp',
+    biogas: '/images/app-biogas.webp',
+    kunststoffrecycling: '/images/app-recycling.png',
+    'kommunale-anwendungen': '/images/app-municipal.jpg',
+    'zellstoff-papier': '/images/app-paper.webp',
+    'prozessmedien-und-abwaesser': '/images/app-mdf.png',
+    'nebenprodukte-und-abwaesser': '/images/app-food.webp',
+  };
 
   return (
     <section ref={ref} className="section-container py-24 lg:py-32">
@@ -160,19 +172,22 @@ function ApplicationsSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {applications.map((app, index) => {
-            const Icon = app.icon;
+          {anwendungen.map((app, index) => {
+            const Icon = ICONS[app.slug] || Factory;
+            const image = HOMEPAGE_IMAGES[app.slug] || app.heroImage;
+            const title = language === 'de' ? app.cardTitle.de : app.cardTitle.en;
+            const desc = language === 'de' ? app.cardDesc.de : app.cardDesc.en;
             return (
               <Link
-                key={app.key}
-                to={app.key === 'agriculture' ? '/applications/agriculture' : '/applications'}
+                key={app.slug}
+                to={`/applications/${app.slug}` as `/applications/${string}`}
                 className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="relative h-48 overflow-hidden shrink-0">
                   <img
-                    src={app.image}
-                    alt={t(`applications.${app.key}.title`)}
+                    src={image}
+                    alt={title}
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-ecotech-grey/50" />
@@ -183,11 +198,11 @@ function ApplicationsSection() {
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-bold text-ecotech-grey mb-2 group-hover:text-ecotech-green transition-colors">
-                    {t(`applications.${app.key}.title`)}
+                  <h3 className="text-lg font-bold text-ecotech-grey mb-2 group-hover:text-ecotech-green transition-colors leading-tight">
+                    {title}
                   </h3>
-                  <p className="text-sm text-ecotech-grey mb-4 line-clamp-2">
-                    {t(`applications.${app.key}.desc`)}
+                  <p className="text-sm text-ecotech-grey/80 mb-4 line-clamp-2 leading-relaxed">
+                    {desc}
                   </p>
                   <span className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
                     {t('applications.learnMore')}

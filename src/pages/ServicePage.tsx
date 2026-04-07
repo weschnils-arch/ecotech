@@ -1,7 +1,7 @@
 import { SubpageHero } from '@/components/SubpageHero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Check, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Check, Phone, Mail, ArrowRight, Activity, TrendingDown, Wrench } from 'lucide-react';
 
 function ContentSection() {
   const { t } = useLanguage();
@@ -100,6 +100,82 @@ function RegularServiceSection() {
   );
 }
 
+function PrioritaetenSection() {
+  const { language } = useLanguage();
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
+  const prioritaeten = [
+    {
+      icon: Activity,
+      title: language === 'de' ? 'Hohe Anlagenverfügbarkeit' : 'High plant availability',
+      desc:
+        language === 'de'
+          ? 'Robuster Aufbau & klare Hochlaufprozeduren stellen sicher, dass Ihre Anlage zuverlässig läuft.'
+          : 'Robust design and clear ramp-up procedures keep your plant running reliably.',
+    },
+    {
+      icon: TrendingDown,
+      title: language === 'de' ? 'Niedrigste Aufbereitungskosten' : 'Lowest processing costs',
+      desc:
+        language === 'de'
+          ? 'Niedrige Energie- und Verschleißkosten durch optimal abgestimmte Komponenten und Prozessführung.'
+          : 'Low energy and wear costs through perfectly matched components and process control.',
+    },
+    {
+      icon: Wrench,
+      title: language === 'de' ? 'Wartungsfreundliches Design' : 'Maintenance-friendly design',
+      desc:
+        language === 'de'
+          ? 'Saubere Integration und Service-Fokus von Anfang an — schnelle Wartung, planbare Stillstände.'
+          : 'Clean integration and a service focus from the start — fast maintenance, predictable downtime.',
+    },
+  ];
+
+  return (
+    <section ref={ref} className="section-container py-20 lg:py-28 bg-ecotech-grey-light/20">
+      <div className="section-inner">
+        <div
+          className={`max-w-3xl mb-12 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-3 block">
+            {language === 'de' ? 'Prioritäten' : 'Priorities'}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey leading-tight">
+            {language === 'de'
+              ? 'Worauf wir bei Installation & Inbetriebnahme konsequent hin optimieren'
+              : 'What we systematically optimize for during installation & commissioning'}
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {prioritaeten.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.title}
+                className={`glass-card p-8 transition-all duration-700 hover:border-ecotech-green/40 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                <div className="w-14 h-14 rounded-2xl bg-ecotech-green flex items-center justify-center mb-6 shadow-lg">
+                  <Icon size={26} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-ecotech-grey mb-3 leading-tight">
+                  {p.title}
+                </h3>
+                <p className="text-ecotech-grey/70 leading-relaxed">{p.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ServicePage() {
   const { t } = useLanguage();
   return (
@@ -111,6 +187,7 @@ export function ServicePage() {
       />
       <ContentSection />
       <RegularServiceSection />
+      <PrioritaetenSection />
     </main>
   );
 }
