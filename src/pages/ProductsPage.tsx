@@ -344,7 +344,7 @@ export function ProductsPage() {
       <SubpageHero
         title={t('products.title')}
         subtitle={t('productpage.subtitle')}
-        image="/images/hero-products-new.png"
+        image="/images/hero-products-v2.webp"
       />
 
       <BG2Section />
