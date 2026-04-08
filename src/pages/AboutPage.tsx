@@ -2,7 +2,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { SubpageHero } from '@/components/SubpageHero';
 
-import { MapPin, Phone, Mail, Globe, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Send, Briefcase, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
 // Introduction Section
@@ -272,6 +272,57 @@ function LocationSection() {
 
 
 
+// Career Section
+function CareerSection() {
+  const { t } = useLanguage();
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
+  return (
+    <section ref={ref} className="section-container py-24 lg:py-32 bg-ecotech-grey-light/20">
+      <div className="section-inner">
+        <div
+          className={`max-w-5xl mx-auto transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-ecotech-green/10 text-ecotech-green text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+              <Briefcase size={14} />
+              {t('aboutpage.careers.badge')}
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6 leading-tight tracking-tight">
+              {t('aboutpage.careers.title')}
+            </h2>
+          </div>
+
+          <div className="glass-card p-8 lg:p-12 bg-white">
+            <div className="space-y-5 mb-10">
+              <p className="text-lg text-ecotech-grey/80 leading-relaxed">
+                {t('aboutpage.careers.intro')}
+              </p>
+              <p className="text-lg text-ecotech-grey/80 leading-relaxed">
+                {t('aboutpage.careers.intro2')}
+              </p>
+            </div>
+
+            <p className="text-xl lg:text-2xl font-bold text-ecotech-green leading-snug mb-10">
+              {t('aboutpage.careers.tagline')}
+            </p>
+
+            <a
+              href="mailto:office@ecotechstyria.com?subject=Initiativbewerbung"
+              className="inline-flex items-center gap-2 bg-ecotech-green text-white px-8 py-4 rounded-lg font-medium hover:bg-ecotech-green/90 transition-all duration-300 shadow-xl"
+            >
+              {t('aboutpage.careers.ctaLabel')}
+              <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Main AboutPage Component
 export function AboutPage() {
   return (
@@ -280,6 +331,7 @@ export function AboutPage() {
       <TeamSection />
       <VisionSection />
       <ContactSection />
+      <CareerSection />
       <LocationSection />
     </main>
   );

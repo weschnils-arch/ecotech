@@ -126,8 +126,12 @@ const translations = {
 
     'aboutpage.contact.title': 'Kontakt',
     'aboutpage.location.title': 'Standort',
-    'aboutpage.careers.title': 'Karriere – offene Stellen',
-    'aboutpage.careers.text': 'Wir suchen talentierte und motivierte Fachkräfte. Bitte senden Sie Ihre Bewerbung an: office@ecotechstyria.com',
+    'aboutpage.careers.badge': 'Karriere',
+    'aboutpage.careers.title': 'Karriere bei uns',
+    'aboutpage.careers.intro': 'Wir entwickeln technologisch führende Lösungen für die Trennung von flüssigen und festen Stoffen. Als innovatives Unternehmen im Maschinenbau sowie in der Umwelt- und Landtechnik realisieren wir effiziente Maschinen und technische Systeme für die fest-flüssig Trennung.',
+    'aboutpage.careers.intro2': 'Ob Konstruktion, Entwicklung, Fertigung, Service, Projektmanagement oder Vertrieb – du bist Teil technisch anspruchsvoller Projekte mit klarer Verantwortung, kurzen Entscheidungswegen und direktem Kundenbezug.',
+    'aboutpage.careers.tagline': 'Gestalten Sie mit uns leistungsfähige Technik für nachhaltige Prozesse.',
+    'aboutpage.careers.ctaLabel': 'Initiativbewerbung senden',
 
     // Sales Page
     'sales.findPartner.title': 'Vertriebspartner finden',
@@ -467,8 +471,12 @@ const translations = {
 
     'aboutpage.contact.title': 'Contact',
     'aboutpage.location.title': 'Location',
-    'aboutpage.careers.title': 'Careers – Open Positions',
-    'aboutpage.careers.text': 'We are looking for talented and motivated professionals. Please send your application to: office@ecotechstyria.com',
+    'aboutpage.careers.badge': 'Careers',
+    'aboutpage.careers.title': 'Join our team',
+    'aboutpage.careers.intro': 'We develop technologically leading solutions for the separation of liquid and solid materials. As an innovative company in mechanical engineering, environmental technology and agricultural technology, we build efficient machines and technical systems for liquid-solid separation.',
+    'aboutpage.careers.intro2': 'Whether engineering, development, manufacturing, service, project management or sales — you are part of technically demanding projects with clear responsibility, short decision paths and direct customer contact.',
+    'aboutpage.careers.tagline': 'Shape powerful technology for sustainable processes with us.',
+    'aboutpage.careers.ctaLabel': 'Send spontaneous application',
 
     // Sales Page
     'sales.findPartner.title': 'Find a Sales Partner',
