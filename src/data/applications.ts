@@ -45,8 +45,8 @@ export const applications: Application[] = [
       de: 'Gülle ist ein wertvoller Rohstoff und ausgezeichneter biologischer Dünger. Die mechanische Separation reduziert Kosten, vereinfacht Lagerung und Ausbringung und steigert die Düngewirkung nachhaltig.',
       en: 'Slurry is a valuable resource and excellent organic fertilizer. Mechanical separation cuts costs, simplifies storage and application, and sustainably improves fertilizer effectiveness.',
     },
-    heroImage: '/images/hero-agriculture-higgs.png',
-    heroImagePosition: 'object-[95%_center]',
+    heroImage: '/images/hero-home-new.png',
+    heroImagePosition: 'object-center',
     intro: [
       {
         de: 'Durch die Separation wird Gülle in eine flüssige und feste Phase getrennt. Das vereinfacht Lagerung, Transport und Ausbringung und ermöglicht eine gezielte Nutzung der enthaltenen Nährstoffe.',
@@ -225,7 +225,7 @@ export const applications: Application[] = [
       de: 'Kunststoffrecycling ist ein essenzieller Bestandteil der Kreislaufwirtschaft und gewinnt weltweit stetig an Bedeutung. Gleichzeitig steht recyceltes Material in starkem Preiswettbewerb mit Primärkunststoffen – daher hat die Kostenoptimierung des Aufbereitungsprozesses höchste Priorität.',
       en: 'Plastic recycling is an essential part of the circular economy and is gaining importance worldwide. At the same time, recycled material competes intensely on price with virgin plastics — making cost optimization of the recycling process a top priority.',
     },
-    heroImage: '/images/app-recycling.png',
+    heroImage: '/images/app-recycling-v2.webp',
     intro: [
       {
         de: 'Der Aufbereitungsprozess umfasst typischerweise: Aufbereiten, Waschen, Trennen, Sortieren, Entwässern, Weiterverarbeiten sowie das Rückgewinnen von Rohstoffen, Prozessmedien und Abwässern. Genau hier setzen Ecotech Separatoren an.',

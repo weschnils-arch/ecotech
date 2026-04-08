@@ -152,7 +152,7 @@ function ApplicationsSection() {
     landwirtschaft: '/images/app-agriculture.webp',
     'bio-einstreu': '/images/app-bedding.webp',
     biogas: '/images/app-biogas.webp',
-    kunststoffrecycling: '/images/app-recycling.png',
+    kunststoffrecycling: '/images/app-recycling-v2.webp',
     'kommunale-anwendungen': '/images/app-municipal-v2.webp',
     'zellstoff-papier': '/images/app-paper.webp',
     'prozessmedien-und-abwaesser': '/images/app-prozessmedien-v2.webp',

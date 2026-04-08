@@ -175,7 +175,7 @@ export function ErsatzteilePage() {
       <SubpageHero
         title={t('sales.spareparts.title')}
         subtitle={t('ersatzteile.hero.badge')}
-        image="/images/hero-products-new.png"
+        image="/images/hero-products-v2.webp"
       />
       <HeroSection />
       <BeratungSection />

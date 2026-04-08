@@ -120,7 +120,7 @@ function ApplicationCard({ slug, title, desc, index }: ApplicationCardProps) {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   const Icon = ICONS[slug] || Factory;
   const app = applications.find(a => a.slug === slug);
-  const image = app?.heroImage || '/images/app-recycling.png';
+  const image = app?.heroImage || '/images/app-recycling-v2.webp';
 
   return (
     <div
