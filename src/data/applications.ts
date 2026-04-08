@@ -45,7 +45,7 @@ export const applications: Application[] = [
       de: 'Gülle ist ein wertvoller Rohstoff und ausgezeichneter biologischer Dünger. Die mechanische Separation reduziert Kosten, vereinfacht Lagerung und Ausbringung und steigert die Düngewirkung nachhaltig.',
       en: 'Slurry is a valuable resource and excellent organic fertilizer. Mechanical separation cuts costs, simplifies storage and application, and sustainably improves fertilizer effectiveness.',
     },
-    heroImage: '/images/hero-home-new.png',
+    heroImage: '/images/app-agriculture.webp',
     heroImagePosition: 'object-center',
     intro: [
       {
