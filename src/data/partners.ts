@@ -20,20 +20,6 @@ export interface Partner {
 
 export const partners: Partner[] = [
   {
-    id: 'at-pirker',
-    country: 'Österreich',
-    countryEn: 'Austria',
-    company: 'Ecotech Styria GmbH',
-    contactPerson: 'Günther Pirker',
-    role: 'CSO',
-    street: 'Judenburgerstraße 176',
-    postalCode: 'A-8580',
-    city: 'Köflach',
-    phone: '+43 664 155 4896',
-    email: 'g.pirker@ecotechstyria.com',
-    website: 'https://ecotechstyria.com',
-  },
-  {
     id: 'at-leitner',
     country: 'Österreich',
     countryEn: 'Austria',
