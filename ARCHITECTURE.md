@@ -1,8 +1,57 @@
 # EcoTech Styria — Website Architecture
 
-> Stand: 2026-04-08
+> Stand: 2026-04-08 (2. Update — nachmittags, vor Meeting 15:00)
 
-## Letzte Session (2026-04-08)
+## Letzte Session (2026-04-08 — Nachmittag)
+
+Zweite Runde am 2026-04-08 direkt vor dem Client-Meeting (15:00). Günther Pirker hatte Feedback per E-Mail geschickt, Nils hat nach der ersten Subpages-Runde weitere Anpassungen angestoßen.
+
+**Was gebaut wurde — 2. Durchgang:**
+
+1. **`/integration` komplett neu gebaut** — `IntegrationPage.tsx` entsprach nicht dem Client-Slide "Systemintegration – Installation und Inbetriebnahme". Kompletter Rewrite mit neuer Struktur:
+   - Hero ("Alles aus einer Hand – von der Idee bis zur Umsetzung" als Subtitle)
+   - Overview-Sektion: weiße Karte mit 2 Absätzen (inkl. bold "Sie kümmern sich um Ihr Geschäft") + **grüne Prioritäten-Karte** mit 4 Tiles (Anlagenverfügbarkeit / Aufbereitungskosten / Wartungsfreundliches Design / Prozessstabilität)
+   - Leistung-Sektion (2-Col): "Unsere Leistung – von Planung bis Hochlauf" (4 Checkmark-Steps) + "Leistungspaket über Partnernetzwerk" (4 Services + grüne "Ihr Vorteil" Box)
+   - Grüne CTA-Bar mit mailto-Button
+   - Kontakt-Block (Eckdaten einsenden)
+   - Alle alten generischen i18n-Keys (`integration.planning.*`, `integration.benefits.*`, `integration.service.*`) durch neue Keys ersetzt (`integration.hero/overview/priorities/leistung/partner/cta/kontakt.*`), DE + EN. Commit `8c9d5816`.
+
+2. **Karriere-Sektion wieder auf `/about`** — neue `CareerSection` Komponente zwischen Kontakt und Standort. Inhalt aus PDF Slide 6: 2 Intro-Absätze, grüne Tagline "Gestalten Sie mit uns leistungsfähige Technik...", mailto-Button "Initiativbewerbung senden". Neue i18n-Keys `aboutpage.careers.badge/title/intro/intro2/tagline/ctaLabel`. Commit `c881d7d2`.
+
+3. **Landwirtschaft Subpage Hero = Kühe-im-Stall Foto** — `app-agriculture.webp` (wie Homepage-Karte), weg vom vorher kurz getesteten `hero-home-new.png`. Commits `bd549c22` + `13872bcd`.
+
+4. **Kunststoffrecycling-Foto vom Client eingebaut** — echtes Foto einer Recyclinganlage (Förderbänder, Kunststoff-Granulat in Big-Bags) aus `ECOTECH BU_March/Anpassungen.1April/Anwendungen/Kunststoffrecylcing.png` (10M → 668K als `app-recycling-v2.webp`). Referenziert in `HomePage.tsx:155`, `applications.ts:228`, `ApplicationsPage.tsx:123`. Commit `13872bcd`.
+
+5. **Ersatzteile-Hero jetzt = Products-Hero** — `ErsatzteilePage.tsx:178` nutzt `hero-products-v2.webp` (statt altem `hero-products-new.png`). Damit sieht `/sales/ersatzteile` konsistent mit `/products` aus. Commit `13872bcd`.
+
+6. **Günther Pirker aus Vertriebspartnern entfernt** — nur noch Heinz Leitner (CEO) in `data/partners.ts` unter Österreich. Pirker-Eintrag komplett gelöscht (Nils will nur einen Ansprechpartner im PartnerFinder). Commit `7457df72`.
+
+**Git-State:** alles auf `main` gepusht. Letzte 6 Commits dieser Runde:
+- `8c9d5816` — `/integration` komplett neu gebaut aus Client-Slide
+- `c881d7d2` — Karriere-Sektion wieder in `/about`
+- `7457df72` — Nur noch Heinz Leitner im Vertriebspartner-Finder
+- `bd549c22` — Landwirtschaft Subpage Hero = Kühe-im-Stall Foto
+- `13872bcd` — Landwirtschaft+Ersatzteile Heroes swap, echtes Kunststoff-Recycling Foto
+- `e00fd913` — ARCHITECTURE.md Update (erste Runde)
+
+Vercel auto-deployed.
+
+**Wo beim nächsten Mal anfangen:**
+
+1. **Meeting mit Heinz & Günther um 15:00 Nachbesprechung** — was wurde entschieden, welche offenen Punkte sind jetzt Priorität?
+2. **Fehlende Client-Inputs nachhaken** (siehe "Offene Punkte" unten):
+   - Spareparts Telefon (+43 xxxxxx Platzhalter)
+   - Service E-Mail + Telefon (xxxx Platzhalter)
+   - Technik/Einkauf Ansprechpartner
+   - Bio-Einstreu Texte freigeben (wir haben eigenen Text geschrieben, PDF hatte nur "KI Bild" Platzhalter)
+3. **Echte Anlagen-Montage Fotos** für `/integration` (Client-Notiz am PDF-Slide: "KI Bilder Anlagenmontage, sollten noch ausgetauscht werden" — derzeit haben wir keine Montagebilder im Integration-Page)
+4. **DSC-Fotos BGII-800 + BGI-400** (Markup #22, #24) für Produktgalerien
+5. **Voreindicker + Circulyizer** (Markup #25, #26) — Fotos + Produktinfos (Slides 3+4)
+6. **Engineering-Subpages?** — PDF hat 2 eigene Slides (Systemintegration Planung + Installation/Inbetriebnahme). Aktuell sind beide Inhalte zusammen auf der einzelnen `/integration` Seite (neu gebaut). Falls der Client doch getrennte Subpages will → aufsplitten.
+
+---
+
+## Letzte Session (2026-04-08 — Vormittag)
 
 Trigger war eine E-Mail von Heinz Leitner (2026-04-07): Anwendungen ohne Subpages, Service/Ersatzteile-Texte nicht voll sichtbar, "Siehe Partner der TCS Umwelttechnik" steht öffentlich auf der Seite. Meeting mit dem Client geplant für **Mittwoch 2026-04-08 15:00**.
 
@@ -250,9 +299,12 @@ Statt 8 hardcoded Routen gibt es eine Pattern-Match in `App.tsx`: `path.startsWi
 - [ ] Markup #25/#26 — Voreindicker und Circulyizer als 3./4. Produkt mit Platzhalter-Infos
 - [ ] Markup #28 — Über uns Sektion mit Folien 26-27 erweitern
 - [ ] Markup #13 — Team-Texte für 4 Personen aus Folie 3 in About prüfen
-- [ ] Karriere-Sektion (Folie 6) — entfernt, ggf. wiederherstellen
-- [ ] Engineering-Subpages (Systemintegration Planung + Installation/Inbetriebnahme) — Inhalt im PDF, derzeit gemischt in `/integration`
+- [x] **Karriere-Sektion wieder auf `/about`** — erledigt 2026-04-08 (Commit `c881d7d2`)
+- [ ] Engineering-Subpages — `/integration` ist jetzt komplett neu gebaut mit allen Inhalten aus dem Slide. Falls der Client doch getrennte Subpages für Planung vs. Installation will → aufsplitten.
+- [ ] **Echte Anlagen-Montage Fotos für `/integration`** — Client-Notiz: "KI Bilder Anlagenmontage, sollten noch ausgetauscht werden" (aktuell keine Montagebilder auf der Seite, nur Hero)
 - [ ] Über uns "Next Level Separation" Rewrite (Folie 2)
-- [ ] Hero-Bilder für die neuen Anwendungs-Subpages aufwerten (KI / neue Fotos)
+- [ ] Hero-Bilder für die Anwendungs-Subpages aufwerten (bis auf Landwirtschaft/Kommunal/Prozessmedien/Kunststoff haben wir noch Legacy-Bilder für Bio-Einstreu, Biogas, Zellstoff, Nebenprodukte)
 - [ ] Kontakt-Daten Spareparts (Telefon) und Technik/Einkauf (xxxx-Platzhalter im PDF) — Client muss liefern
+- [ ] Bio-Einstreu Texte vom Client freigeben — PDF hatte nur "KI Bild" Platzhalter, wir haben eigenen Text geschrieben
 - [ ] Produkt-Bild BGII-800: Flüssigkeit außen statt Festkörper (Punkt 17)
+- [ ] Nebenprodukte-Subpage: Schlachthausabwasser + Fischproduktion ergänzen (PDF Slide 13)
