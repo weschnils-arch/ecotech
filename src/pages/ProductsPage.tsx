@@ -162,7 +162,7 @@ function BG2Section() {
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                 <p className="text-sm text-ecotech-grey mb-1">{item.label}</p>
-                <p className="font-bold text-ecotech-grey">{item.value}</p>
+                <p className="font-bold text-ecotech-grey whitespace-pre-line leading-snug">{item.value}</p>
               </div>
             ))}
           </div>
@@ -194,11 +194,11 @@ function BGI400Section() {
   const features = t('productpage.bgi400.features').split('|');
 
   const technicalData = [
-    { label: 'Antrieb', value: '2,2 - 3,0 kW' },
-    { label: 'Durchsatz', value: 'bis zu 20m³/h' },
-    { label: 'Spaltweite', value: '100 - 1000µm' },
-    { label: 'TS-Gehalt organische Fasern', value: 'bis zu 42%' },
-    { label: 'TS-Gehalt anorganische Fasern', value: 'bis zu 75%' },
+    { label: t('productpage.bgi400.tech.drive'), value: t('productpage.bgi400.tech.drive.val') },
+    { label: t('productpage.bgi400.tech.throughput'), value: t('productpage.bgi400.tech.throughput.val') },
+    { label: t('productpage.bgi400.tech.gap'), value: t('productpage.bgi400.tech.gap.val') },
+    { label: t('productpage.bgi400.tech.dry_org'), value: t('productpage.bgi400.tech.dry_org.val') },
+    { label: t('productpage.bgi400.tech.dry_inorg'), value: t('productpage.bgi400.tech.dry_inorg.val') },
   ];
 
   return (
@@ -247,7 +247,7 @@ function BGI400Section() {
 
         {/* Technical Data */}
         <div className={`glass-card p-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
-          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">Technische Daten</h3>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bgi400.tech.title')}</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
@@ -302,9 +302,17 @@ function VoreindicherSection() {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.voreindicker.title')}</h2>
-          <div className="glass-card p-8 lg:p-12">
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed">{t('productpage.voreindicker.desc')}</p>
-            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary mt-6 inline-flex">
+          <div className="glass-card p-12 lg:p-16 text-center">
+            <span className="inline-block px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
+              {t('productpage.comingSoon')}
+            </span>
+            <h3 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
+              {t('productpage.voreindicker.tagline')}
+            </h3>
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed max-w-2xl mx-auto mb-8">
+              {t('productpage.voreindicker.intro')}
+            </p>
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary inline-flex">
               {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
           </div>

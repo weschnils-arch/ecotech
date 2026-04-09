@@ -25,6 +25,11 @@ export interface Application {
   ctaTitle: Bilingual;
   ctaDesc: Bilingual;
   ctaLabel: Bilingual;
+  // Optional additional highlight box (rendered between intro and Vorteile section)
+  highlightBox?: {
+    title: Bilingual;
+    paragraphs: Bilingual[];
+  };
 }
 
 export const applications: Application[] = [
@@ -57,8 +62,20 @@ export const applications: Application[] = [
         en: 'A key benefit is reducing required storage by up to 30 %. Footprint and investment costs for slurry pits drop significantly. The separated solids work as natural fertilizer, compost or bio-bedding material.',
       },
       {
-        de: 'Separierte Gülle bildet kaum Sink- oder Schwimmschichten. Aufrühren und Ausbringen werden einfacher und gleichmäßiger. Die dünne Phase dringt rasch in den Boden ein und stellt Nährstoffe schnell zur Verfügung. Zusätzlich werden Geruchsemissionen deutlich reduziert.',
-        en: 'Separated slurry barely forms sinking or floating layers. Stirring and spreading become easier and more uniform. The thin phase rapidly infiltrates the soil and delivers nutrients quickly. Odor emissions are also significantly reduced.',
+        de: 'Separierte Gülle bildet kaum Sink- oder Schwimmschichten. Aufrühren und Ausbringen werden einfacher und gleichmäßiger.',
+        en: 'Separated slurry barely forms sinking or floating layers. Stirring and spreading become easier and more uniform.',
+      },
+      {
+        de: 'Durch die Trennung in flüssige und feste Phase können Nährstoffe gezielt und bedarfsgerecht eingesetzt werden. Der Einsatz von Mineraldünger wird reduziert, während die Nährstoffaufnahme der Pflanzen verbessert wird. Zusätzlich kann die flüssige Phase – frei von Feststoffen – als Reinigungswasser am Betrieb genutzt werden.',
+        en: 'Splitting slurry into a liquid and a solid phase allows nutrients to be applied in a targeted, demand-based way. The need for mineral fertilizer is reduced, while plants take up nutrients more efficiently. The liquid phase — free of solids — can also be reused as cleaning water on the farm.',
+      },
+      {
+        de: 'Die dünne, separierte Phase dringt sehr rasch in den Boden ein und stellt den Pflanzen die benötigten Nährstoffe schnell zur Verfügung. Im Gegensatz dazu neigt unseparierte Gülle zur Bildung sogenannter „Güllewürste", was zu Futterverschmutzung im Grünland führt. Die Folgen sind Fehlgärungen bei der Silage sowie eine verminderte Raufutterqualität.',
+        en: 'The thin, separated phase infiltrates the soil very quickly and delivers the nutrients plants need without delay. Unseparated slurry, by contrast, tends to form so-called "slurry crusts" („Güllewürste"), which contaminate forage on grassland. The consequences are silage misfermentation and reduced roughage quality.',
+      },
+      {
+        de: 'Nicht zuletzt trägt die Gülleseparation maßgeblich zur Reduktion von Geruchsemissionen bei – ein entscheidender Vorteil, insbesondere für Tierhaltungsbetriebe und Biogasanlagen in der Nähe von Wohngebieten.',
+        en: 'Not least, slurry separation contributes significantly to reducing odor emissions — a decisive advantage, especially for livestock operations and biogas plants located near residential areas.',
       },
     ],
     kurzfakten: [
@@ -232,8 +249,8 @@ export const applications: Application[] = [
         en: 'The recycling process typically includes preparation, washing, separation, sorting, dewatering, further processing, and recovering raw materials, process media and wastewater. This is exactly where Ecotech separators add value.',
       },
       {
-        de: 'Ecotech Separatoren werden dabei je nach Prozessstufe eingesetzt – zum Filtern, Sedimentieren, Flotieren, Zentrifugieren oder Pressen. Vielfach können energie- und wartungsintensive Aggregate (z. B. klassische Zentrifugen) ersetzt werden. Grundlage ist eine gründliche Analyse Ihrer Anlage.',
-        en: 'Ecotech separators are deployed at various process steps — filtering, sedimenting, flotation, centrifuging or pressing. They often replace energy- and maintenance-intensive equipment such as classical centrifuges. The starting point is a thorough analysis of your plant.',
+        de: 'Ecotech Separatoren werden dabei je nach Prozessstufe eingesetzt – zum Filtern, Sedimentieren, Flotieren oder Pressen. Vielfach können energie- und wartungsintensive Aggregate (z. B. klassische Zentrifugen) ersetzt werden. Grundlage ist eine gründliche Analyse Ihrer Anlage.',
+        en: 'Ecotech separators are deployed at various process steps — filtering, sedimenting, flotation or pressing. They often replace energy- and maintenance-intensive equipment such as classical centrifuges. The starting point is a thorough analysis of your plant.',
       },
     ],
     kurzfakten: [
@@ -250,11 +267,11 @@ export const applications: Application[] = [
       { de: 'Weniger Energie- und Wartungsaufwand durch potenziellen Ersatz klassischer Zentrifugen', en: 'Lower energy & maintenance via potential replacement of classical centrifuges' },
     ],
     typischeAnwendungen: [
+      { de: 'Einsatz im Gut-Strom in Wasch- und Trockenstufen zur Qualitätssteigerung', en: 'Use in clean-stream washing & drying stages to improve quality' },
       { de: 'Abwasserbehandlung aus Wasch- und Reinigungsstufen (Filtern / Sedimentieren)', en: 'Wastewater treatment from washing & cleaning stages (filtering / sedimenting)' },
       { de: 'Entwässerung von Störstoffen und Feststoffen zur Volumen-/Gewichtsreduktion', en: 'Dewatering of contaminants and solids for volume/weight reduction' },
       { de: 'Abscheidung abrasiver Bestandteile (z. B. Sand) zum Schutz der Anlagenkomponenten', en: 'Removal of abrasive components (e.g. sand) to protect plant components' },
       { de: 'Rückgewinnung von Wertstoffen aus Prozessmedien und Abwässern', en: 'Recovery of valuable materials from process media and wastewater' },
-      { de: 'Einsatz im Gut-Strom in Wasch- und Trockenstufen zur Qualitätssteigerung', en: 'Use in clean-stream washing & drying stages to improve quality' },
     ],
     ctaTitle: { de: 'Lassen Sie uns Ihren Aufbereitungsprozess evaluieren', en: 'Let us evaluate your recycling process' },
     ctaDesc: {
@@ -278,8 +295,8 @@ export const applications: Application[] = [
       en: 'Municipal Applications',
     },
     subtitle: {
-      de: 'Ressourcenschutz, die Rückführung wiederverwertbarer Stoffe in den Wirtschaftskreislauf und eine kostengünstige Entsorgung auf hohem ökologischen Niveau prägen den kommunalen Alltag. Separationstechnologie unterstützt dabei, komplexe Stoffströme effizient und wirtschaftlich zu behandeln.',
-      en: 'Resource protection, returning recyclable materials to the economic cycle, and cost-effective disposal at high ecological standards define municipal operations. Separation technology helps handle complex material streams efficiently and economically.',
+      de: 'Städte und Gemeinden stehen dabei vor der Aufgabe, komplexe Stoffströme sicher, wirtschaftlich und gesetzeskonform zu behandeln. Der Alltag in kommunalen Betrieben ist geprägt von anspruchsvollen Prozessketten: mechanisches Aufbereiten, Zerkleinern sowie mehrstufiges Sieben und Filtern bilden die Grundlage für eine hochwertige Aufbereitung der Abfallstoffe.',
+      en: 'Cities and municipalities face the task of handling complex material streams safely, economically, and in compliance with regulations. Day-to-day operations in municipal facilities are shaped by demanding process chains: mechanical preparation, shredding, and multi-stage screening and filtering form the foundation for high-quality treatment of waste materials.',
     },
     heroImage: '/images/app-municipal-v2.webp',
     intro: [
@@ -326,8 +343,8 @@ export const applications: Application[] = [
     slug: 'zellstoff-papier',
     cardTitle: { de: 'Zellstoff & Papier', en: 'Pulp & Paper' },
     cardDesc: {
-      de: 'Mechanische Abwasserreinigung mit hoher Feststoffabscheidung – inklusive Mikroplastik – bei reduziertem Einsatz von Flockungsmitteln.',
-      en: 'Mechanical wastewater treatment with high solid removal — including microplastics — with reduced use of flocculants.',
+      de: 'Mechanische Abwasserreinigung mit hoher Feststoffabscheidung bei reduziertem Einsatz von Flockungsmitteln.',
+      en: 'Mechanical wastewater treatment with high solid removal and reduced use of flocculants.',
     },
     badge: { de: 'Anwendung', en: 'Application' },
     title: {
@@ -345,8 +362,8 @@ export const applications: Application[] = [
         en: 'Up to 50 m³ of wastewater are produced per tonne of paper for manufacturing, auxiliary and cleaning purposes — the volume varies depending on whether recycled or virgin-pulp paper is produced.',
       },
       {
-        de: 'Ecotech Styria Separatoren übernehmen bei der Abwasserreinigung eine wichtige Rolle: Sie separieren einen hohen Anteil fester Stoffe – darunter auch Mikroplastik – mechanisch aus den Abwässern. Gleichzeitig kann der Einsatz von Flockungsmitteln wie Polyacrylamid deutlich reduziert werden.',
-        en: 'Ecotech Styria separators play a key role in wastewater treatment: they mechanically remove a high share of solids — including microplastics. At the same time, flocculant use such as polyacrylamide can be significantly reduced.',
+        de: 'Ecotech Styria Separatoren übernehmen bei der Abwasserreinigung eine wichtige Rolle: Sie separieren einen hohen Anteil fester Stoffe mechanisch aus den Abwässern. Gleichzeitig kann der Einsatz von Flockungsmitteln wie Polyacrylamid deutlich reduziert werden.',
+        en: 'Ecotech Styria separators play a key role in wastewater treatment: they mechanically remove a high share of solids from the wastewater. At the same time, flocculant use such as polyacrylamide can be significantly reduced.',
       },
       {
         de: 'Mit Ecotech Styria Separatoren sichern Zellstoff- und Papierfabriken eine wirtschaftliche, ressourcenschonende und umweltgerechte Abwasserbehandlung – und stärken gleichzeitig ihre Zukunftsfähigkeit.',
@@ -355,7 +372,7 @@ export const applications: Application[] = [
     ],
     kurzfakten: [
       { de: 'Bis 50 m³ Abwasser pro Tonne Papier', en: 'Up to 50 m³ of wastewater per tonne of paper' },
-      { de: 'Mechanische Feststoffabscheidung inkl. Mikroplastik', en: 'Mechanical solid removal incl. microplastics' },
+      { de: 'Mechanische Feststoffabscheidung', en: 'Mechanical solid removal' },
       { de: 'Reduzierter Bedarf an Flockungsmitteln (z. B. Polyacrylamid)', en: 'Reduced need for flocculants (e.g. polyacrylamide)' },
     ],
     vorteile: [
@@ -383,22 +400,22 @@ export const applications: Application[] = [
 
   // 7. Prozessmedien und Abwässer (renamed from MDF/Holzfaserplatten per markup #6)
   {
-    slug: 'prozessmedien-und-abwaesser',
-    cardTitle: { de: 'Prozessmedien und Abwässer', en: 'Process Media & Wastewater' },
+    slug: 'mdf-platten',
+    cardTitle: { de: 'MDF Platten', en: 'MDF Boards' },
     cardDesc: {
       de: 'Saubere Stoffströme für stabile Prozesse — Entfernung von Kunststoffen und Metallen aus Altpapier-Aufbereitung.',
       en: 'Clean material streams for stable processes — removal of plastics and metals from waste paper recycling.',
     },
     badge: { de: 'Anwendung', en: 'Application' },
     title: {
-      de: 'Prozessmedien und Abwässer',
-      en: 'Process Media and Wastewater',
+      de: 'MDF Platten',
+      en: 'MDF Boards',
     },
     subtitle: {
       de: 'In der Hartfaserplattenproduktion ist die zuverlässige Entfernung von Störstoffen entscheidend. Moderne Separationstechnologie stellt saubere Rohstoffströme sicher und senkt gleichzeitig Entsorgungs- und Betriebskosten.',
       en: 'In hardboard production, reliable removal of contaminants is critical. Modern separation technology ensures clean material streams and simultaneously reduces disposal and operating costs.',
     },
-    heroImage: '/images/app-prozessmedien-v2.webp',
+    heroImage: '/images/app-mdf-v2.webp',
     intro: [
       {
         de: 'Für die Herstellung von Hartfaserplatten werden große Mengen an Altpapier eingesetzt. Bevor dieses Material in den Produktionsprozess eingebracht werden kann, müssen Verunreinigungen wie Kunststofffolien, Kunststoffstreifen oder metallische Bestandteile zuverlässig entfernt werden. Nur so lassen sich Anlagenstörungen vermeiden und eine gleichbleibend hohe Produktqualität sicherstellen.',
@@ -442,34 +459,38 @@ export const applications: Application[] = [
 
   // 8. Nebenprodukte und Abwässer (renamed from Lebensmittelindustrie per markup #7)
   {
-    slug: 'nebenprodukte-und-abwaesser',
-    cardTitle: { de: 'Nebenprodukte und Abwässer', en: 'By-products & Wastewater' },
+    slug: 'lebensmittelindustrie',
+    cardTitle: { de: 'Lebensmittelindustrie', en: 'Food Industry' },
     cardDesc: {
       de: 'Effiziente Entwässerung von Nebenprodukten und Abwässern — aus Wertstoffen werden Einsparpotenziale.',
       en: 'Efficient dewatering of by-products and wastewater — turn waste streams into savings.',
     },
     badge: { de: 'Anwendung', en: 'Application' },
     title: {
-      de: 'Nebenprodukte und Abwässer',
-      en: 'By-products and Wastewater',
+      de: 'Lebensmittelindustrie',
+      en: 'Food Industry',
     },
     subtitle: {
       de: 'Separation trennt Nebenprodukte und Abwässer zuverlässig in Fest- und Flüssigphase, reduziert Volumen und schafft die Grundlage für eine wirtschaftliche Weiterverwertung.',
       en: 'Separation reliably splits by-products and wastewater into solid and liquid phases, reducing volume and creating the foundation for economical reuse.',
     },
-    heroImage: '/images/app-food.webp',
+    heroImage: '/images/app-lebensmittel-v2.webp',
     intro: [
       {
-        de: 'In der Lebensmittelindustrie fallen entlang der gesamten Wertschöpfungskette große Mengen an feuchten Nebenprodukten, Rückständen und Abwässern an. Moderne Separationstechnik ermöglicht hier eine wirtschaftliche und ressourcenschonende Aufbereitung.',
-        en: 'The food industry generates large quantities of moist by-products, residues and wastewater along the entire value chain. Modern separation technology enables economical and resource-efficient processing.',
+        de: 'In der Lebensmittelindustrie fallen entlang der gesamten Wertschöpfungskette große Mengen an feuchten Nebenprodukten, Rückständen und Abwässern an. Moderne Separationstechnik ermöglicht hier eine wirtschaftliche und ressourcenschonende Aufbereitung. Die Einsatzbereiche reichen vom Auspressen von Abwasser aus Obst- und Gemüseabfällen – etwa Kartoffelschalen – über die Trennung von Speiseresten auf Kreuzfahrtschiffen bis hin zur zuverlässigen Entwässerung von Getreideschlempe in Brennereien oder Treber in Brauereien.',
+        en: 'The food industry generates large quantities of moist by-products, residues and wastewater along the entire value chain. Modern separation technology enables economical and resource-efficient processing. Applications range from pressing wastewater out of fruit and vegetable scraps — such as potato peels — through separating food waste on cruise ships, all the way to reliable dewatering of grain mash in distilleries or spent grains in breweries.',
       },
       {
-        de: 'Der Nutzen ist klar messbar: Durch die mechanische Trennung in feste und flüssige Phasen lässt sich das Abfallvolumen deutlich reduzieren – in vielen Fällen um bis zu 30 %. Das vereinfacht die Entsorgung erheblich, senkt Transport- und Entsorgungskosten und eröffnet neue Möglichkeiten zur Weiterverwertung der separierten Stoffe.',
-        en: 'The benefit is clearly measurable: mechanical separation into solid and liquid phases significantly reduces waste volume — often by up to 30 %. Disposal becomes much easier, transport and disposal costs drop, and new reuse possibilities open up.',
+        de: 'Der Nutzen ist klar messbar: Durch die mechanische Trennung in feste und flüssige Phasen lässt sich das Abfallvolumen deutlich reduzieren – in vielen Fällen um bis zu 30 %. Das vereinfacht die Entsorgung erheblich, senkt Transport- und Entsorgungskosten und eröffnet neue Möglichkeiten zur Weiterverwertung der separierten Stoffe. Gleichzeitig werden Zeit sowie Investitions- und Betriebskosten nachhaltig eingespart.',
+        en: 'The benefit is clearly measurable: mechanical separation into solid and liquid phases significantly reduces waste volume — often by up to 30 %. Disposal becomes much easier, transport and disposal costs drop, and new reuse possibilities open up. At the same time, time as well as investment and operating costs are sustainably reduced.',
       },
       {
-        de: 'Die anfallenden Feststoffe müssen nicht zwangsläufig entsorgt werden. Je nach Zusammensetzung können sie als Dünger in der Landwirtschaft eingesetzt oder als wertvoller Rohstoff zur Tierfutterherstellung weiterverarbeitet werden. Die flüssige Phase wird häufig als Prozess- oder Waschwasser erneut in den Produktionskreislauf eingebunden.',
-        en: 'Resulting solids do not necessarily have to be disposed of. Depending on composition, they can be used as agricultural fertilizer or processed into valuable feed materials. The liquid phase is often reintegrated into the production cycle as process or wash water.',
+        de: 'Die anfallenden Feststoffe müssen nicht zwangsläufig entsorgt werden. Je nach Zusammensetzung können sie als Dünger in der Landwirtschaft eingesetzt oder als wertvoller Rohstoff zur Tierfutterherstellung weiterverarbeitet werden. Die flüssige Phase wiederum wird häufig als Prozess- oder Waschwasser erneut in den Produktionskreislauf eingebunden – ein wichtiger Beitrag zur Reduktion des Frischwasserbedarfs.',
+        en: 'Resulting solids do not necessarily have to be disposed of. Depending on composition, they can be used as agricultural fertilizer or processed into valuable feed materials. The liquid phase, in turn, is often reintegrated into the production cycle as process or wash water — an important contribution to reducing freshwater demand.',
+      },
+      {
+        de: 'Mit effizienter Separation werden Nebenprodukte zu Wertstoffen – und Entsorgungskosten zu Einsparpotenzialen.',
+        en: 'With efficient separation, by-products become valuable resources — and disposal costs turn into savings potential.',
       },
     ],
     kurzfakten: [
@@ -497,6 +518,26 @@ export const applications: Application[] = [
       en: 'Share medium, throughput and target DS — we will draft a tailored separation concept.',
     },
     ctaLabel: { de: 'Anfrage senden', en: 'Send request' },
+    highlightBox: {
+      title: {
+        de: 'Mehr Wirtschaftlichkeit durch Separation',
+        en: 'More Profitability through Separation',
+      },
+      paragraphs: [
+        {
+          de: 'Die Applikationen reichen vom Abpressen von Abwasser aus Obst- und Gemüseabfällen über die Separation von Essensresten bis zur Entwässerung von Getreideschlempe oder Treber.',
+          en: 'Applications range from pressing wastewater out of fruit and vegetable scraps, through separating food leftovers, to dewatering grain mash or spent grains.',
+        },
+        {
+          de: 'Durch die Trennung in Fest- und Flüssigphase wird das Abfallvolumen deutlich reduziert, Entsorgung und Logistik vereinfacht und Betriebskosten nachhaltig gesenkt.',
+          en: 'Separating into solid and liquid phases significantly reduces waste volume, simplifies disposal and logistics, and sustainably lowers operating costs.',
+        },
+        {
+          de: 'Weniger Volumen bedeutet weniger Lagerbedarf. Gleichzeitig ermöglicht die Rückgewinnung von Wasser und Wertstoffen eine effiziente Kreislaufführung im Betrieb.',
+          en: 'Less volume means less storage demand. At the same time, recovering water and valuable materials enables efficient circular operation on site.',
+        },
+      ],
+    },
   },
 ];
 

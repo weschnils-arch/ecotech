@@ -87,6 +87,26 @@ export function AnwendungLayout({ app }: AnwendungLayoutProps) {
         </div>
       </section>
 
+      {/* Optional Highlight Box (e.g. "Mehr Wirtschaftlichkeit durch Separation") */}
+      {app.highlightBox && (
+        <section className="section-container pb-12 lg:pb-16">
+          <div className="section-inner">
+            <div className="glass-card p-8 lg:p-12 bg-white">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-ecotech-grey mb-6 leading-tight">
+                {L(app.highlightBox.title)}
+              </h3>
+              <div className="space-y-4">
+                {app.highlightBox.paragraphs.map((p, i) => (
+                  <p key={i} className="text-lg text-ecotech-grey/80 leading-relaxed">
+                    {L(p)}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Vorteile + Typische Anwendungen */}
       <section
         ref={vorteileRef}

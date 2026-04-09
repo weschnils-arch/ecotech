@@ -23,8 +23,8 @@ const ICONS: Record<string, LucideIcon> = {
   kunststoffrecycling: Recycle,
   'kommunale-anwendungen': Building2,
   'zellstoff-papier': FileText,
-  'prozessmedien-und-abwaesser': Factory,
-  'nebenprodukte-und-abwaesser': Utensils,
+  'mdf-platten': Factory,
+  'lebensmittelindustrie': Utensils,
 };
 
 // Reusable hover overlay (kept from previous version, simplified)
@@ -57,8 +57,8 @@ function ApplicationAnimationOverlay({ slug }: { slug: string }) {
 
   if (
     slug === 'kommunale-anwendungen' ||
-    slug === 'nebenprodukte-und-abwaesser' ||
-    slug === 'prozessmedien-und-abwaesser'
+    slug === 'lebensmittelindustrie' ||
+    slug === 'mdf-platten'
   ) {
     return (
       <div className={containerClass}>
@@ -117,6 +117,7 @@ interface ApplicationCardProps {
 }
 
 function ApplicationCard({ slug, title, desc, index }: ApplicationCardProps) {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   const Icon = ICONS[slug] || Factory;
   const app = applications.find(a => a.slug === slug);
@@ -161,7 +162,7 @@ function ApplicationCard({ slug, title, desc, index }: ApplicationCardProps) {
             to={`/applications/${slug}` as `/applications/${string}`}
             className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300 self-start"
           >
-            Mehr erfahren
+            {t('applications.learnMore')}
             <ArrowRight size={18} />
           </Link>
         </div>

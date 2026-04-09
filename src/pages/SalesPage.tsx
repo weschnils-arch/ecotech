@@ -7,13 +7,14 @@ import { Package, Wrench, ArrowRight, Check, Phone, Mail } from 'lucide-react';
 
 // Spare Parts preview — substantial preview of /sales/ersatzteile content
 function SparePartsPreviewSection() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const highlights = [
-    'Erstausrüster-Qualität — passgenau, langlebig, einsatzsicher',
-    'Schneckenaufbereitung — „zweites Leben" für Ihre Pressschnecke',
-    'Kompetente Beratung bei Identifizierung & Bestellung',
-    'Kurze Lieferzeiten direkt vom Hersteller',
+    t('salespage.spareparts.highlight1'),
+    t('salespage.spareparts.highlight2'),
+    t('salespage.spareparts.highlight3'),
+    t('salespage.spareparts.highlight4'),
   ];
 
   return (
@@ -26,15 +27,13 @@ function SparePartsPreviewSection() {
         >
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Ersatzteile
+              {t('salespage.spareparts.label')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6 leading-tight">
-              Originale Ersatzteile — für maximale Maschinenperformance
+              {t('salespage.spareparts.title')}
             </h2>
             <p className="text-lg text-ecotech-grey/70 mb-8 leading-relaxed">
-              Ecotech Styria Ersatzteile stehen für passgenaue Fertigung, hohe Standzeiten und
-              verlässliche Verfügbarkeit. Damit Ihre Anlage dauerhaft wirtschaftlich läuft – mit
-              minimalen Betriebskosten und maximaler Prozesssicherheit.
+              {t('salespage.spareparts.desc')}
             </p>
             <ul className="space-y-3 mb-8">
               {highlights.map((item, i) => (
@@ -48,7 +47,7 @@ function SparePartsPreviewSection() {
             </ul>
             <div className="flex flex-wrap gap-4">
               <Link to="/sales/ersatzteile" className="btn-primary">
-                Alle Leistungen ansehen
+                {t('salespage.spareparts.cta')}
                 <ArrowRight size={18} />
               </Link>
               <a href="mailto:spareparts@ecotechstyria.com" className="btn-secondary">
@@ -63,19 +62,16 @@ function SparePartsPreviewSection() {
               <Package size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-bold text-ecotech-grey mb-4 leading-tight">
-              Aufbereitung von Schnecken — Qualität im Kern des Separators
+              {t('salespage.schnecken.title')}
             </h3>
             <p className="text-ecotech-grey/70 mb-6 leading-relaxed">
-              Schnecken sind die zentralen Funktionselemente in Separatoren. Ecotech Styria
-              bietet die professionelle Aufbereitung Ihrer Pressschnecke an: gezielte
-              Instandsetzung, Anpassung der Geometrie und erneute Verschleißbeschichtung – für
-              ein zweites Leben Ihrer Schnecke.
+              {t('salespage.schnecken.desc')}
             </p>
             <Link
               to="/sales/ersatzteile"
               className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300"
             >
-              Mehr über Schneckenaufbereitung
+              {t('salespage.schnecken.cta')}
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -87,13 +83,14 @@ function SparePartsPreviewSection() {
 
 // Service preview — substantial preview of /sales/service content
 function ServicePreviewSection() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const benefits = [
-    'Ungeplante Ausfallzeiten minimieren',
-    'Maschinenwert langfristig erhalten',
-    'Internen Wartungsaufwand reduzieren',
-    'Kalkulierbare, transparente Servicekosten',
+    t('salespage.service.benefit1'),
+    t('salespage.service.benefit2'),
+    t('salespage.service.benefit3'),
+    t('salespage.service.benefit4'),
   ];
 
   return (
@@ -109,15 +106,13 @@ function ServicePreviewSection() {
         >
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Service & Inbetriebnahme
+              {t('salespage.service.label')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Professionelle Wartung mit Ecotech Styria
+              {t('salespage.service.title')}
             </h2>
             <p className="text-lg text-white/75 mb-8 leading-relaxed">
-              Regelmäßig gewartete Maschinen sind zuverlässiger und haben weniger ungeplante
-              Ausfälle. Schnelle und kompetente Unterstützung durch unsere erfahrenen
-              Servicetechniker — direkt bei Ihnen im Betrieb.
+              {t('salespage.service.desc')}
             </p>
             <ul className="space-y-3 mb-8">
               {benefits.map((item, i) => (
@@ -129,7 +124,7 @@ function ServicePreviewSection() {
             </ul>
             <div className="flex flex-wrap gap-4">
               <Link to="/sales/service" className="btn-primary">
-                Service-Leistungen ansehen
+                {t('salespage.service.cta')}
                 <ArrowRight size={18} />
               </Link>
               <a
@@ -147,11 +142,10 @@ function ServicePreviewSection() {
               <Wrench size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-bold mb-4 leading-tight">
-              Schlüsselfertige Installation & Inbetriebnahme
+              {t('salespage.install.title')}
             </h3>
             <p className="text-white/75 mb-6 leading-relaxed">
-              Auf Wunsch übernehmen wir Installation und Inbetriebnahme Ihrer neuen Maschine
-              oder Anlage – inklusive Einschulung für effizientes und sicheres Arbeiten.
+              {t('salespage.install.desc')}
             </p>
             <div className="space-y-2 text-sm text-white/70 mb-6">
               <p>Mo–Do: 08:00 – 16:00</p>
@@ -161,7 +155,7 @@ function ServicePreviewSection() {
               to="/sales/service"
               className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300"
             >
-              Mehr zum Service
+              {t('salespage.install.cta')}
               <ArrowRight size={18} />
             </Link>
           </div>

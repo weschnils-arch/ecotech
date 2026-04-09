@@ -60,7 +60,7 @@ export function Footer() {
 
           {/* Social Media */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Social Media</h4>
+            <h4 className="text-lg font-bold mb-6 text-white">{t('footer.social')}</h4>
             <ul className="space-y-4">
               <li>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
@@ -91,7 +91,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Links</h4>
+            <h4 className="text-lg font-bold mb-6 text-white">{t('footer.links')}</h4>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.path}>
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Navigation</h4>
+            <h4 className="text-lg font-bold mb-6 text-white">{t('footer.navigation')}</h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="text-white/80 hover:text-ecotech-green transition-colors duration-300">
@@ -144,7 +144,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="section-container py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
-            <p>&copy; {new Date().getFullYear()} EcoTech Styria GmbH. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} EcoTech Styria GmbH. {t('footer.rights')}</p>
             <div className="flex items-center gap-2">
               <img
                 src="/images/logo.png"

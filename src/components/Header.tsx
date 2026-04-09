@@ -127,7 +127,7 @@ export function Header() {
 
           {/* Mobile Language Switcher */}
           <div className="flex items-center gap-2 px-4 pt-4 border-t border-ecotech-grey-light/50 mt-2">
-            <span className="text-sm text-ecotech-grey">Language:</span>
+            <span className="text-sm text-ecotech-grey">{t('nav.languageLabel')}</span>
             <button
               onClick={() => setLanguage('de')}
               className={`lang-switch ${language === 'de' ? 'active' : ''}`}

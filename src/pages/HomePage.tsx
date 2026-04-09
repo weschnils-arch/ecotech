@@ -144,8 +144,8 @@ function ApplicationsSection() {
     kunststoffrecycling: Recycle,
     'kommunale-anwendungen': Building2,
     'zellstoff-papier': FileText,
-    'prozessmedien-und-abwaesser': Factory,
-    'nebenprodukte-und-abwaesser': Utensils,
+    'mdf-platten': Factory,
+    'lebensmittelindustrie': Utensils,
   };
 
   const HOMEPAGE_IMAGES: Record<string, string> = {
@@ -155,8 +155,8 @@ function ApplicationsSection() {
     kunststoffrecycling: '/images/app-recycling-v2.webp',
     'kommunale-anwendungen': '/images/app-municipal-v2.webp',
     'zellstoff-papier': '/images/app-paper.webp',
-    'prozessmedien-und-abwaesser': '/images/app-prozessmedien-v2.webp',
-    'nebenprodukte-und-abwaesser': '/images/app-food.webp',
+    'mdf-platten': '/images/app-mdf-v2.webp',
+    'lebensmittelindustrie': '/images/app-lebensmittel-v2.webp',
   };
 
   return (
@@ -164,7 +164,7 @@ function ApplicationsSection() {
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Bereiche
+            {t('home.sections.applications')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey">
             {t('applications.title')}
@@ -286,7 +286,7 @@ function ProductsSection() {
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Produkte
+            {t('home.sections.products')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey">
             {t('products.title')}
@@ -359,7 +359,7 @@ function WhySection() {
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Vorteile
+            {t('home.sections.benefits')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             {t('why.title')}
@@ -421,7 +421,7 @@ function NewsSection() {
         <div className={`flex flex-col md:flex-row md:items-end md:justify-between mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Aktuelles
+              {t('home.sections.news')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey">
               {t('news.title')}

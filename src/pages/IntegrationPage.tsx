@@ -183,6 +183,28 @@ function CTASection() {
   );
 }
 
+function AnlageImageSection() {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
+  return (
+    <section ref={ref} className="section-container pb-20 lg:pb-28 bg-ecotech-grey-light/20">
+      <div className="section-inner">
+        <div
+          className={`glass-card overflow-hidden transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <img
+            src="/images/hero-systemintegration-v3.webp"
+            alt="Systemintegration Anlage"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function KontaktSection() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
@@ -219,6 +241,7 @@ export function IntegrationPage() {
       />
       <OverviewSection />
       <LeistungSection />
+      <AnlageImageSection />
       <CTASection />
       <KontaktSection />
     </main>

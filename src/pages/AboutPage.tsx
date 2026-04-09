@@ -69,7 +69,6 @@ function TeamSection() {
     { key: 'ceo', image: '/images/team-leitner.webp' },
     { key: 'coo', image: '/images/team-pauger.png' },
     { key: 'cto', image: '/images/team-kampl.png' },
-    { key: 'cso', image: '/images/team-pirker.png' },
   ];
 
   return (
@@ -77,14 +76,14 @@ function TeamSection() {
       <div className="section-inner">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Team
+            {t('aboutpage.team.label')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey">
             {t('aboutpage.team.title')}
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <div
               key={member.key}
@@ -99,12 +98,9 @@ function TeamSection() {
                 />
                 <div className="absolute inset-0 bg-ecotech-grey/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <h3 className="text-xl font-bold text-ecotech-grey mb-1">
+              <h3 className="text-xl font-bold text-ecotech-grey mb-3">
                 {t(`aboutpage.team.${member.key}.name`)}
               </h3>
-              <p className="text-ecotech-green font-medium mb-3">
-                {t(`aboutpage.team.${member.key}.role`)}
-              </p>
               <p className="text-sm text-ecotech-grey leading-relaxed">
                 {t(`aboutpage.team.${member.key}.bio`)}
               </p>
@@ -130,7 +126,7 @@ function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.');
+    alert(t('aboutpage.contact.formSuccess'));
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -141,7 +137,7 @@ function ContactSection() {
           {/* Contact Info */}
           <div>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-              Kontakt
+              {t('aboutpage.contact.label')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-8">
               {t('aboutpage.contact.title')}
@@ -246,7 +242,7 @@ function LocationSection() {
       <div className="section-inner">
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
-            Standort
+            {t('aboutpage.location.label')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey">
             {t('aboutpage.location.title')}
