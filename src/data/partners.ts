@@ -16,6 +16,10 @@ export interface Partner {
   phone: string;          // E.164 format preferred (e.g. +43 664 155 4896)
   email: string;
   website?: string;
+  brand?: 'ecotech' | 'farmtech';   // Visual style: green (default) or blue
+  scope?: string;                     // DE label for area of responsibility
+  scopeEn?: string;                   // EN label
+  countries?: string[];               // Country codes this partner covers (for farmtech multi-country)
 }
 
 export const partners: Partner[] = [
@@ -32,14 +36,30 @@ export const partners: Partner[] = [
     email: 'h.leitner@ecotechstyria.com',
     website: 'https://ecotechstyria.com',
   },
+  {
+    id: 'farmtech-agriculture',
+    country: 'Slowenien',
+    countryEn: 'Slovenia',
+    company: 'Farmtech d.o.o.',
+    contactPerson: 'Farmtech d.o.o.',
+    scope: 'Vertriebspartner Landwirtschaft & Gülletechnik',
+    scopeEn: 'Distribution Partner Agriculture & Slurry Technology',
+    street: 'Industrijska ulica 3',
+    postalCode: 'SI-9240',
+    city: 'Ljutomer',
+    phone: '+386 2 584 95 30',
+    email: 'info@farmtech.eu',
+    website: 'https://farmtech.eu',
+    brand: 'farmtech',
+    countries: ['Österreich', 'Deutschland', 'Slowenien', 'Kroatien', 'Ungarn', 'Slowakei', 'Serbien', 'Schweiz'],
+  },
 ];
 
 // Countries that should appear in the dropdown even without partners.
 // Render the empty-state CTA when selected. Easy to extend later.
 export const additionalCountries: { de: string; en: string }[] = [
   // DACH region
-  { de: 'Deutschland – Nord', en: 'Germany – North' },
-  { de: 'Deutschland – Süd', en: 'Germany – South' },
+  { de: 'Deutschland', en: 'Germany' },
   { de: 'Schweiz', en: 'Switzerland' },
   { de: 'Liechtenstein', en: 'Liechtenstein' },
   // Western Europe

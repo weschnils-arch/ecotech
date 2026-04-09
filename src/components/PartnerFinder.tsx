@@ -6,6 +6,117 @@ import { ChevronDown, MapPin, Phone, Mail, Globe, ArrowRight } from 'lucide-reac
 
 const ALL = '__all__';
 
+// Country name mapping for Farmtech countries (DE → EN)
+const FARMTECH_COUNTRIES_EN: Record<string, string> = {
+  'Österreich': 'Austria',
+  'Deutschland': 'Germany',
+  'Slowenien': 'Slovenia',
+  'Kroatien': 'Croatia',
+  'Ungarn': 'Hungary',
+  'Slowakei': 'Slovakia',
+  'Serbien': 'Serbia',
+  'Schweiz': 'Switzerland',
+};
+
+function PartnerCard({ p, isDe, accentColor = 'green' }: { p: typeof partners[0]; isDe: boolean; accentColor?: 'green' | 'blue' }) {
+  const isBlue = accentColor === 'blue';
+  const accent = isBlue ? 'text-blue-600' : 'text-ecotech-green';
+  const badgeBg = isBlue ? 'bg-blue-600/10 text-blue-600' : 'bg-ecotech-green/10 text-ecotech-green';
+  const borderClass = isBlue
+    ? 'border border-blue-600/25 hover:border-blue-600/50'
+    : 'border border-ecotech-green/25 hover:border-ecotech-green/50';
+
+  return (
+    <article className={`rounded-2xl bg-white p-8 ${borderClass} transition-all duration-300 group`}>
+      <div className="flex items-start justify-between gap-4 mb-5">
+        <div>
+          {p.scope && (
+            <span className={`inline-block px-2.5 py-1 ${badgeBg} text-xs font-bold uppercase tracking-wider rounded-full mb-3`}>
+              {isDe ? p.scope : p.scopeEn}
+            </span>
+          )}
+          {!p.scope && (
+            <span className={`inline-block px-2.5 py-1 ${badgeBg} text-xs font-bold uppercase tracking-wider rounded-full mb-3`}>
+              {isDe ? p.country : p.countryEn}
+            </span>
+          )}
+          <h3 className="text-xl lg:text-2xl font-bold text-ecotech-grey leading-tight">
+            {p.company}
+          </h3>
+        </div>
+        {p.brand === 'farmtech' && (
+          <img src="/images/logo-farmtech.svg" alt="Farmtech" className="h-10 w-auto flex-shrink-0" />
+        )}
+        {!p.brand && (
+          <img src="/images/logo-signet.png" alt="EcoTech Styria" className="h-10 w-auto flex-shrink-0" />
+        )}
+      </div>
+
+      <div className="space-y-4 text-sm">
+        {p.contactPerson !== p.company && (
+          <div>
+            <p className="font-bold text-ecotech-grey">{p.contactPerson}</p>
+            {p.role && <p className="text-ecotech-grey/60">{p.role}</p>}
+          </div>
+        )}
+
+        <div className="flex items-start gap-3 text-ecotech-grey/70">
+          <MapPin size={16} className={`${accent} flex-shrink-0 mt-0.5`} />
+          <span>
+            {p.street}
+            <br />
+            {p.postalCode} {p.city}
+          </span>
+        </div>
+
+        <a
+          href={`tel:${p.phone.replace(/\s/g, '')}`}
+          className={`flex items-center gap-3 text-ecotech-grey/70 hover:${accent} transition-colors`}
+        >
+          <Phone size={16} className={`${accent} flex-shrink-0`} />
+          <span>{p.phone}</span>
+        </a>
+
+        <a
+          href={`mailto:${p.email}`}
+          className={`flex items-center gap-3 text-ecotech-grey/70 hover:${accent} transition-colors break-all`}
+        >
+          <Mail size={16} className={`${accent} flex-shrink-0`} />
+          <span>{p.email}</span>
+        </a>
+
+        {p.website && (
+          <a
+            href={p.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-3 text-ecotech-grey/70 hover:${accent} transition-colors`}
+          >
+            <Globe size={16} className={`${accent} flex-shrink-0`} />
+            <span>{p.website.replace(/^https?:\/\//, '')}</span>
+          </a>
+        )}
+
+        {/* Countries list for Farmtech */}
+        {p.countries && p.countries.length > 0 && (
+          <div className="pt-3 mt-3 border-t border-ecotech-grey-light/50">
+            <p className="text-xs font-bold text-ecotech-grey/50 uppercase tracking-wider mb-2">
+              {isDe ? 'Aktiv in' : 'Active in'}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {p.countries.map((c) => (
+                <span key={c} className={`inline-block px-2 py-0.5 ${isBlue ? 'bg-blue-50 text-blue-700' : 'bg-ecotech-green/5 text-ecotech-green'} text-xs rounded-md font-medium`}>
+                  {isDe ? c : (FARMTECH_COUNTRIES_EN[c] || c)}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export function PartnerFinder() {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
@@ -15,18 +126,35 @@ export function PartnerFinder() {
 
   // Build the unified country list: countries that have partners + placeholder countries.
   const countryOptions = useMemo(() => {
-    const fromPartners = new Set(partners.map(p => (isDe ? p.country : p.countryEn)));
+    const fromPartners = new Set(partners.filter(p => !p.countries).map(p => (isDe ? p.country : p.countryEn)));
+    // Add Farmtech countries individually
+    partners.filter(p => p.countries).forEach(p => {
+      p.countries!.forEach(c => {
+        fromPartners.add(isDe ? c : (FARMTECH_COUNTRIES_EN[c] || c));
+      });
+    });
     const fromPlaceholders = additionalCountries.map(c => (isDe ? c.de : c.en));
     const merged = Array.from(new Set([...fromPartners, ...fromPlaceholders]));
     return merged.sort((a, b) => a.localeCompare(b, isDe ? 'de' : 'en'));
   }, [isDe]);
 
-  // For now: always show ALL partner cards (the Ecotech Styria GmbH headquarters card),
-  // regardless of which country is selected. The country selector still filters in spirit
-  // but the HQ contact stays visible as a fallback.
-  const visiblePartners = partners;
-  // Tracked but unused — keeps the selector wired so we can re-enable filtering later.
-  void selectedCountry;
+  // Filter partners based on selected country
+  const visiblePartners = useMemo(() => {
+    if (selectedCountry === ALL) return partners;
+    return partners.filter(p => {
+      // Direct match
+      const directMatch = (isDe ? p.country : p.countryEn) === selectedCountry;
+      // Multi-country partner (Farmtech)
+      const countryMatch = p.countries?.some(c =>
+        (isDe ? c : (FARMTECH_COUNTRIES_EN[c] || c)) === selectedCountry
+      );
+      return directMatch || countryMatch;
+    });
+  }, [selectedCountry, isDe]);
+
+  // Always show Ecotech HQ as fallback
+  const ecotechHQ = partners.find(p => p.id === 'at-leitner')!;
+  const showHQFallback = selectedCountry !== ALL && !visiblePartners.some(p => p.id === 'at-leitner');
 
   return (
     <section
@@ -83,75 +211,24 @@ export function PartnerFinder() {
               </div>
             </div>
 
-            {/* Partner cards — always visible regardless of selected country */}
+            {/* Partner cards */}
             <div
               className={`grid gap-6 sm:grid-cols-1 transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '240ms' }}
             >
-              {visiblePartners.map((p, index) => (
-                <article
+              {visiblePartners.map((p) => (
+                <PartnerCard
                   key={p.id}
-                  className="glass-card p-8 hover:border-ecotech-green/40 transition-all duration-500 group"
-                  style={{ transitionDelay: `${index * 80}ms` }}
-                >
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div>
-                      <span className="inline-block px-2.5 py-1 bg-ecotech-green/10 text-ecotech-green text-xs font-bold uppercase tracking-wider rounded-full mb-3">
-                        {isDe ? p.country : p.countryEn}
-                      </span>
-                      <h3 className="text-xl lg:text-2xl font-bold text-ecotech-grey leading-tight">
-                        {p.company}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 text-sm">
-                    <div>
-                      <p className="font-bold text-ecotech-grey">{p.contactPerson}</p>
-                      {p.role && <p className="text-ecotech-grey/60">{p.role}</p>}
-                    </div>
-
-                    <div className="flex items-start gap-3 text-ecotech-grey/70">
-                      <MapPin size={16} className="text-ecotech-green flex-shrink-0 mt-0.5" />
-                      <span>
-                        {p.street}
-                        <br />
-                        {p.postalCode} {p.city}
-                      </span>
-                    </div>
-
-                    <a
-                      href={`tel:${p.phone.replace(/\s/g, '')}`}
-                      className="flex items-center gap-3 text-ecotech-grey/70 hover:text-ecotech-green transition-colors"
-                    >
-                      <Phone size={16} className="text-ecotech-green flex-shrink-0" />
-                      <span>{p.phone}</span>
-                    </a>
-
-                    <a
-                      href={`mailto:${p.email}`}
-                      className="flex items-center gap-3 text-ecotech-grey/70 hover:text-ecotech-green transition-colors break-all"
-                    >
-                      <Mail size={16} className="text-ecotech-green flex-shrink-0" />
-                      <span>{p.email}</span>
-                    </a>
-
-                    {p.website && (
-                      <a
-                        href={p.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-ecotech-grey/70 hover:text-ecotech-green transition-colors"
-                      >
-                        <Globe size={16} className="text-ecotech-green flex-shrink-0" />
-                        <span>{p.website.replace(/^https?:\/\//, '')}</span>
-                      </a>
-                    )}
-                  </div>
-                </article>
+                  p={p}
+                  isDe={isDe}
+                  accentColor={p.brand === 'farmtech' ? 'blue' : 'green'}
+                />
               ))}
+              {showHQFallback && (
+                <PartnerCard p={ecotechHQ} isDe={isDe} accentColor="green" />
+              )}
             </div>
           </div>
 

@@ -2,26 +2,70 @@ import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ArrowRight, ChevronRight, ChevronUp, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check, type LucideIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { applications as anwendungen } from '@/data/applications';
+import { newsItems } from '@/data/news';
 
-// Hero Section
+// Hero Section with Image Slider + News Quick-Links
 function HeroSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const slides = [
+    // Original hero image first — no news link
+    {
+      image: '/images/hero-home-new.png',
+      title: '',
+      excerpt: '',
+      slug: '',
+      type: '' as const,
+      date: '',
+    },
+    ...newsItems.map((item) => ({
+      image: item.image,
+      title: language === 'de' ? item.titleDe : item.titleEn,
+      excerpt: language === 'de' ? item.excerptDe : item.excerptEn,
+      slug: item.slug,
+      type: item.type,
+      date: item.date,
+    })),
+  ];
+
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setActiveSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(nextSlide, 7000);
+    return () => clearInterval(timer);
+  }, [isPaused, nextSlide]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero-home-new.png"
-          alt="Separation Technology"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent" />
-      </div>
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Images — crossfade */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          style={{ opacity: index === activeSlide ? 1 : 0 }}
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent z-[1]" />
 
       {/* Diagonal Green Shape (Pauger Style) */}
       {/* Glow Effect Line */}
@@ -38,11 +82,10 @@ function HeroSection() {
         className="absolute bottom-0 left-0 right-0 h-[30vh] md:h-[40vh] z-10 bg-ecotech-green pointer-events-none"
         style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
       >
-        {/* Subtle pattern or gradient inside the green shape for "better" look */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
       </div>
 
-      {/* Secondary Shape for Depth (Glass/Layering effect) */}
+      {/* Secondary Shape for Depth */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[32vh] md:h-[42vh] z-0 bg-ecotech-green/60 backdrop-blur-sm pointer-events-none"
         style={{ clipPath: 'polygon(0 100%, 100% 20%, 100% 100%)' }}
@@ -67,6 +110,26 @@ function HeroSection() {
         </div>
       </div>
 
+      {/* News Quick-Link for active slide (hidden on first/hero slide) */}
+      {slides[activeSlide].slug && (
+        <div className="absolute bottom-[22vh] md:bottom-[12vh] left-[5%] md:left-[8%] z-20 animate-fade-in-up max-w-sm" style={{ animationDelay: '0.3s' }}>
+          <Link
+            to={`/news/${slides[activeSlide].slug}` as `/news/${string}`}
+            className="group block bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 hover:bg-black/50 transition-all duration-300"
+          >
+            <span className="text-ecotech-green text-xs font-bold uppercase tracking-wider">
+              {slides[activeSlide].type === 'event' ? 'Event' : 'News'} — {slides[activeSlide].date}
+            </span>
+            <h3 className="text-white font-bold text-sm md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
+              {slides[activeSlide].title}
+            </h3>
+            <p className="text-white/60 text-xs mt-1 line-clamp-1 hidden md:block">
+              {slides[activeSlide].excerpt}
+            </p>
+          </Link>
+        </div>
+      )}
+
       {/* CTA Button Positioned Bottom Right */}
       <div className="absolute bottom-[20vh] md:bottom-[10vh] right-[15%] md:right-[20%] z-20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
         <Link
@@ -79,7 +142,21 @@ function HeroSection() {
         </Link>
       </div>
 
-
+      {/* Slide Indicators — bottom center */}
+      <div className="absolute bottom-[16vh] md:bottom-[6vh] left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveSlide(index)}
+            className={`h-[3px] rounded-full transition-all duration-500 ${
+              index === activeSlide
+                ? 'w-8 bg-ecotech-green'
+                : 'w-6 bg-white/70 hover:bg-white'
+            }`}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }
@@ -385,35 +462,13 @@ function WhySection() {
   );
 }
 
-// News Section
+// News Section — pulls from central newsItems data, links to subpages
 function NewsSection() {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
-  const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const news = [
-    {
-      image: '/images/hero-home-new.png',
-      titleDe: 'EcoTech Styria gegründet',
-      titleEn: 'EcoTech Styria Founded',
-      excerptDe: 'Mit mehr als 15 Jahren Erfahrung in der Separationstechnik starten wir in Köflach, Österreich, in eine neue Ära der Fest-Flüssig-Trennung.',
-      excerptEn: 'With over 15 years of experience in separation technology, we are starting a new era in solid-liquid separation in Köflach, Austria.',
-    },
-    {
-      image: '/images/product-bg2.jpg',
-      titleDe: 'BGII-800: Unser Flaggschiff vorgestellt',
-      titleEn: 'BGII-800: Our Flagship Unveiled',
-      excerptDe: 'Die Filterschneckenpresse BGII-800 setzt neue Maßstäbe in der Industrie mit bis zu 75m³/h Durchsatz und patentierter Schneckengeometrie.',
-      excerptEn: 'The Filter Press Screw BGII-800 sets new standards in the industry with up to 75m³/h throughput and patented auger geometry.',
-    },
-    {
-      image: '/images/hero-sales-new.png',
-      titleDe: 'Expansion des Vertriebsnetzwerks',
-      titleEn: 'Expansion of Distribution Network',
-      excerptDe: 'Wir freuen uns, Farmtech d.o.o. (Slowenien), IWZ GmbH (Österreich) und Vanderloop Equipment (USA) als Vertriebspartner begrüßen zu dürfen.',
-      excerptEn: 'We are pleased to welcome Farmtech d.o.o. (Slovenia), IWZ GmbH (Austria) and Vanderloop Equipment (USA) as distribution partners.',
-    },
-  ];
+  // Show first 3 news items on homepage
+  const displayItems = newsItems.slice(0, 3);
 
   return (
     <section ref={ref} className="section-container py-24 lg:py-32">
@@ -431,49 +486,45 @@ function NewsSection() {
             to="/news"
             className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300 mt-4 md:mt-0"
           >
-            {t('news.readMore')}
+            {language === 'de' ? 'Alle anzeigen' : 'View all'}
             <ArrowRight size={18} />
           </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {news.map((item, index) => {
-            const isExpanded = expandedId === index;
-            return (
-              <article
-                key={index}
-                className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="relative h-52 overflow-hidden shrink-0">
-                  <img
-                    src={item.image}
-                    alt={language === 'de' ? item.titleDe : item.titleEn}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+          {displayItems.map((item, index) => (
+            <Link
+              key={item.slug}
+              to={`/news/${item.slug}` as `/news/${string}`}
+              className={`group glass-card overflow-hidden card-hover transition-all duration-700 flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="relative h-52 overflow-hidden shrink-0">
+                <img
+                  src={item.image}
+                  alt={language === 'de' ? item.titleDe : item.titleEn}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block px-2.5 py-1 bg-black/50 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                    {item.date}
+                  </span>
                 </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
-                    {language === 'de' ? item.titleDe : item.titleEn}
-                  </h3>
-                  <p className={`text-ecotech-grey mb-4 transition-all duration-500 ease-in-out ${isExpanded ? '' : 'line-clamp-2'}`}>
-                    {language === 'de' ? item.excerptDe : item.excerptEn}
-                  </p>
-                  <button
-                    onClick={() => setExpandedId(isExpanded ? null : index)}
-                    className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium cursor-pointer max-w-fit outline-none"
-                  >
-                    {isExpanded
-                      ? (language === 'de' ? 'Weniger anzeigen' : 'Show less')
-                      : t('news.readMore')}
-                    {isExpanded
-                      ? <ChevronUp size={16} />
-                      : <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />}
-                  </button>
-                </div>
-              </article>
-            );
-          })}
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-bold text-ecotech-grey mb-3 group-hover:text-ecotech-green transition-colors">
+                  {language === 'de' ? item.titleDe : item.titleEn}
+                </h3>
+                <p className="text-ecotech-grey mb-4 line-clamp-2">
+                  {language === 'de' ? item.excerptDe : item.excerptEn}
+                </p>
+                <span className="mt-auto inline-flex items-center gap-1 text-sm text-ecotech-green font-medium">
+                  {t('news.readMore')}
+                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

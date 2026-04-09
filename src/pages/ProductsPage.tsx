@@ -2,19 +2,69 @@ import { Link } from '@/router';
 import { SubpageHero } from '@/components/SubpageHero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Check, ArrowRight, Settings, Gauge, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { Check, ArrowRight, Settings, Gauge, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+
+// Lightbox Component
+function Lightbox({ images, activeIndex, onClose, onNext, onPrev }: {
+  images: { src: string; alt: string }[];
+  activeIndex: number;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
+}) {
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') onClose();
+    if (e.key === 'ArrowRight') onNext();
+    if (e.key === 'ArrowLeft') onPrev();
+  }, [onClose, onNext, onPrev]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [handleKeyDown]);
+
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+      <button onClick={onClose} className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <X size={22} className="text-white" />
+      </button>
+      <button onClick={(e) => { e.stopPropagation(); onPrev(); }} className="absolute left-4 md:left-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <ChevronLeft size={24} className="text-white" />
+      </button>
+      <button onClick={(e) => { e.stopPropagation(); onNext(); }} className="absolute right-4 md:right-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <ChevronRight size={24} className="text-white" />
+      </button>
+      <div className="relative z-10 max-w-[90vw] max-h-[85vh]" onClick={(e) => e.stopPropagation()}>
+        <img
+          src={images[activeIndex].src}
+          alt={images[activeIndex].alt}
+          className="max-w-full max-h-[85vh] object-contain rounded-lg"
+        />
+      </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/60 text-sm">
+        {activeIndex + 1} / {images.length}
+      </div>
+    </div>
+  );
+}
 
 // Image Gallery Component
 function ImageGallery({ images }: { images: { src: string; alt: string }[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const next = () => setActiveIndex((i) => (i + 1) % images.length);
   const prev = () => setActiveIndex((i) => (i - 1 + images.length) % images.length);
 
   return (
     <div className="relative">
-      <div className="glass-card overflow-hidden">
-        <img src={images[activeIndex].src} alt={images[activeIndex].alt} className="w-full aspect-square object-cover transition-opacity duration-500" />
+      <div className="glass-card overflow-hidden cursor-pointer" onClick={() => setLightboxOpen(true)}>
+        <img src={images[activeIndex].src} alt={images[activeIndex].alt} className="w-full aspect-square object-cover transition-opacity duration-500 hover:scale-[1.02] transition-transform" />
       </div>
       <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-lg hover:bg-white transition-colors">
         <ChevronLeft size={20} className="text-ecotech-grey" />
@@ -29,6 +79,16 @@ function ImageGallery({ images }: { images: { src: string; alt: string }[] }) {
           </button>
         ))}
       </div>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={images}
+          activeIndex={activeIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={next}
+          onPrev={prev}
+        />
+      )}
     </div>
   );
 }
@@ -49,6 +109,7 @@ function BG2Section() {
     { label: t('productpage.bg2.tech.gap'), value: t('productpage.bg2.tech.gap.val') },
     { label: t('productpage.bg2.tech.dry_org'), value: t('productpage.bg2.tech.dry_org.val') },
     { label: t('productpage.bg2.tech.dry_inorg'), value: t('productpage.bg2.tech.dry_inorg.val') },
+    { label: t('productpage.bg2.tech.trimeter'), value: t('productpage.bg2.tech.trimeter.val') },
   ];
 
   const options = t('productpage.bg2.options').split('|');
@@ -248,7 +309,7 @@ function BGI400Section() {
         {/* Technical Data */}
         <div className={`glass-card p-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
           <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bgi400.tech.title')}</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             {technicalData.map((item, index) => (
               <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
                 <p className="text-sm text-ecotech-grey mb-1">{item.label}</p>
@@ -256,6 +317,7 @@ function BGI400Section() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-ecotech-grey italic">{t('productpage.bgi400.tech.disclaimer')}</p>
         </div>
       </div>
     </section>
@@ -322,29 +384,74 @@ function VoreindicherSection() {
   );
 }
 
-// Circulyizer Placeholder (#26)
+// Circulizer Product Section
 function CirculyizerSection() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
+  const features = t('productpage.circulyizer.features').split('|');
+  const details = t('productpage.circulyizer.details').split('|');
+
   return (
     <section ref={ref} id="circulyizer" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.circulyizer.title')}</h2>
-          <div className="glass-card p-10 lg:p-12">
-            <span className="inline-block px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
-              {t('productpage.comingSoon')}
-            </span>
-            <h3 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
+            {t('productpage.circulyizer.badge')}
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">
+            {t('productpage.circulyizer.title')}
+          </h2>
+          <p className="text-xl text-ecotech-grey max-w-4xl mb-12">
+            {t('productpage.circulyizer.desc')}
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Product Images */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
+            <ImageGallery images={[
+              { src: '/images/product-circulizer-2.webp', alt: 'Circulizer 3D Rendering' },
+              { src: '/images/product-circulizer-1.webp', alt: 'Circulizer Technische Ansicht' },
+            ]} />
+          </div>
+
+          {/* Features + Intro */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-4">
               {t('productpage.circulyizer.tagline')}
             </h3>
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed max-w-2xl mb-8">
+            <p className="text-ecotech-grey/70 leading-relaxed mb-8">
               {t('productpage.circulyizer.intro')}
             </p>
-            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulyizer" className="btn-primary inline-flex">
+
+            <h4 className="text-lg font-bold text-ecotech-grey mb-4">{t('productpage.features')}</h4>
+            <ul className="space-y-3 mb-8">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulizer" className="btn-primary inline-flex">
               {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
+          </div>
+        </div>
+
+        {/* Technical Details */}
+        <div className={`glass-card p-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6">{t('productpage.bg2.tech.title')}</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {details.map((detail, index) => (
+              <div key={index} className="p-4 bg-ecotech-grey-light/30 rounded-lg">
+                <p className="text-sm text-ecotech-grey leading-relaxed">{detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
