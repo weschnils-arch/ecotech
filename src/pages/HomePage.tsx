@@ -106,40 +106,36 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* News Quick-Link for active slide (hidden on first/hero slide) */}
-      {slides[activeSlide].slug && (
-        <div className="absolute bottom-[22vh] md:bottom-[12vh] left-[5%] md:left-[8%] z-20 animate-fade-in-up max-w-sm" style={{ animationDelay: '0.3s' }}>
+      {/* Bottom bar: news link + CTA + indicators — stacked on mobile */}
+      <div className="absolute bottom-[18vh] md:bottom-[8vh] left-[5%] right-[5%] md:left-[8%] md:right-[8%] z-20 flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4">
+        {/* News Quick-Link */}
+        {slides[activeSlide].slug ? (
           <Link
             to={`/news/${slides[activeSlide].slug}` as `/news/${string}`}
-            className="group block bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 hover:bg-black/50 transition-all duration-300"
+            className="group block bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/10 hover:bg-black/50 transition-all duration-300 max-w-sm"
           >
-            <span className="text-ecotech-green text-xs font-bold uppercase tracking-wider">
+            <span className="text-ecotech-green text-[10px] md:text-xs font-bold uppercase tracking-wider">
               {slides[activeSlide].type === 'event' ? 'Event' : 'News'} — {slides[activeSlide].date}
             </span>
-            <h3 className="text-white font-bold text-sm md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
+            <h3 className="text-white font-bold text-xs md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
               {slides[activeSlide].title}
             </h3>
-            <p className="text-white/60 text-xs mt-1 line-clamp-1 hidden md:block">
-              {slides[activeSlide].excerpt}
-            </p>
           </Link>
-        </div>
-      )}
+        ) : <div />}
 
-      {/* CTA Button Positioned Bottom Right */}
-      <div className="absolute bottom-[20vh] md:bottom-[10vh] right-[15%] md:right-[20%] z-20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        {/* CTA Button */}
         <Link
           to="/about"
-          className="group px-8 py-4 rounded-xl flex items-center gap-3 text-lg font-medium text-white transition-all duration-300
-                       bg-white/10 backdrop-blur-md border border-white/30 shadow-glass hover:bg-white/20 hover:scale-105 hover:shadow-glass-lg"
+          className="group px-6 py-3 md:px-8 md:py-4 rounded-xl flex items-center gap-2 md:gap-3 text-sm md:text-lg font-medium text-white transition-all duration-300 self-end
+                       bg-white/10 backdrop-blur-md border border-white/30 shadow-glass hover:bg-white/20 hover:scale-105 hover:shadow-glass-lg whitespace-nowrap"
         >
           {t('hero.cta')}
-          <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
       {/* Slide Indicators — bottom center */}
-      <div className="absolute bottom-[16vh] md:bottom-[6vh] left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className="absolute bottom-[14vh] md:bottom-[4vh] left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
