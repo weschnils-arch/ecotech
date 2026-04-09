@@ -1,7 +1,7 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ArrowRight, ChevronRight, ChevronUp, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check, type LucideIcon } from 'lucide-react';
+import { ArrowRight, ChevronRight, Droplets, Recycle, Leaf, Factory, Building2, FileText, Utensils, Check, type LucideIcon } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import { applications as anwendungen } from '@/data/applications';
 import { newsItems } from '@/data/news';
