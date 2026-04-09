@@ -302,14 +302,14 @@ function VoreindicherSection() {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.voreindicker.title')}</h2>
-          <div className="glass-card p-12 lg:p-16 text-center">
+          <div className="glass-card p-10 lg:p-12">
             <span className="inline-block px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
               {t('productpage.comingSoon')}
             </span>
             <h3 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
               {t('productpage.voreindicker.tagline')}
             </h3>
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed max-w-2xl mb-8">
               {t('productpage.voreindicker.intro')}
             </p>
             <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary inline-flex">
@@ -332,9 +332,17 @@ function CirculyizerSection() {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.circulyizer.title')}</h2>
-          <div className="glass-card p-8 lg:p-12">
-            <p className="text-lg text-ecotech-grey/70 leading-relaxed">{t('productpage.circulyizer.desc')}</p>
-            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulyizer" className="btn-primary mt-6 inline-flex">
+          <div className="glass-card p-10 lg:p-12">
+            <span className="inline-block px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
+              {t('productpage.comingSoon')}
+            </span>
+            <h3 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
+              {t('productpage.circulyizer.tagline')}
+            </h3>
+            <p className="text-lg text-ecotech-grey/70 leading-relaxed max-w-2xl mb-8">
+              {t('productpage.circulyizer.intro')}
+            </p>
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Circulyizer" className="btn-primary inline-flex">
               {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
           </div>

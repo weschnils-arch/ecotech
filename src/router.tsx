@@ -18,8 +18,8 @@ export type StaticRoute =
   | '/sales/ersatzteile'
   | '/sales/service';
 
-// Any string that begins with /applications/ qualifies as an Anwendung subpage.
-export type Route = StaticRoute | `/applications/${string}`;
+// Any string that begins with /applications/ or /news/ qualifies as a dynamic subpage.
+export type Route = StaticRoute | `/applications/${string}` | `/news/${string}`;
 
 interface RouterContextType {
   path: Route;
