@@ -103,30 +103,21 @@ function SchneckenSection() {
     <section ref={ref} className="section-container py-24 lg:py-32">
       <div className="section-inner">
         <div className={`grid lg:grid-cols-2 gap-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card overflow-hidden bg-ecotech-green/5 border-ecotech-green/20 flex flex-col">
-            <div className="relative h-64 lg:h-72 overflow-hidden">
-              <img
-                src="/images/schnecke-sepflex400.webp"
-                alt={t('ersatzteile.schnecken.title')}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-8 flex-1">
-              <span className="inline-block px-3 py-1 bg-ecotech-green text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4">
-                {t('ersatzteile.schnecken.badge')}
-              </span>
-              <h3 className="text-xl font-bold text-ecotech-grey mb-4">{t('ersatzteile.schnecken.title')}</h3>
-              <p className="text-ecotech-grey/70 mb-6">{t('ersatzteile.schnecken.desc1')}</p>
-              <p className="text-ecotech-grey/70 mb-6">{t('ersatzteile.schnecken.desc2')}</p>
-              <ul className="space-y-3">
-                {[1,2,3].map(i => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check size={16} className="text-ecotech-green mt-0.5 flex-shrink-0" />
-                    <span className="text-ecotech-grey text-sm">{t(`ersatzteile.schnecken.${i}`)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="glass-card p-8 bg-ecotech-green/5 border-ecotech-green/20 flex flex-col">
+            <span className="inline-block px-3 py-1 bg-ecotech-green text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4 self-start">
+              {t('ersatzteile.schnecken.badge')}
+            </span>
+            <h3 className="text-xl font-bold text-ecotech-grey mb-4">{t('ersatzteile.schnecken.title')}</h3>
+            <p className="text-ecotech-grey/70 mb-6">{t('ersatzteile.schnecken.desc1')}</p>
+            <p className="text-ecotech-grey/70 mb-6">{t('ersatzteile.schnecken.desc2')}</p>
+            <ul className="space-y-3">
+              {[1,2,3].map(i => (
+                <li key={i} className="flex items-start gap-3">
+                  <Check size={16} className="text-ecotech-green mt-0.5 flex-shrink-0" />
+                  <span className="text-ecotech-grey text-sm">{t(`ersatzteile.schnecken.${i}`)}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="space-y-8">
             <div className="glass-card p-8">
@@ -136,6 +127,13 @@ function SchneckenSection() {
             <div className="glass-card p-8">
               <h3 className="text-xl font-bold text-ecotech-grey mb-4">{t('ersatzteile.tech.title')}</h3>
               <p className="text-ecotech-grey/70">{t('ersatzteile.tech.desc')}</p>
+            </div>
+            <div className="rounded-2xl overflow-hidden h-64">
+              <img
+                src="/images/schnecke-real.webp"
+                alt={t('ersatzteile.schnecken.title')}
+                className="w-full h-full object-cover object-center"
+              />
             </div>
           </div>
         </div>

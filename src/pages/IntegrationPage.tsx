@@ -13,7 +13,7 @@ function OverviewSection() {
     <section ref={ref} className="section-container py-20 lg:py-28">
       <div className="section-inner">
         <div
-          className={`grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-start transition-all duration-1000 ${
+          className={`grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-stretch transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >

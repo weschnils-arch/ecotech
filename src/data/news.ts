@@ -73,7 +73,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: 'wisconsin-dairy-expo',
     type: 'event',
-    image: '/images/event-agritechnica.png',
+    image: '/images/hero-sales-new.png',
     date: '2025',
     titleDe: 'Messebericht World Dairy Expo Wisconsin',
     titleEn: 'World Dairy Expo Wisconsin Report',

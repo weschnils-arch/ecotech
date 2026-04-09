@@ -10,25 +10,21 @@ import { newsItems } from '@/data/news';
 function HeroSection() {
   const { t, language } = useLanguage();
 
-  const slides = [
-    // Original hero image first — no news link
-    {
-      image: '/images/hero-home-new.png',
-      title: '',
-      excerpt: '',
-      slug: '',
-      type: '' as const,
-      date: '',
-    },
-    ...newsItems.map((item) => ({
-      image: item.image,
-      title: language === 'de' ? item.titleDe : item.titleEn,
-      excerpt: language === 'de' ? item.excerptDe : item.excerptEn,
-      slug: item.slug,
-      type: item.type,
-      date: item.date,
-    })),
-  ];
+  // Override background images for specific slide positions
+  const imageOverrides: Record<number, string> = {
+    0: '/images/hero-home-new.png',       // Slide 1: original hero
+    1: '/images/news-v2.webp',            // Slide 2: news hero
+    [newsItems.length - 1]: '/images/hero-products-v2.webp', // Last slide: products hero
+  };
+
+  const slides = newsItems.map((item, index) => ({
+    image: imageOverrides[index] ?? item.image,
+    title: language === 'de' ? item.titleDe : item.titleEn,
+    excerpt: language === 'de' ? item.excerptDe : item.excerptEn,
+    slug: item.slug,
+    type: item.type,
+    date: item.date,
+  }));
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);

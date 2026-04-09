@@ -413,6 +413,8 @@ function CirculyizerSection() {
             <ImageGallery images={[
               { src: '/images/product-circulizer-2.webp', alt: 'Circulizer 3D Rendering' },
               { src: '/images/product-circulizer-1.webp', alt: 'Circulizer Technische Ansicht' },
+              { src: '/images/product-circulizer-3.webp', alt: 'Circulizer in Produktionshalle' },
+              { src: '/images/product-circulizer-4.webp', alt: 'Circulizer Detailansichten' },
             ]} />
           </div>
 
