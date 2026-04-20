@@ -107,6 +107,41 @@ export function AnwendungLayout({ app }: AnwendungLayoutProps) {
         </section>
       )}
 
+      {/* Optional Extra Section (e.g. "Best Practice Reject-Ströme", "Fasersuspensionen") */}
+      {app.extraSection && (
+        <section className="section-container pb-12 lg:pb-16">
+          <div className="section-inner">
+            <div className={`glass-card overflow-hidden bg-white ${app.extraSection.image ? 'grid lg:grid-cols-[1.2fr_1fr]' : ''}`}>
+              <div className="p-8 lg:p-12">
+                <span className="inline-block px-3 py-1 bg-ecotech-green/10 text-ecotech-green text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                  {language === 'de' ? 'Best Practice' : 'Best Practice'}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold text-ecotech-grey mb-6 leading-tight">
+                  {L(app.extraSection.title)}
+                </h3>
+                <div className="space-y-4">
+                  {app.extraSection.paragraphs.map((p, i) => (
+                    <p key={i} className="text-lg text-ecotech-grey/80 leading-relaxed">
+                      {L(p)}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              {app.extraSection.image && (
+                <div className="relative min-h-[280px] lg:min-h-full">
+                  <img
+                    src={app.extraSection.image}
+                    alt={L(app.extraSection.title)}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Vorteile + Typische Anwendungen */}
       <section
         ref={vorteileRef}
@@ -148,9 +183,11 @@ export function AnwendungLayout({ app }: AnwendungLayoutProps) {
                 {language === 'de' ? 'Typische Anwendungen' : 'Typical Applications'}
               </span>
               <h3 className="text-2xl md:text-3xl font-bold text-ecotech-grey mb-8 leading-tight">
-                {language === 'de'
-                  ? 'Wo unsere Separatoren arbeiten'
-                  : 'Where our separators work'}
+                {app.typischeAnwendungenTitle
+                  ? L(app.typischeAnwendungenTitle)
+                  : language === 'de'
+                    ? 'Wo unsere Separatoren arbeiten'
+                    : 'Where our separators work'}
               </h3>
               <ul className="space-y-4">
                 {app.typischeAnwendungen.map((t, i) => (

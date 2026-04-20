@@ -7,24 +7,51 @@ import { applications as anwendungen } from '@/data/applications';
 import { newsItems } from '@/data/news';
 
 // Hero Section with Image Slider + News Quick-Links
+// Explicit 5-slide rotator per client spec (2026-04-20):
+// 1. Intro "Next Level Separation", 2. BGII-800 (flagship photo), 3. Wisconsin, 4. Circulyzer, 5. BGI-400 Plug & Play
+// Only slide 1 shows the static "Next Level Separation" headline — slides 2-5 pull their headline from news data.
+const HERO_ROTATOR_CONFIG: ReadonlyArray<{ slug: string | null; imageOverride?: string }> = [
+  { slug: null },
+  { slug: 'bgii-800-vorgestellt', imageOverride: '/images/product-bg2.jpg' },
+  { slug: 'wisconsin-dairy-expo', imageOverride: '/images/news-v2.webp' },
+  { slug: 'kooperation-circulyzer' },
+  { slug: 'bgi-400-plug-and-play' },
+];
+
 function HeroSection() {
   const { t, language } = useLanguage();
 
-  // Override background images for specific slide positions
-  const imageOverrides: Record<number, string> = {
-    0: '/images/hero-home-new.png',       // Slide 1: original hero
-    1: '/images/news-v2.webp',            // Slide 2: news hero
-    [newsItems.length - 1]: '/images/hero-products-v2.webp', // Last slide: products hero
-  };
-
-  const slides = newsItems.map((item, index) => ({
-    image: imageOverrides[index] ?? item.image,
-    title: language === 'de' ? item.titleDe : item.titleEn,
-    excerpt: language === 'de' ? item.excerptDe : item.excerptEn,
-    slug: item.slug,
-    type: item.type,
-    date: item.date,
-  }));
+  const slides = HERO_ROTATOR_CONFIG.map(({ slug, imageOverride }) => {
+    if (slug === null) {
+      return {
+        image: '/images/hero-home-new.png',
+        title: t('hero.headline'),
+        excerpt: t('hero.subheadline'),
+        slug: null as string | null,
+        type: null as 'news' | 'event' | null,
+        date: null as string | null,
+      };
+    }
+    const item = newsItems.find(n => n.slug === slug);
+    if (!item) {
+      return {
+        image: '/images/hero-home-new.png',
+        title: t('hero.headline'),
+        excerpt: t('hero.subheadline'),
+        slug: null as string | null,
+        type: null as 'news' | 'event' | null,
+        date: null as string | null,
+      };
+    }
+    return {
+      image: imageOverride ?? item.image,
+      title: language === 'de' ? item.titleDe : item.titleEn,
+      excerpt: language === 'de' ? item.excerptDe : item.excerptEn,
+      slug: item.slug as string | null,
+      type: item.type as 'news' | 'event' | null,
+      date: item.date as string | null,
+    };
+  });
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -97,11 +124,19 @@ function HeroSection() {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 drop-shadow-xl animate-fade-in-up leading-tight tracking-tight" style={{ animationDelay: '0.1s' }}>
-            {t('hero.headline')}
+          <h1
+            key={`title-${activeSlide}`}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 drop-shadow-xl animate-fade-in-up leading-tight tracking-tight"
+            style={{ animationDelay: '0.1s' }}
+          >
+            {slides[activeSlide].title}
           </h1>
-          <p className="text-xl md:text-3xl text-white/90 mb-12 animate-fade-in-up font-light max-w-3xl mx-auto drop-shadow-md leading-relaxed" style={{ animationDelay: '0.2s' }}>
-            {t('hero.subheadline')}
+          <p
+            key={`excerpt-${activeSlide}`}
+            className="text-xl md:text-3xl text-white/90 mb-12 animate-fade-in-up font-light max-w-3xl mx-auto drop-shadow-md leading-relaxed"
+            style={{ animationDelay: '0.2s' }}
+          >
+            {slides[activeSlide].excerpt}
           </p>
         </div>
       </div>
@@ -109,19 +144,23 @@ function HeroSection() {
       {/* Bottom bar: news link + CTA + indicators — stacked on mobile */}
       <div className="absolute bottom-[18vh] md:bottom-[8vh] left-[5%] right-[5%] md:left-[8%] md:right-[8%] z-20 flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4">
         {/* News Quick-Link */}
-        {slides[activeSlide].slug ? (
-          <Link
-            to={`/news/${slides[activeSlide].slug}` as `/news/${string}`}
-            className="group block bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/10 hover:bg-black/50 transition-all duration-300 max-w-sm"
-          >
-            <span className="text-ecotech-green text-[10px] md:text-xs font-bold uppercase tracking-wider">
-              {slides[activeSlide].type === 'event' ? 'Event' : 'News'} — {slides[activeSlide].date}
-            </span>
-            <h3 className="text-white font-bold text-xs md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
-              {slides[activeSlide].title}
-            </h3>
-          </Link>
-        ) : <div />}
+        {(() => {
+          const current = slides[activeSlide];
+          if (!current.slug) return <div />;
+          return (
+            <Link
+              to={`/news/${current.slug}` as `/news/${string}`}
+              className="group block bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/10 hover:bg-black/50 transition-all duration-300 max-w-sm"
+            >
+              <span className="text-ecotech-green text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                {current.type === 'event' ? 'Event' : 'News'} — {current.date}
+              </span>
+              <h3 className="text-white font-bold text-xs md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
+                {current.title}
+              </h3>
+            </Link>
+          );
+        })()}
 
         {/* CTA Button */}
         <Link

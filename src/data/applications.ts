@@ -21,6 +21,9 @@ export interface Application {
   kurzfakten: Bilingual[];     // sidebar bullets
   vorteile: Bilingual[];       // "Ihre Vorteile" list
   typischeAnwendungen: Bilingual[];
+  // Overrides the default "Wo unsere Separatoren arbeiten" card header when set.
+  // Needed because some applications use "Systeme" or "Separatoren und Förderschnecken".
+  typischeAnwendungenTitle?: Bilingual;
   // Final CTA box
   ctaTitle: Bilingual;
   ctaDesc: Bilingual;
@@ -29,6 +32,14 @@ export interface Application {
   highlightBox?: {
     title: Bilingual;
     paragraphs: Bilingual[];
+  };
+  // Optional extra content block rendered after the highlightBox
+  // (e.g. "Best Practice Reject-Ströme" on Kunststoffrecycling,
+  // "Sonstige Anwendungen im Bereich Fasersuspensionen" on Lebensmittelindustrie).
+  extraSection?: {
+    title: Bilingual;
+    paragraphs: Bilingual[];
+    image?: string;
   };
 }
 
@@ -58,16 +69,20 @@ export const applications: Application[] = [
         en: 'Separation splits slurry into a liquid and solid phase. This simplifies storage, transport and application, and enables targeted use of the contained nutrients.',
       },
       {
-        de: 'Ein wesentlicher Vorteil ist die Reduktion des benötigten Lagerbedarfs um bis zu 30 %. Dadurch sinken Platzbedarf und Investitionskosten für Güllegruben deutlich. Die separierten Feststoffe eignen sich als Naturdünger, Kompost oder Bio-Einstreumaterial.',
-        en: 'A key benefit is reducing required storage by up to 30 %. Footprint and investment costs for slurry pits drop significantly. The separated solids work as natural fertilizer, compost or bio-bedding material.',
+        de: 'In vielen Ländern ist die Ausbringung der festen Phase über einen deutlich längeren Zeitraum erlaubt als die flüssige Phase.',
+        en: 'In many countries, the application of the solid phase is permitted over a significantly longer period than the liquid phase.',
+      },
+      {
+        de: 'Ein wesentlicher Vorteil ist die Reduktion des benötigten Lagerbedarfs um bis zu 30 %. Dadurch sinken Platzbedarf und Investitionskosten für Güllegruben deutlich. Die separierten Feststoffe eignen sich als Naturdünger, Kompost oder Comfort-Einstreumaterial.',
+        en: 'A key benefit is reducing required storage by up to 30 %. Footprint and investment costs for slurry pits drop significantly. The separated solids work as natural fertilizer, compost or comfort-bedding material.',
       },
       {
         de: 'Separierte Gülle bildet kaum Sink- oder Schwimmschichten. Aufrühren und Ausbringen werden einfacher und gleichmäßiger.',
         en: 'Separated slurry barely forms sinking or floating layers. Stirring and spreading become easier and more uniform.',
       },
       {
-        de: 'Durch die Trennung in flüssige und feste Phase können Nährstoffe gezielt und bedarfsgerecht eingesetzt werden. Der Einsatz von Mineraldünger wird reduziert, während die Nährstoffaufnahme der Pflanzen verbessert wird. Zusätzlich kann die flüssige Phase – frei von Feststoffen – als Reinigungswasser am Betrieb genutzt werden.',
-        en: 'Splitting slurry into a liquid and a solid phase allows nutrients to be applied in a targeted, demand-based way. The need for mineral fertilizer is reduced, while plants take up nutrients more efficiently. The liquid phase — free of solids — can also be reused as cleaning water on the farm.',
+        de: 'Durch die Trennung in flüssige und feste Phase können Nährstoffe gezielt und bedarfsgerecht eingesetzt werden. Der Einsatz von Mineraldünger wird reduziert, während die Nährstoffaufnahme der Pflanzen verbessert wird.',
+        en: 'Splitting slurry into a liquid and a solid phase allows nutrients to be applied in a targeted, demand-based way. The need for mineral fertilizer is reduced, while plants take up nutrients more efficiently.',
       },
       {
         de: 'Die dünne, separierte Phase dringt sehr rasch in den Boden ein und stellt den Pflanzen die benötigten Nährstoffe schnell zur Verfügung. Im Gegensatz dazu neigt unseparierte Gülle zur Bildung sogenannter „Güllewürste", was zu Futterverschmutzung im Grünland führt. Die Folgen sind Fehlgärungen bei der Silage sowie eine verminderte Raufutterqualität.',
@@ -80,9 +95,9 @@ export const applications: Application[] = [
     ],
     kurzfakten: [
       { de: 'Bis zu 30 % weniger Lagerkapazität', en: 'Up to 30 % less storage capacity' },
-      { de: 'Feststoffe als Dünger, Kompost oder Bio-Einstreu nutzbar', en: 'Solids usable as fertilizer, compost or bio-bedding' },
+      { de: 'Feststoffe als Dünger, Kompost oder Comfort-Einstreu nutzbar', en: 'Solids usable as fertilizer, compost or comfort-bedding' },
       { de: 'Flüssige Phase: schnelle Infiltration', en: 'Liquid phase: rapid infiltration' },
-      { de: 'Weniger Rührerwartung', en: 'Less stirrer maintenance' },
+      { de: 'Weniger Rühraufwand', en: 'Less stirring effort' },
       { de: 'Reduzierte Geruchsemissionen', en: 'Reduced odor emissions' },
     ],
     vorteile: [
@@ -99,10 +114,14 @@ export const applications: Application[] = [
     typischeAnwendungen: [
       { de: 'Rinder- und Schweinegülle', en: 'Cattle and pig slurry' },
       { de: 'Grünland- und Ackerbau', en: 'Grassland and arable farming' },
-      { de: 'Bio-Einstreuherstellung', en: 'Bio-bedding production' },
+      { de: 'Comfort-Einstreuherstellung', en: 'Comfort-bedding production' },
       { de: 'Kompostierung', en: 'Composting' },
       { de: 'Nährstoffverbringung', en: 'Nutrient distribution' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Separatoren und Förderschnecken arbeiten',
+      en: 'Where our separators and conveyor screws work',
+    },
     ctaTitle: { de: 'Gemeinsam zur optimalen Lösung', en: 'Together to the optimal solution' },
     ctaDesc: {
       de: 'Wir unterstützen Sie bei Auslegung und Integration des passenden Separators – für stabile Prozesse, niedrige Betriebskosten und maximale Nährstoffeffizienz.',
@@ -111,32 +130,32 @@ export const applications: Application[] = [
     ctaLabel: { de: 'Jetzt Kontakt aufnehmen', en: 'Get in touch' },
   },
 
-  // 2. Bio-Einstreu
+  // 2. Comfort-Einstreu (renamed from Bio-Einstreu 2026-04-20)
   {
     slug: 'bio-einstreu',
-    cardTitle: { de: 'Bio-Einstreu', en: 'Bio Bedding' },
+    cardTitle: { de: 'Comfort-Einstreu', en: 'Comfort Bedding' },
     cardDesc: {
-      de: 'Bio-Einstreu aus eigener Produktion — gesunde Kühe, höhere Milchleistung, weniger Kosten.',
-      en: 'Bio bedding from your own production — healthier cows, more milk, lower costs.',
+      de: 'Comfort-Einstreu aus eigener Produktion — gesunde Kühe, höhere Milchleistung, weniger Kosten.',
+      en: 'Comfort bedding from your own production — healthier cows, more milk, lower costs.',
     },
     badge: { de: 'Anwendung', en: 'Application' },
     title: {
-      de: 'Bio-Einstreu aus eigener Produktion',
-      en: 'Bio Bedding from Your Own Production',
+      de: 'Comfort-Einstreu aus eigener Produktion',
+      en: 'Comfort Bedding from Your Own Production',
     },
     subtitle: {
-      de: 'Immer mehr Milchviehbetriebe produzieren die benötigte Einstreu selbst. Betriebseigenes Bio-Einstreu senkt Kosten, verbessert die Stallhygiene und steigert das Wohlbefinden der Tiere – die Basis für gesunde Kühe und hohe Milchleistungen.',
-      en: 'More dairy farms are producing their own bedding. On-farm bio-bedding lowers costs, improves stable hygiene and boosts animal welfare — the foundation for healthy cows and strong milk yields.',
+      de: 'Immer mehr Milchviehbetriebe produzieren die benötigte Einstreu selbst. Betriebseigene Comfort-Einstreu senkt Kosten, verbessert die Stallhygiene und steigert das Wohlbefinden der Tiere – die Basis für gesunde Kühe und hohe Milchleistungen.',
+      en: 'More dairy farms are producing their own bedding. On-farm comfort-bedding lowers costs, improves stable hygiene and boosts animal welfare — the foundation for healthy cows and strong milk yields.',
     },
     heroImage: '/images/app-bedding.webp',
     intro: [
       {
-        de: 'Für Einstreu aus separierter Gülle ist ein konstanter Trockensubstanzgehalt von > 38 % entscheidend. Dadurch bleibt die Einstreu trocken und weist eine geringe Verkeimung auf – Euterentzündungen können zuverlässig vermieden werden.',
-        en: 'Bedding made from separated slurry needs a consistent dry matter content of >38 %. This keeps the bedding dry, low in germs, and reliably prevents mastitis.',
+        de: 'Für Einstreu aus separierter Gülle ist ein konstanter Trockensubstanzgehalt von > 38 % entscheidend. Dadurch bleibt die Einstreu trocken und weist eine geringe Verkeimung auf – bei richtiger Handhabung können Euterentzündungen zuverlässig vermieden werden.',
+        en: 'Bedding made from separated slurry needs a consistent dry matter content of >38 %. This keeps the bedding dry, low in germs — and with proper handling, mastitis can be reliably prevented.',
       },
       {
-        de: 'Mit Ecotech Separatoren lässt sich diese konstante Qualität sicherstellen – mit kalkulierbaren Kosten und minimalem Aufwand direkt am Betrieb.',
-        en: 'Ecotech separators ensure this consistent quality — with calculable costs and minimal effort directly on the farm.',
+        de: 'Mit Ecotech Styria Separatoren lässt sich diese konstante Qualität in einem Verarbeitungsschritt darstellen.',
+        en: 'Ecotech Styria separators deliver this consistent quality in a single processing step.',
       },
     ],
     kurzfakten: [
@@ -148,6 +167,7 @@ export const applications: Application[] = [
     ],
     vorteile: [
       { de: 'Wegfall von Zukaufkosten', en: 'No more bedding purchase costs' },
+      { de: 'Kein ungewollter Nährstoffimport durch zugekauftes Einstreumaterial', en: 'No unintended nutrient import from purchased bedding material' },
       { de: 'Keine Einschleppung fremder Keime in den Stall', en: 'No introduction of foreign germs into the stable' },
       { de: 'Mehr Kuhkomfort und höhere Milchleistung', en: 'More cow comfort and higher milk yield' },
       { de: 'Verbesserte Stallhygiene und sauberere Tiere', en: 'Better stable hygiene and cleaner animals' },
@@ -159,10 +179,14 @@ export const applications: Application[] = [
       { de: 'Laufställe mit separierter Gülle', en: 'Free-stall barns with separated slurry' },
       { de: 'Betriebe mit Fokus auf Tierwohl & Effizienz', en: 'Farms focused on animal welfare & efficiency' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Separatoren und Förderschnecken arbeiten',
+      en: 'Where our separators and conveyor screws work',
+    },
     ctaTitle: { de: 'Gemeinsam zur optimalen Einstreu-Lösung', en: 'Together to the optimal bedding solution' },
     ctaDesc: {
-      de: 'Wir unterstützen Sie bei der Auslegung der passenden Separationstechnik für hochwertige Bio-Einstreu – effizient, wirtschaftlich und nachhaltig.',
-      en: 'We support you in sizing the right separation technology for high-quality bio bedding — efficient, economical and sustainable.',
+      de: 'Wir unterstützen Sie bei der Auslegung der passenden Separationstechnik für hochwertige Comfort-Einstreu – effizient, wirtschaftlich und nachhaltig.',
+      en: 'We support you in sizing the right separation technology for high-quality comfort-bedding — efficient, economical and sustainable.',
     },
     ctaLabel: { de: 'Jetzt Beratung anfragen', en: 'Request consultation' },
   },
@@ -249,8 +273,8 @@ export const applications: Application[] = [
         en: 'The recycling process typically includes preparation, washing, separation, sorting, dewatering, further processing, and recovering raw materials, process media and wastewater. This is exactly where Ecotech separators add value.',
       },
       {
-        de: 'Ecotech Separatoren werden dabei je nach Prozessstufe eingesetzt – zum Filtern, Sedimentieren, Flotieren oder Pressen. Vielfach können energie- und wartungsintensive Aggregate (z. B. klassische Zentrifugen) ersetzt werden. Grundlage ist eine gründliche Analyse Ihrer Anlage.',
-        en: 'Ecotech separators are deployed at various process steps — filtering, sedimenting, flotation or pressing. They often replace energy- and maintenance-intensive equipment such as classical centrifuges. The starting point is a thorough analysis of your plant.',
+        de: 'Ecotech Separatoren werden dabei je nach Prozessstufe eingesetzt – zum Filtern, Sedimentieren, Flotieren oder Pressen. Vielfach können energie- und wartungsintensive Aggregate (z. B. klassische Zentrifugen) ersetzt werden.',
+        en: 'Ecotech separators are deployed at various process steps — filtering, sedimenting, flotation or pressing. They often replace energy- and maintenance-intensive equipment such as classical centrifuges.',
       },
     ],
     kurzfakten: [
@@ -264,15 +288,36 @@ export const applications: Application[] = [
       { de: 'Signifikant geringere Entsorgungskosten durch höhere TS-Gehalte', en: 'Significantly lower disposal costs through higher DS content' },
       { de: 'Rückgewinnung wertvoller Rohstoffe aus Abwässern zur Wiederverwendung', en: 'Recovery of valuable raw materials from wastewater for reuse' },
       { de: 'Schutz nachgelagerter Komponenten durch Abscheidung abrasiver Stoffe (z. B. Sand)', en: 'Protection of downstream components through removal of abrasives' },
-      { de: 'Weniger Energie- und Wartungsaufwand durch potenziellen Ersatz klassischer Zentrifugen', en: 'Lower energy & maintenance via potential replacement of classical centrifuges' },
+      { de: 'Weniger Energie- und Wartungsaufwand durch den Ersatz klassischer Zentrifugen', en: 'Lower energy & maintenance through the replacement of classical centrifuges' },
     ],
     typischeAnwendungen: [
       { de: 'Einsatz im Gut-Strom in Wasch- und Trockenstufen zur Qualitätssteigerung', en: 'Use in clean-stream washing & drying stages to improve quality' },
+      { de: 'Behandlung von Reject-Strömen', en: 'Reject stream treatment' },
       { de: 'Abwasserbehandlung aus Wasch- und Reinigungsstufen (Filtern / Sedimentieren)', en: 'Wastewater treatment from washing & cleaning stages (filtering / sedimenting)' },
       { de: 'Entwässerung von Störstoffen und Feststoffen zur Volumen-/Gewichtsreduktion', en: 'Dewatering of contaminants and solids for volume/weight reduction' },
       { de: 'Abscheidung abrasiver Bestandteile (z. B. Sand) zum Schutz der Anlagenkomponenten', en: 'Removal of abrasive components (e.g. sand) to protect plant components' },
       { de: 'Rückgewinnung von Wertstoffen aus Prozessmedien und Abwässern', en: 'Recovery of valuable materials from process media and wastewater' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Systeme arbeiten',
+      en: 'Where our systems work',
+    },
+    extraSection: {
+      title: {
+        de: 'Best Practice Reject-Ströme',
+        en: 'Best Practice Reject Streams',
+      },
+      paragraphs: [
+        {
+          de: 'Ecotech Styria Reject-Systeme können gering konzentrierte Reject-Ströme direkt aufnehmen und verarbeiten und dadurch bestehende Industriestandards ersetzen – und damit massiv Betriebskosten einsparen. Bestehende wartungs-, energie- und reinigungsintensive Aggregate (z. B. Schwingsiebe) werden dabei durch das Ecotech Styria Reject-System ersetzt.',
+          en: 'Ecotech Styria reject systems can directly accept and process low-concentration reject streams, replacing existing industry standards and dramatically cutting operating costs. Existing maintenance-, energy- and cleaning-intensive units (e.g. vibrating screens) are replaced by the Ecotech Styria reject system.',
+        },
+        {
+          de: 'Die Grundlage für Ihre kundenspezifische Lösung ist eine gründliche Analyse Ihrer Anlage.',
+          en: 'The basis for your customer-specific solution is a thorough analysis of your plant.',
+        },
+      ],
+    },
     ctaTitle: { de: 'Lassen Sie uns Ihren Aufbereitungsprozess evaluieren', en: 'Let us evaluate your recycling process' },
     ctaDesc: {
       de: 'Wir prüfen gemeinsam Inputmaterial, Störstoffspektrum, Medienführung und Ziel-TS – und identifizieren die optimale Einsatzstelle für Ecotech Separatorentechnologie. Ergebnis: stabile Prozesse, höhere Qualität und messbare Kostensenkung.',
@@ -315,7 +360,8 @@ export const applications: Application[] = [
     ],
     kurzfakten: [
       { de: 'Ressourcenschutz & Kreislaufwirtschaft', en: 'Resource protection & circular economy' },
-      { de: 'Prozesskette: Aufbereiten – Zerkleinern – Sieben – Filtern', en: 'Process chain: preparation – shredding – screening – filtering' },
+      { de: 'Prozesswasser-Aufbereitung', en: 'Process water treatment' },
+      { de: 'Prozesskette: Zentrifugen – Sieben – Filtern + Fördern', en: 'Process chain: centrifuges – screening – filtering + conveying' },
       { de: 'Fokus: sichere Prozesse trotz strenger Reglementierungen', en: 'Focus: safe processes despite strict regulations' },
     ],
     vorteile: [
@@ -330,6 +376,10 @@ export const applications: Application[] = [
       { de: 'Abfallwirtschaftszentren: Separation und Entwässerung organischer bzw. gemischter Stoffströme', en: 'Waste centers: separation & dewatering of organic or mixed streams' },
       { de: 'Mechanische Aufbereitungslinien: Nachbehandlung nach Sieb- und Filterstufen', en: 'Mechanical processing lines: post-treatment after screening & filtering' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Systeme arbeiten',
+      en: 'Where our systems work',
+    },
     ctaTitle: { de: 'Gemeinsam zur optimalen Lösung', en: 'Together to the optimal solution' },
     ctaDesc: {
       de: 'Beschreiben Sie uns Ihren kommunalen Stoffstrom (Material, Durchsatz, TS-Gehalt, Zielsetzung) – wir melden uns mit einer passenden Separationslösung.',
@@ -379,7 +429,7 @@ export const applications: Application[] = [
       { de: 'Beste Ergebnisse bei gleichzeitig geringem Energieaufwand', en: 'Best results with simultaneously low energy use' },
       { de: 'Kundenfreundliche Bedienbarkeit und kompakte Bauweise', en: 'User-friendly operation and compact design' },
       { de: 'Hohe Verarbeitungsqualität und Lebensdauer', en: 'High processing quality and service life' },
-      { de: 'Einsparung von Investitions- und Betriebskosten durch Reduktion oder Entfall von Voreindickungsaggregaten dank der Befüllung mit niedrigen TS-Konzentrationen', en: 'Savings in investment and operating costs by reducing or eliminating pre-thickening units thanks to feeding at low DS concentrations' },
+      { de: 'Einsparung von Investitions- und Betriebskosten durch Reduktion oder Entfall von Voreindickungsaggregaten dank der Beschickung mit niedrigen TS-Konzentrationen', en: 'Savings in investment and operating costs by reducing or eliminating pre-thickening units thanks to feeding at low DS concentrations' },
       { de: 'Höhere Abscheidungsrate im Vergleich zu Siebbandpressen', en: 'Higher separation rate compared to belt presses' },
       { de: 'Höherer Trockengehalt im Feststoff → reduzierte Transport- & Entsorgungskosten oder verbesserter Heizwert bei Monoverbrennung', en: 'Higher solid dry content → reduced transport & disposal costs or improved calorific value in mono-incineration' },
     ],
@@ -390,6 +440,10 @@ export const applications: Application[] = [
       { de: 'Rückgewinnung von Rohstoffen aus Abwässern', en: 'Recovery of raw materials from wastewater' },
       { de: 'Entwässerung von faserhaltigen Schlämmen (Primärschlamm)', en: 'Dewatering of fibrous sludge (primary sludge)' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Systeme arbeiten',
+      en: 'Where our systems work',
+    },
     ctaTitle: { de: 'Interesse an einer Auslegung für Ihre Anlage?', en: 'Interested in sizing for your plant?' },
     ctaDesc: {
       de: 'Sprechen Sie mit uns über Durchsatz, TS-Bereich und Zielwerte – wir unterstützen Sie bei der Auswahl des passenden Separators und der Integration in Ihren Prozess.',
@@ -403,8 +457,8 @@ export const applications: Application[] = [
     slug: 'mdf-platten',
     cardTitle: { de: 'MDF Platten', en: 'MDF Boards' },
     cardDesc: {
-      de: 'Saubere Stoffströme für stabile Prozesse — Entfernung von Kunststoffen und Metallen aus Altpapier-Aufbereitung.',
-      en: 'Clean material streams for stable processes — removal of plastics and metals from waste paper recycling.',
+      de: 'Stabile Prozesse in der MDF-Produktion — Kreislaufwasser reinigen, Fasern rückgewinnen, Entsorgungskosten senken.',
+      en: 'Stable processes in MDF production — clean circulation water, recover fibers, reduce disposal costs.',
     },
     badge: { de: 'Anwendung', en: 'Application' },
     title: {
@@ -412,43 +466,45 @@ export const applications: Application[] = [
       en: 'MDF Boards',
     },
     subtitle: {
-      de: 'In der Hartfaserplattenproduktion ist die zuverlässige Entfernung von Störstoffen entscheidend. Moderne Separationstechnologie stellt saubere Rohstoffströme sicher und senkt gleichzeitig Entsorgungs- und Betriebskosten.',
-      en: 'In hardboard production, reliable removal of contaminants is critical. Modern separation technology ensures clean material streams and simultaneously reduces disposal and operating costs.',
+      de: 'Ecotech Filterschneckenpressen sichern stabile Prozesse, verbessern die Kreislaufwasserqualität und senken Entsorgungskosten in der MDF-Produktion.',
+      en: 'Ecotech filter screw presses secure stable processes, improve circulation water quality, and reduce disposal costs in MDF production.',
     },
     heroImage: '/images/app-mdf-v2.webp',
     intro: [
       {
-        de: 'Für die Herstellung von Hartfaserplatten werden große Mengen an Altpapier eingesetzt. Bevor dieses Material in den Produktionsprozess eingebracht werden kann, müssen Verunreinigungen wie Kunststofffolien, Kunststoffstreifen oder metallische Bestandteile zuverlässig entfernt werden. Nur so lassen sich Anlagenstörungen vermeiden und eine gleichbleibend hohe Produktqualität sicherstellen.',
-        en: 'Hardboard production uses large quantities of waste paper. Before this material enters the production process, contaminants like plastic films, plastic strips, or metallic parts must be reliably removed. Only then can plant disruptions be avoided and consistent product quality ensured.',
+        de: 'In der MDF-Plattenproduktion fallen kontinuierlich faserhaltige Reject-, Prozesswasser- und Abwasserströme an, die für einen stabilen und wirtschaftlichen Betrieb zuverlässig getrennt werden müssen. Ecotech Filterschneckenpressen übernehmen dabei eine zentrale Rolle: Sie entwässern faserreiche Nebenströme, reduzieren die Feststofffracht im Kreislaufwasser und stabilisieren die Prozessbedingungen über alle Nassbereiche hinweg. Durch die effiziente Abtrennung von Feinfasern, Harz und Leimresten wird die Wasserqualität im Kreislauf deutlich verbessert, was wiederum die Betriebssicherheit nachgeschalteter Aggregate erhöht.',
+        en: 'MDF board production continuously generates fiber-rich reject, process water, and wastewater streams that must be reliably separated for stable and economic operation. Ecotech filter screw presses play a central role here: they dewater fiber-rich side streams, reduce the solid load in circulation water, and stabilize process conditions across all wet areas. The efficient separation of fine fibers, resin, and glue residues significantly improves circuit water quality, which in turn increases the reliability of downstream equipment.',
       },
       {
-        de: 'Der Einsatz einer leistungsfähigen Rejectpresse hat sich hierbei besonders bewährt. Die ausgeschiedenen Störstoffe werden stark entwässert, wodurch Trockengehalte mit über 40 % TS erreicht werden. Das reduzierte Volumen senkt Transport- und Entsorgungskosten deutlich.',
-        en: 'A high-performance reject press has proven particularly effective. Contaminants are heavily dewatered, achieving dry contents above 40 % DS. The reduced volume significantly cuts transport and disposal costs.',
-      },
-      {
-        de: 'Die Aufbereitung industrieller Stoffströme erfolgt über mehrere aufeinander abgestimmte Prozessschritte. Dazu zählen das Aufbereiten und Waschen der Materialien, das gezielte Trennen und Sortieren unterschiedlicher Fraktionen sowie das anschließende Entwässern. Die Kombination dieser Methoden lässt sich für hohe Abscheideleistungen und stabile Prozessbedingungen realisieren.',
-        en: 'Processing industrial material streams follows multiple coordinated steps: preparation and washing of materials, targeted separation and sorting of different fractions, and subsequent dewatering. Combining these methods enables high separation rates and stable process conditions.',
+        de: 'Gleichzeitig ermöglichen die Pressen eine deutliche Volumenreduktion in der Schlammbehandlung und tragen damit zu geringeren Entsorgungskosten bei. Die Rückgewinnung von Fasern aus Reject- und Abwasserströmen verbessert zudem die Rohstoffeffizienz. Insgesamt leisten Ecotech Filterschneckenpressen einen wesentlichen Beitrag zu Ressourcenschonung, Prozessstabilität und Kosteneffizienz im MDF-Werk.',
+        en: 'At the same time, the presses enable significant volume reduction in sludge treatment, contributing to lower disposal costs. Fiber recovery from reject and wastewater streams also improves raw material efficiency. Overall, Ecotech filter screw presses make a substantial contribution to resource conservation, process stability, and cost efficiency in the MDF plant.',
       },
     ],
     kurzfakten: [
-      { de: 'Altpapier als zentraler Rohstoff', en: 'Waste paper as a key raw material' },
-      { de: 'Entfernung von Kunststoffen und Metallen', en: 'Removal of plastics and metals' },
-      { de: 'Reject-Entwässerung mit > 40 % TS', en: 'Reject dewatering with >40 % DS' },
-      { de: 'Reduzierte Transport- und Entsorgungskosten', en: 'Reduced transport and disposal costs' },
+      { de: 'Hoher Feinanteil durch thermomechanische Faserung', en: 'High fine content from thermomechanical fiberization' },
+      { de: 'Hohe Wassermengen (bis zu 10–15 m³ pro Tonne MDF)', en: 'High water volumes (up to 10–15 m³ per tonne of MDF)' },
+      { de: 'Kreislaufwasserqualität beeinflusst Plattenqualität und Energieverbrauch', en: 'Circulation water quality affects board quality and energy consumption' },
+      { de: 'Entwässerung von Schlämmen, um Entsorgungskosten zu senken', en: 'Sludge dewatering to reduce disposal costs' },
+      { de: 'Senkung der CSB-Last im Kreislaufwasser', en: 'Reducing COD load in circulation water' },
     ],
     vorteile: [
-      { de: 'Hohe Prozessstabilität', en: 'High process stability' },
-      { de: 'Saubere Stoffströme', en: 'Clean material streams' },
-      { de: 'Geringere Stillstandszeiten', en: 'Reduced downtime' },
-      { de: 'Wirtschaftliche Entwässerung', en: 'Economical dewatering' },
-      { de: 'Robuste Technik für den Dauerbetrieb', en: 'Robust technology for continuous operation' },
+      { de: 'Verbesserte Kreislaufwasserqualität und stabile Prozessbedingungen', en: 'Improved circulation water quality and stable process conditions' },
+      { de: 'Deutliche Volumenreduktion in der Schlammbehandlung', en: 'Significant volume reduction in sludge treatment' },
+      { de: 'Rückgewinnung von Fasern aus Reject- und Abwasserströmen', en: 'Fiber recovery from reject and wastewater streams' },
+      { de: 'Höhere Betriebssicherheit nachgeschalteter Aggregate', en: 'Higher operational reliability of downstream equipment' },
+      { de: 'Wesentlicher Beitrag zu Ressourcenschonung und Kosteneffizienz', en: 'Substantial contribution to resource conservation and cost efficiency' },
     ],
     typischeAnwendungen: [
-      { de: 'Hartfaserplatten- / MDF-Produktion', en: 'Hardboard / MDF production' },
+      { de: 'Prozesswasser-Kreislaufreinigung', en: 'Process water circuit cleaning' },
       { de: 'Reject-Aufbereitung in Stoffaufbereitungslinien', en: 'Reject processing in stock preparation lines' },
       { de: 'Filterung und Entwässerung von Prozessmedien', en: 'Filtering and dewatering of process media' },
-      { de: 'Behandlung industrieller Abwässer mit hohem Feststoffanteil', en: 'Treatment of industrial wastewater with high solid content' },
+      { de: 'Schlammbehandlung aus Sieb- und Abwasserströmen', en: 'Sludge treatment from screen and wastewater streams' },
+      { de: 'Rückgewinnung von Fasern aus Nebenströmen', en: 'Fiber recovery from side streams' },
     ],
+    typischeAnwendungenTitle: {
+      de: 'Wo unsere Systeme arbeiten',
+      en: 'Where our systems work',
+    },
     ctaTitle: { de: 'Gemeinsam zur optimalen Lösung', en: 'Together to the optimal solution' },
     ctaDesc: {
       de: 'Wir unterstützen Sie bei Auslegung, Integration und Inbetriebnahme – abgestimmt auf Ihre Stoffströme und betrieblichen Anforderungen.',
@@ -481,8 +537,8 @@ export const applications: Application[] = [
         en: 'The food industry generates large quantities of moist by-products, residues and wastewater along the entire value chain. Modern separation technology enables economical and resource-efficient processing. Applications range from pressing wastewater out of fruit and vegetable scraps — such as potato peels — through separating food waste on cruise ships, all the way to reliable dewatering of grain mash in distilleries or spent grains in breweries.',
       },
       {
-        de: 'Der Nutzen ist klar messbar: Durch die mechanische Trennung in feste und flüssige Phasen lässt sich das Abfallvolumen deutlich reduzieren – in vielen Fällen um bis zu 30 %. Das vereinfacht die Entsorgung erheblich, senkt Transport- und Entsorgungskosten und eröffnet neue Möglichkeiten zur Weiterverwertung der separierten Stoffe. Gleichzeitig werden Zeit sowie Investitions- und Betriebskosten nachhaltig eingespart.',
-        en: 'The benefit is clearly measurable: mechanical separation into solid and liquid phases significantly reduces waste volume — often by up to 30 %. Disposal becomes much easier, transport and disposal costs drop, and new reuse possibilities open up. At the same time, time as well as investment and operating costs are sustainably reduced.',
+        de: 'Der Nutzen ist klar messbar: Durch die mechanische Trennung in feste und flüssige Phasen lässt sich das Abfallvolumen deutlich reduzieren – in vielen Fällen um bis zu 90 %. Das vereinfacht die Entsorgung erheblich, senkt Transport- und Entsorgungskosten und eröffnet neue Möglichkeiten zur Weiterverwertung der separierten Stoffe. Gleichzeitig werden Zeit sowie Investitions- und Betriebskosten nachhaltig eingespart.',
+        en: 'The benefit is clearly measurable: mechanical separation into solid and liquid phases significantly reduces waste volume — often by up to 90 %. Disposal becomes much easier, transport and disposal costs drop, and new reuse possibilities open up. At the same time, time as well as investment and operating costs are sustainably reduced.',
       },
       {
         de: 'Die anfallenden Feststoffe müssen nicht zwangsläufig entsorgt werden. Je nach Zusammensetzung können sie als Dünger in der Landwirtschaft eingesetzt oder als wertvoller Rohstoff zur Tierfutterherstellung weiterverarbeitet werden. Die flüssige Phase wiederum wird häufig als Prozess- oder Waschwasser erneut in den Produktionskreislauf eingebunden – ein wichtiger Beitrag zur Reduktion des Frischwasserbedarfs.',
@@ -494,7 +550,7 @@ export const applications: Application[] = [
       },
     ],
     kurzfakten: [
-      { de: 'Abfallvolumenreduktion häufig bis zu 30 %', en: 'Waste volume reduction often up to 30 %' },
+      { de: 'Abfallvolumenreduktion häufig bis zu 90 %', en: 'Waste volume reduction often up to 90 %' },
       { de: 'Mechanische Trennung ohne chemische Zusätze', en: 'Mechanical separation without chemical additives' },
       { de: 'Feststoffe als Dünger oder Tierfutter nutzbar', en: 'Solids usable as fertilizer or animal feed' },
       { de: 'Flüssigphase als Prozess- oder Waschwasser rückführbar', en: 'Liquid phase reusable as process/wash water' },
@@ -537,6 +593,23 @@ export const applications: Application[] = [
           en: 'Less volume means less storage demand. At the same time, recovering water and valuable materials enables efficient circular operation on site.',
         },
       ],
+    },
+    extraSection: {
+      title: {
+        de: 'Sonstige Anwendungen im Bereich Fasersuspensionen',
+        en: 'Other Applications in the Field of Fiber Suspensions',
+      },
+      paragraphs: [
+        {
+          de: 'Ecotech Styria bietet Lösungen in allen Bereichen der Separationstechnik von Fasersuspensionen an – auch außerhalb der beschriebenen Anwendungen.',
+          en: 'Ecotech Styria offers solutions across all areas of fiber suspension separation — including applications beyond those described here.',
+        },
+        {
+          de: 'Kontaktieren Sie uns und konzipieren wir gemeinsam eine Lösung!',
+          en: 'Contact us and let us design a solution together!',
+        },
+      ],
+      image: '/images/app-lebensmittel-v2.webp',
     },
   },
 ];

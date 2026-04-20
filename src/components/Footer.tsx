@@ -1,6 +1,6 @@
 import { Link } from '@/router';
 import { useLanguage } from '@/context/LanguageContext';
-import { Phone, Mail, Globe, MapPin, Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin, Linkedin, Youtube } from 'lucide-react';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -72,18 +72,6 @@ export function Footer() {
                 <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
                   <Youtube size={20} />
                   <span>YouTube</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
-                  <Instagram size={20} />
-                  <span>Instagram</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
-                  <Facebook size={20} />
-                  <span>Facebook</span>
                 </a>
               </li>
             </ul>

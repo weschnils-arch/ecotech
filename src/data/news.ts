@@ -51,6 +51,43 @@ export const newsItems: NewsItem[] = [
     ],
   },
 
+  {
+    slug: 'kooperation-circulyzer',
+    type: 'news',
+    image: '/images/news-circulyzer.webp',
+    date: 'April 2026',
+    titleDe: 'Kooperation Circulyzer',
+    titleEn: 'Circulyzer Cooperation',
+    excerptDe: 'Gemeinsam mit unseren Partnern stellen wir den Circulyzer vor – eine kompakte Separationseinheit für die nasse Dichtesortierung und Wäsche verschiedener Rückstände und Abfallgemische.',
+    excerptEn: 'Together with our partners, we introduce the Circulyzer – a compact separation unit for wet density sorting and washing of various residues and waste mixtures.',
+    bodyDe: [
+      'Gemeinsam mit unseren Partnern stellen wir den Circulyzer vor – eine kompakte Separationseinheit für die nasse Dichtesortierung und Wäsche verschiedener Rückstände und Abfallgemische.',
+      'Ausführliche Informationen und Berichterstattung folgen in Kürze.',
+    ],
+    bodyEn: [
+      'Together with our partners, we introduce the Circulyzer – a compact separation unit for wet density sorting and washing of various residues and waste mixtures.',
+      'Detailed information and reporting will follow shortly.',
+    ],
+  },
+  {
+    slug: 'bgi-400-plug-and-play',
+    type: 'news',
+    image: '/images/news-bgi400-pnp.webp',
+    date: 'April 2026',
+    titleDe: 'BGI-400 Plug & Play – Neuvorstellung',
+    titleEn: 'BGI-400 Plug & Play – New Product',
+    excerptDe: 'Mobile Einheit mit automatischer Drucküberwachung, verzinktem Stahlbau und Drehkolbenpumpe – die neue Plug & Play-Variante unserer kompakten Filterschneckenpresse.',
+    excerptEn: 'Mobile unit with automatic pressure monitoring, galvanized steel construction, and rotary piston pump – the new Plug & Play variant of our compact filter screw press.',
+    bodyDe: [
+      'Mobile Einheit mit automatischer Drucküberwachung, verzinktem Stahlbau und Drehkolbenpumpe – die neue Plug & Play-Variante unserer kompakten Filterschneckenpresse.',
+      'Ausführliche Berichterstattung folgt in Kürze.',
+    ],
+    bodyEn: [
+      'Mobile unit with automatic pressure monitoring, galvanized steel construction, and rotary piston pump – the new Plug & Play variant of our compact filter screw press.',
+      'Detailed reporting will follow shortly.',
+    ],
+  },
+
   // --- EVENTS ---
   {
     slug: 'agritechnica-2025',

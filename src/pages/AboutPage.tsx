@@ -251,14 +251,14 @@ function LocationSection() {
 
         <div className={`glass-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2758.789123456789!2d15.0833!3d47.0667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA0JzAwLjAiTiAxNcKwMDUnMDAuMCJF!5e0!3m2!1sde!2sat!4v1234567890"
+            src="https://maps.google.com/maps?q=Judenburgerstra%C3%9Fe%20176%2C%208580%20K%C3%B6flach%2C%20%C3%96sterreich&t=m&z=16&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="EcoTech Styria Location"
+            title="EcoTech Styria — Judenburgerstraße 176, 8580 Köflach"
           />
         </div>
       </div>

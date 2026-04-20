@@ -9,6 +9,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Pages without a dark hero need the solid header from the start,
+  // otherwise white nav links sit on a white background.
+  const isSolidRoute = ['/terms', '/privacy', '/imprint', '/dealers'].includes(path);
+  const isSolid = isScrolled || isSolidRoute;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -31,7 +36,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isSolid
         ? 'bg-white border-b border-ecotech-grey-light/50 shadow-sm'
         : 'bg-transparent'
         }`}
@@ -45,11 +50,11 @@ export function Header() {
               className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
-              <span className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-ecotech-grey' : 'text-white'
+              <span className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${isSolid ? 'text-ecotech-grey' : 'text-white'
                 }`}>
                 ecotech
               </span>
-              <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 -mt-0.5 ${isScrolled ? 'text-ecotech-green' : 'text-white'
+              <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 -mt-0.5 ${isSolid ? 'text-ecotech-green' : 'text-white'
                 }`}>
                 styria
               </span>
@@ -64,7 +69,7 @@ export function Header() {
                 to={item.path}
                 className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${isActive(item.path)
                   ? 'text-ecotech-green bg-ecotech-green/10'
-                  : isScrolled
+                  : isSolid
                     ? 'text-ecotech-grey hover:text-ecotech-green hover:bg-ecotech-grey-light/50'
                     : 'text-white hover:text-ecotech-green hover:bg-white/10'
                   }`}
@@ -78,14 +83,14 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-1">
             <button
               onClick={() => setLanguage('de')}
-              className={`lang-switch ${language === 'de' ? 'active' : ''} ${!isScrolled && language !== 'de' ? 'text-white hover:bg-white/10' : ''}`}
+              className={`lang-switch ${language === 'de' ? 'active' : ''} ${!isSolid && language !== 'de' ? 'text-white hover:bg-white/10' : ''}`}
             >
               DE
             </button>
-            <span className={`${isScrolled ? 'text-ecotech-grey-light' : 'text-white/50'}`}>|</span>
+            <span className={`${isSolid ? 'text-ecotech-grey-light' : 'text-white/50'}`}>|</span>
             <button
               onClick={() => setLanguage('en')}
-              className={`lang-switch ${language === 'en' ? 'active' : ''} ${!isScrolled && language !== 'en' ? 'text-white hover:bg-white/10' : ''}`}
+              className={`lang-switch ${language === 'en' ? 'active' : ''} ${!isSolid && language !== 'en' ? 'text-white hover:bg-white/10' : ''}`}
             >
               EN
             </button>
@@ -94,7 +99,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-ecotech-grey' : 'text-white'
+            className={`lg:hidden p-2 transition-colors ${isSolid ? 'text-ecotech-grey' : 'text-white'
               } hover:text-ecotech-green`}
             aria-label="Toggle menu"
           >
