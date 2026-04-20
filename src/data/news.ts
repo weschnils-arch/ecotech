@@ -143,24 +143,6 @@ export const newsItems: NewsItem[] = [
       'More details about the exhibition will follow shortly.',
     ],
   },
-  {
-    slug: 'eurotier-2026',
-    type: 'event',
-    image: '/images/event-eurotier.png',
-    date: '13. - 16. November 2026',
-    titleDe: 'EuroTier 2026 Hannover',
-    titleEn: 'EuroTier 2026 Hanover',
-    excerptDe: 'Innovationen für die Tierhaltung und effiziente Gülle-Separation. Erfahren Sie mehr über unsere maßgeschneiderten Lösungen für die Landwirtschaft.',
-    excerptEn: 'Innovations for animal husbandry and efficient manure separation. Learn more about our tailor-made solutions for agriculture.',
-    bodyDe: [
-      'Innovationen für die Tierhaltung und effiziente Gülle-Separation. Erfahren Sie mehr über unsere maßgeschneiderten Lösungen für die Landwirtschaft.',
-      'Weitere Details folgen in Kürze.',
-    ],
-    bodyEn: [
-      'Innovations for animal husbandry and efficient manure separation. Learn more about our tailor-made solutions for agriculture.',
-      'More details will follow shortly.',
-    ],
-  },
 ];
 
 export function getNewsItemBySlug(slug: string): NewsItem | undefined {
