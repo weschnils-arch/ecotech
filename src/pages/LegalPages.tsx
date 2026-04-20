@@ -8,7 +8,7 @@ export function TermsPage() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
-  const sections = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+  const sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18] as const;
 
   return (
     <main className="section-container pt-32 pb-24">
@@ -20,15 +20,18 @@ export function TermsPage() {
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('legal.terms.label')}
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-ecotech-grey mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-ecotech-grey mb-6">
             {t('legal.terms.title')}
           </h1>
+          <p className="text-base text-ecotech-grey/80 mb-12 leading-relaxed">
+            {t('legal.terms.intro')}
+          </p>
 
-          <div className="glass-card p-8 lg:p-12 space-y-8">
+          <div className="glass-card p-8 lg:p-12 space-y-10">
             {sections.map((i) => (
               <section key={i}>
                 <h2 className="text-xl font-bold text-ecotech-grey mb-4">{t(`legal.terms.${i}.title`)}</h2>
-                <p className="text-ecotech-grey leading-relaxed">
+                <p className="text-ecotech-grey leading-relaxed whitespace-pre-line">
                   {t(`legal.terms.${i}.body`)}
                 </p>
               </section>
