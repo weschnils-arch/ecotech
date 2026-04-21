@@ -373,7 +373,7 @@ function ParallaxSection() {
 
 // Products Section
 function ProductsSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   const products = [
@@ -441,6 +441,16 @@ function ProductsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className={`flex justify-center mt-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Link
+            to="/products"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-ecotech-green text-white font-medium text-lg shadow-glass hover:bg-ecotech-green/90 hover:scale-105 transition-all duration-300"
+          >
+            {language === 'de' ? 'Alle Produkte' : 'All Products'}
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

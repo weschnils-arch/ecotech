@@ -36,9 +36,9 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isSolid
-        ? 'bg-white border-b border-ecotech-grey-light/50 shadow-sm'
-        : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${isSolid
+        ? 'bg-white border-ecotech-grey-light/50 shadow-sm'
+        : 'bg-transparent border-transparent shadow-none'
         }`}
     >
       <div className="section-container">
