@@ -81,6 +81,12 @@
     @apply border-border;
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -89,6 +95,24 @@
     @apply bg-white text-ecotech-grey font-rouben antialiased;
     font-family: 'Rouben', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   h1,

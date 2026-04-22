@@ -465,16 +465,16 @@ function VoreindicherSection() {
                 {t('productpage.inquiry')} <ArrowRight size={18} />
               </a>
             </div>
-            <div className="relative min-h-[320px] lg:min-h-full bg-white p-6 lg:p-8">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+            <div className="relative min-h-[320px] lg:min-h-full bg-white p-4 sm:p-6 lg:p-8">
+              <div className="relative w-full h-full min-h-[280px] rounded-2xl overflow-hidden">
                 <img
                   src="/images/product-voreindicker.webp"
                   alt={t('productpage.voreindicker.title')}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 !max-w-none w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="px-6 py-2.5 rounded-full bg-ecotech-green text-white text-sm md:text-base font-bold uppercase tracking-[0.3em] shadow-lg shadow-ecotech-green/30">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-4">
+                  <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-ecotech-green text-white text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.15em] sm:tracking-[0.3em] shadow-lg shadow-ecotech-green/30 whitespace-nowrap">
                     {t('productpage.comingSoon')}
                   </span>
                 </div>
