@@ -122,16 +122,16 @@ function BG2Section() {
   const options = t('productpage.bg2.options').split('|');
 
   return (
-    <section ref={ref} id="bg2" className="section-container pt-32 pb-20 scroll-mt-24">
+    <section ref={ref} id="bg2" className="section-container pt-32 pb-20 scroll-mt-24" lang="de">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('productpage.flagship')}
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ecotech-grey mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">
             {t('productpage.bg2.title')}
           </h1>
-          <p className="text-xl text-ecotech-grey max-w-4xl mb-12">
+          <p className="text-lg sm:text-xl text-ecotech-grey max-w-4xl mb-12 break-words hyphens-auto">
             {t('productpage.bg2.desc')}
           </p>
         </div>
@@ -271,17 +271,17 @@ function BGI400Section() {
   ];
 
   return (
-    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
+    <section ref={ref} id="bgi400" className="section-container py-24 lg:py-32 bg-white scroll-mt-24" lang="de">
       <div className="section-inner">
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           <div className={`order-2 lg:order-1 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
               {t('productpage.compact')}
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">
               {t('productpage.bgi400.title')}
             </h2>
-            <p className="text-lg text-ecotech-grey mb-8">
+            <p className="text-base sm:text-lg text-ecotech-grey mb-8 break-words hyphens-auto">
               {t('productpage.bgi400.desc')}
             </p>
 
@@ -349,16 +349,16 @@ function BGI400PnPSection() {
   ];
 
   return (
-    <section ref={ref} id="bgi400-pnp" className="section-container py-24 lg:py-32 scroll-mt-24">
+    <section ref={ref} id="bgi400-pnp" className="section-container py-24 lg:py-32 scroll-mt-24" lang="de">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('productpage.bgi400pnp.badge')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">
             {t('productpage.bgi400pnp.title')}
           </h2>
-          <p className="text-xl text-ecotech-grey max-w-4xl mb-12">
+          <p className="text-lg sm:text-xl text-ecotech-grey max-w-4xl mb-12 break-words hyphens-auto">
             {t('productpage.bgi400pnp.desc')}
           </p>
         </div>
@@ -445,20 +445,20 @@ function VoreindicherSection() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   return (
-    <section ref={ref} id="voreindicker" className="section-container py-24 lg:py-32 scroll-mt-24">
+    <section ref={ref} id="voreindicker" className="section-container py-24 lg:py-32 scroll-mt-24" lang="de">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">{t('productpage.new')}</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">{t('productpage.voreindicker.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.voreindicker.title')}</h2>
           <div className="glass-card overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
-            <div className="p-10 lg:p-12">
-              <span className="inline-block px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
+            <div className="p-6 sm:p-8 lg:p-12">
+              <span className="inline-block px-4 sm:px-5 py-2 bg-ecotech-green/10 text-ecotech-green text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-full mb-6 border border-ecotech-green/20">
                 {t('productpage.comingSoon')}
               </span>
-              <h3 className="text-3xl md:text-4xl font-bold text-ecotech-grey mb-4">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-ecotech-grey mb-4 break-words hyphens-auto">
                 {t('productpage.voreindicker.tagline')}
               </h3>
-              <p className="text-lg text-ecotech-grey/70 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-ecotech-grey/70 leading-relaxed mb-8 break-words hyphens-auto">
                 {t('productpage.voreindicker.intro')}
               </p>
               <a href="mailto:office@ecotechstyria.com?subject=Anfrage Voreindicker" className="btn-primary inline-flex">
@@ -501,16 +501,16 @@ function CirculyizerSection() {
   const efficiency = [1, 2, 3] as const;
 
   return (
-    <section ref={ref} id="circulyizer" className="section-container py-24 lg:py-32 bg-white scroll-mt-24">
+    <section ref={ref} id="circulyizer" className="section-container py-24 lg:py-32 bg-white scroll-mt-24" lang="de">
       <div className="section-inner">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('productpage.circulyizer.badge')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">
             {t('productpage.circulyizer.title')}
           </h2>
-          <p className="text-xl text-ecotech-grey max-w-4xl mb-12">
+          <p className="text-lg sm:text-xl text-ecotech-grey max-w-4xl mb-12 break-words hyphens-auto">
             {t('productpage.circulyizer.desc')}
           </p>
         </div>
@@ -645,6 +645,218 @@ function CirculyizerSection() {
   );
 }
 
+// Förderschnecken (Pauger) Section
+function FoerderSchneckenSection() {
+  const { t } = useLanguage();
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
+  const aboutItems = t('productpage.foerder.about.items').split('|');
+  const overview = [1, 2, 3, 4, 5, 6, 7] as const;
+  const rows = [1, 2, 3, 4, 5] as const;
+  const extras = t('productpage.foerder.extras.items').split('|');
+  const applications = t('productpage.foerder.applications.items').split('|');
+  const benefits = t('productpage.foerder.benefits.items').split('|');
+  const service = t('productpage.foerder.service.items').split('|');
+  const more = t('productpage.foerder.more.items').split('|');
+
+  return (
+    <section ref={ref} id="foerderschnecken" className="section-container py-24 lg:py-32 scroll-mt-24" lang="de">
+      <div className="section-inner">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-ecotech-green font-medium text-sm uppercase tracking-wider mb-4 block">
+            {t('productpage.foerder.badge')}
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ecotech-grey mb-4 break-words hyphens-auto">
+            {t('productpage.foerder.title')}
+          </h2>
+          <p className="text-lg sm:text-xl text-ecotech-grey/80 max-w-4xl mb-12 break-words hyphens-auto">
+            {t('productpage.foerder.tagline')}
+          </p>
+        </div>
+
+        {/* Gallery + About */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
+            <ImageGallery images={[
+              { src: '/images/product-foerderschnecken-1.webp', alt: 'Rohrförderschnecken – Pauger Werkstatt' },
+              { src: '/images/product-foerderschnecken-2.webp', alt: 'Trogförderschnecke mit Schneckenwelle' },
+              { src: '/images/product-foerderschnecken-6.webp', alt: 'Detailansicht Pressschnecke' },
+              { src: '/images/product-foerderschnecken-5.webp', alt: 'Auftragsschweißung Schneckenflügel' },
+              { src: '/images/product-foerderschnecken-3.webp', alt: 'Fördertechnik in Produktionsanlage' },
+              { src: '/images/product-foerderschnecken-4.webp', alt: 'CAD Schnittansicht Antrieb & Lagerung' },
+            ]} />
+          </div>
+
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.about.title')}</h3>
+            <ul className="space-y-3 mb-8">
+              {aboutItems.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey break-words hyphens-auto">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.benefits.title')}</h3>
+            <ul className="space-y-3 mb-8">
+              {benefits.map((b, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey break-words hyphens-auto">{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a href="mailto:office@pauger-mb.at?subject=Anfrage Förderschnecken" className="btn-primary inline-flex">
+              {t('productpage.inquiry')} <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+
+        {/* Produktübersicht */}
+        <div className={`mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '350ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.overview.title')}</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {overview.map(i => (
+              <div key={i} className="glass-card p-6">
+                <h4 className="text-lg font-bold text-ecotech-grey mb-2 break-words hyphens-auto">{t(`productpage.foerder.overview.${i}.title`)}</h4>
+                <p className="text-sm text-ecotech-grey/70 break-words hyphens-auto">{t(`productpage.foerder.overview.${i}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Technische Daten — Table */}
+        <div className={`glass-card p-4 sm:p-6 lg:p-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.tech.title')}</h3>
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full min-w-[600px] text-left border-collapse">
+              <thead>
+                <tr className="border-b-2 border-ecotech-green/30">
+                  <th className="py-3 pr-4 text-sm font-bold text-ecotech-grey">{t('productpage.foerder.tech.col.model')}</th>
+                  <th className="py-3 px-4 text-sm font-bold text-ecotech-grey">{t('productpage.foerder.tech.col.diameter')}</th>
+                  <th className="py-3 px-4 text-sm font-bold text-ecotech-grey">{t('productpage.foerder.tech.col.length')}</th>
+                  <th className="py-3 px-4 text-sm font-bold text-ecotech-grey">{t('productpage.foerder.tech.col.capacity')}</th>
+                  <th className="py-3 pl-4 text-sm font-bold text-ecotech-grey">{t('productpage.foerder.tech.col.material')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map(r => (
+                  <tr key={r} className="border-b border-ecotech-grey-light/50">
+                    <td className="py-3 pr-4 text-sm text-ecotech-grey font-medium">{t(`productpage.foerder.tech.row.${r}.model`)}</td>
+                    <td className="py-3 px-4 text-sm text-ecotech-grey">{t(`productpage.foerder.tech.row.${r}.diameter`)}</td>
+                    <td className="py-3 px-4 text-sm text-ecotech-grey">{t(`productpage.foerder.tech.row.${r}.length`)}</td>
+                    <td className="py-3 px-4 text-sm text-ecotech-grey">{t(`productpage.foerder.tech.row.${r}.capacity`)}</td>
+                    <td className="py-3 pl-4 text-sm text-ecotech-grey">{t(`productpage.foerder.tech.row.${r}.material`)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-ecotech-grey/70 italic mt-4 break-words hyphens-auto">{t('productpage.foerder.tech.footnote')}</p>
+        </div>
+
+        {/* Dichtungen + Antrieb */}
+        <div className={`grid md:grid-cols-2 gap-6 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '450ms' }}>
+          <div className="glass-card p-6 lg:p-8">
+            <h4 className="text-lg font-bold text-ecotech-grey mb-3 break-words hyphens-auto">{t('productpage.foerder.sealing.title')}</h4>
+            <p className="text-sm text-ecotech-grey/80 leading-relaxed break-words hyphens-auto">{t('productpage.foerder.sealing.desc')}</p>
+          </div>
+          <div className="glass-card p-6 lg:p-8">
+            <h4 className="text-lg font-bold text-ecotech-grey mb-3 break-words hyphens-auto">{t('productpage.foerder.drive.title')}</h4>
+            <p className="text-sm text-ecotech-grey/80 leading-relaxed mb-2 break-words hyphens-auto">{t('productpage.foerder.drive.desc')}</p>
+            <p className="text-xs text-ecotech-grey/60 italic break-words hyphens-auto">{t('productpage.foerder.drive.footnote')}</p>
+          </div>
+        </div>
+
+        {/* Zusatzausstattungen */}
+        <div className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '475ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.extras.title')}</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {extras.map((item, i) => (
+              <div key={i} className="flex items-start gap-3 p-4 glass-card">
+                <Settings size={18} className="text-ecotech-green flex-shrink-0 mt-0.5" />
+                <span className="text-ecotech-grey text-sm break-words hyphens-auto">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Anwendungsbereiche */}
+        <div className={`glass-card p-6 lg:p-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '500ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.applications.title')}</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {applications.map((a, i) => (
+              <div key={i} className="flex items-start gap-3 p-4 bg-ecotech-grey-light/30 rounded-lg">
+                <Check size={18} className="text-ecotech-green flex-shrink-0 mt-0.5" />
+                <span className="text-ecotech-grey font-medium break-words hyphens-auto">{a}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Service + Weitere Leistungen */}
+        <div className={`grid lg:grid-cols-2 gap-6 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '550ms' }}>
+          <div>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.service.title')}</h3>
+            <ul className="space-y-3">
+              {service.map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey break-words hyphens-auto">{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-ecotech-grey mb-6 break-words hyphens-auto">{t('productpage.foerder.more.title')}</h3>
+            <ul className="space-y-3">
+              {more.map((m, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-ecotech-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check size={12} className="text-ecotech-green" />
+                  </div>
+                  <span className="text-ecotech-grey break-words hyphens-auto">{m}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Kontakt Pauger */}
+        <div className={`glass-card p-6 lg:p-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
+          <h3 className="text-2xl font-bold text-ecotech-grey mb-4 break-words hyphens-auto">{t('productpage.foerder.contact.title')}</h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <p className="font-bold text-ecotech-grey mb-1 break-words hyphens-auto">{t('productpage.foerder.contact.company')}</p>
+              <p className="text-sm text-ecotech-grey/80 break-words hyphens-auto">{t('productpage.foerder.contact.address')}</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm">
+                <a href={`mailto:${t('productpage.foerder.contact.email')}`} className="text-ecotech-green hover:text-ecotech-green-dark font-medium break-all">
+                  {t('productpage.foerder.contact.email')}
+                </a>
+              </p>
+              <p className="text-sm">
+                <a href={`tel:${t('productpage.foerder.contact.phone').replace(/[\s\/]/g, '')}`} className="text-ecotech-grey hover:text-ecotech-green font-medium">
+                  {t('productpage.foerder.contact.phone')}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ProductsPage() {
   const { t } = useLanguage();
 
@@ -661,6 +873,7 @@ export function ProductsPage() {
       <BGI400PnPSection />
       <VoreindicherSection />
       <CirculyizerSection />
+      <FoerderSchneckenSection />
       <CTASection />
     </main>
   );

@@ -110,9 +110,18 @@
   h4,
   h5,
   h6,
-  p {
-    overflow-wrap: break-word;
+  p,
+  span,
+  li,
+  a {
+    overflow-wrap: anywhere;
     word-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3 {
+    hyphens: auto;
   }
 
   h1,
