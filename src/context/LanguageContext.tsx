@@ -222,7 +222,7 @@ const translations = {
     'productpage.foerder.badge': 'In Partnerschaft mit Pauger Maschinenbau',
     'productpage.foerder.title': 'PAUGER- Förderschnecken- Made in Austria',
     'productpage.foerder.tagline': 'Effizient. Robust. Maßgeschneidert. Präzision für Ihre Produktion',
-    'productpage.foerder.about.title': 'Über uns:',
+    'productpage.foerder.about.title': 'Über uns',
     'productpage.foerder.about.items': 'Experte für Fördersysteme und Separationstechnik|Maßgeschneiderte Lösung für Industrie & Landwirtschaft|Qualität, Effizienz und Langlebigkeit',
     'productpage.foerder.overview.title': 'Produktübersicht- Unsere Förderschnecken',
     'productpage.foerder.overview.1.title': 'Rohrförderschnecken',
