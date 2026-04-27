@@ -220,7 +220,7 @@ const translations = {
 
     // Förderschnecken
     'productpage.foerder.badge': 'Ecotech Styria',
-    'productpage.foerder.title': 'Förderschnecken – Made in Austria',
+    'productpage.foerder.title': 'Förderschnecken',
     'productpage.foerder.tagline': 'Effizient. Robust. Maßgeschneidert. Präzision für Ihre Produktion',
     'productpage.foerder.about.title': 'Über uns',
     'productpage.foerder.about.items': 'Experte für Fördersysteme und Separationstechnik|Maßgeschneiderte Lösung für Industrie & Landwirtschaft|Qualität, Effizienz und Langlebigkeit',
@@ -860,7 +860,7 @@ const translations = {
 
     // Förderschnecken
     'productpage.foerder.badge': 'Ecotech Styria',
-    'productpage.foerder.title': 'Screw Conveyors – Made in Austria',
+    'productpage.foerder.title': 'Screw Conveyors',
     'productpage.foerder.tagline': 'Efficient. Robust. Tailor-made. Precision for your production.',
     'productpage.foerder.about.title': 'About us',
     'productpage.foerder.about.items': 'Expert in conveying systems and separation technology|Tailor-made solutions for industry & agriculture|Quality, efficiency and longevity',
