@@ -12,7 +12,7 @@ export function Header() {
   // Pages without a dark hero need the solid header from the start,
   // otherwise white nav links sit on a white background.
   const isSolidRoute = ['/terms', '/privacy', '/imprint', '/dealers'].includes(path);
-  const isSolid = isScrolled || isSolidRoute;
+  const isSolid = isScrolled || isSolidRoute || isMobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {

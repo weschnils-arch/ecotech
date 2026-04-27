@@ -69,7 +69,7 @@ function ImageGallery({ images }: { images: { src: string; alt: string }[] }) {
   const prev = () => setActiveIndex((i) => (i - 1 + images.length) % images.length);
 
   return (
-    <div className="relative">
+    <div className="relative min-w-0 max-w-full">
       <div className="glass-card overflow-hidden cursor-pointer" onClick={() => setLightboxOpen(true)}>
         <img src={images[activeIndex].src} alt={images[activeIndex].alt} className="w-full aspect-square object-cover transition-opacity duration-500 hover:scale-[1.02] transition-transform" />
       </div>
@@ -136,9 +136,9 @@ function BG2Section() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 min-w-0">
           {/* Product Image Gallery */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
+          <div className={`min-w-0 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             <ImageGallery images={[
               { src: '/images/product-bg2.jpg', alt: 'BGII-800 Hauptansicht' },
               { src: '/images/product-bg2-gallery-1.webp', alt: 'BGII-800 Detail' },
