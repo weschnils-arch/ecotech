@@ -215,8 +215,8 @@ export const applications: Application[] = [
         en: 'Mature separators make a decisive contribution to economical and stable plant operation. They reliably separate solid and liquid fractions and help target optimal dry matter content in residues — for better usability, lower transport and storage costs, and reliable compliance with environmental regulations.',
       },
       {
-        de: 'Da jede Biogasanlage individuelle Anforderungen und Prozessbedingungen aufweist, analysieren wir Ihre Anlage gemeinsam und entwickeln eine passgenaue Separationslösung – für maximale Wirtschaftlichkeit und Betriebssicherheit.',
-        en: 'Since every biogas plant has unique requirements, we analyze your installation together and develop a tailored separation solution — for maximum profitability and operational reliability.',
+        de: 'Da jede Biogasanlage individuelle Anforderungen und Prozessbedingungen aufweist, analysieren wir Ihre Anlage gemeinsam mit Ihnen und entwickeln eine passgenaue Separationslösung – für maximale Wirtschaftlichkeit und Betriebssicherheit.',
+        en: 'Since every biogas plant has unique requirements and process conditions, we analyze your installation together with you and develop a tailored separation solution — for maximum profitability and operational reliability.',
       },
     ],
     kurzfakten: [
@@ -269,8 +269,8 @@ export const applications: Application[] = [
     heroImage: '/images/app-recycling-v2.webp',
     intro: [
       {
-        de: 'Der Aufbereitungsprozess umfasst typischerweise: Aufbereiten, Waschen, Trennen, Sortieren, Entwässern, Weiterverarbeiten sowie das Rückgewinnen von Rohstoffen, Prozessmedien und Abwässern. Genau hier setzen Ecotech Separatoren an.',
-        en: 'The recycling process typically includes preparation, washing, separation, sorting, dewatering, further processing, and recovering raw materials, process media and wastewater. This is exactly where Ecotech separators add value.',
+        de: 'Der Aufbereitungsprozess umfasst typischerweise: Aufbereiten, Zerkleinern, Waschen, Trennen, Sortieren, Entwässern, Weiterverarbeiten sowie das Rückgewinnen von Rohstoffen, Prozessmedien und Abwässern. Genau hier setzen Ecotech Separatoren an.',
+        en: 'The recycling process typically includes preparation, shredding, washing, separation, sorting, dewatering, further processing, and recovering raw materials, process media and wastewater. This is exactly where Ecotech separators add value.',
       },
       {
         de: 'Ecotech Separatoren werden dabei je nach Prozessstufe eingesetzt – zum Filtern, Sedimentieren, Flotieren oder Pressen. Vielfach können energie- und wartungsintensive Aggregate (z. B. klassische Zentrifugen) ersetzt werden.',
@@ -340,8 +340,8 @@ export const applications: Application[] = [
       en: 'Municipal Applications',
     },
     subtitle: {
-      de: 'Städte und Gemeinden stehen dabei vor der Aufgabe, komplexe Stoffströme sicher, wirtschaftlich und gesetzeskonform zu behandeln. Der Alltag in kommunalen Betrieben ist geprägt von anspruchsvollen Prozessketten: mechanisches Aufbereiten, Zerkleinern sowie mehrstufiges Sieben und Filtern bilden die Grundlage für eine hochwertige Aufbereitung der Abfallstoffe.',
-      en: 'Cities and municipalities face the task of handling complex material streams safely, economically, and in compliance with regulations. Day-to-day operations in municipal facilities are shaped by demanding process chains: mechanical preparation, shredding, and multi-stage screening and filtering form the foundation for high-quality treatment of waste materials.',
+      de: 'Städte und Gemeinden stehen dabei vor der Aufgabe, komplexe Stoffströme sicher, wirtschaftlich und gesetzeskonform zu behandeln. Der Alltag in kommunalen Betrieben ist geprägt von anspruchsvollen Prozessketten: mechanisches Aufbereiten, Zerkleinern sowie mehrstufiges Sieben und Filtern bilden die Grundlage für eine hochwertige Aufbereitung der Abfallstoffe. Mehrstufiges Sieben und Filtern ist meist entscheidend für die Qualität der Aufbereitung.',
+      en: 'Cities and municipalities face the task of handling complex material streams safely, economically, and in compliance with regulations. Day-to-day operations in municipal facilities are shaped by demanding process chains: mechanical preparation, shredding, and multi-stage screening and filtering form the foundation for high-quality treatment of waste materials. Multi-stage screening and filtering is usually decisive for the quality of the treatment.',
     },
     heroImage: '/images/app-municipal-v2.webp',
     intro: [
@@ -416,7 +416,7 @@ export const applications: Application[] = [
         en: 'Ecotech Styria separators play a key role in wastewater treatment: they mechanically remove a high share of solids from the wastewater. At the same time, flocculant use such as polyacrylamide can be significantly reduced.',
       },
       {
-        de: 'Mit Ecotech Styria Separatoren sichern Zellstoff- und Papierfabriken eine wirtschaftliche, ressourcenschonende und umweltgerechte Abwasserbehandlung – und stärken gleichzeitig ihre Zukunftsfähigkeit.',
+        de: 'Mit Ecotech Styria Separatoren sichern sich Zellstoff- und Papierfabriken eine wirtschaftliche, ressourcenschonende und umweltgerechte Abwasserbehandlung – und stärken gleichzeitig ihre Zukunftsfähigkeit.',
         en: 'With Ecotech Styria separators, pulp and paper mills secure economical, resource-efficient and environmentally sound wastewater treatment — strengthening their long-term competitiveness.',
       },
     ],

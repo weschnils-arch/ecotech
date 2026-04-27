@@ -171,6 +171,64 @@ function ApplicationCard({ slug, title, desc, index }: ApplicationCardProps) {
   );
 }
 
+function FasersuspensionenBlock({ index }: { index: number }) {
+  const { language } = useLanguage();
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  const isReversed = index % 2 !== 0;
+
+  const title = language === 'de'
+    ? 'Sonstige Anwendungen im Bereich Fasersuspensionen'
+    : 'Other Applications in the Field of Fiber Suspensions';
+  const desc = language === 'de'
+    ? 'Ecotech Styria bietet Lösungen in allen Bereichen der Separationstechnik von Fasersuspensionen an – auch außerhalb der beschriebenen Anwendungen. Kontaktieren Sie uns und konzipieren wir gemeinsam eine Lösung.'
+    : 'Ecotech Styria offers solutions across all areas of fiber suspension separation — including applications beyond those described here. Contact us and let us design a solution together.';
+  const ctaLabel = language === 'de' ? 'Kontakt aufnehmen' : 'Get in touch';
+
+  return (
+    <div
+      ref={ref}
+      id="fasersuspensionen"
+      className={`scroll-mt-24 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div
+        className={`glass-card overflow-hidden group h-auto lg:h-[350px] flex flex-col lg:flex-row ${
+          isReversed ? 'lg:flex-row-reverse' : ''
+        }`}
+      >
+        <div className="flex-1 relative min-h-[250px] lg:min-h-0 overflow-hidden bg-[#282F2D]">
+          <img
+            src="/images/app-fasersuspensionen.webp"
+            alt={title}
+            className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-ecotech-grey/40 transition-colors duration-500 group-hover:bg-ecotech-grey/20" />
+          <div className="absolute top-6 left-6 transition-transform duration-500 group-hover:-translate-y-1 z-10">
+            <div className="w-14 h-14 rounded-xl bg-ecotech-green flex items-center justify-center shadow-lg">
+              <Factory size={28} className="text-white" />
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
+          <h2 className="text-2xl lg:text-3xl font-bold text-ecotech-grey mb-4 leading-tight break-words hyphens-auto">
+            {title}
+          </h2>
+          <p className="text-lg text-ecotech-grey/80 mb-6 leading-relaxed break-words hyphens-auto">{desc}</p>
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 text-ecotech-green font-medium hover:gap-4 transition-all duration-300 self-start"
+          >
+            {ctaLabel}
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ApplicationsPage() {
   const { t, language } = useLanguage();
 
@@ -194,6 +252,7 @@ export function ApplicationsPage() {
                 index={index}
               />
             ))}
+            <FasersuspensionenBlock index={applications.length} />
           </div>
         </div>
       </section>

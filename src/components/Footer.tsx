@@ -63,7 +63,7 @@ export function Footer() {
             <h4 className="text-lg font-bold mb-6 text-white">{t('footer.social')}</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
+                <a href="https://www.linkedin.com/company/ecotech-styria-gmbh/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-ecotech-green transition-colors duration-300">
                   <Linkedin size={20} />
                   <span>LinkedIn</span>
                 </a>

@@ -72,14 +72,29 @@ export function NewsDetailPage({ slug }: NewsDetailPageProps) {
                 ))}
               </div>
 
-              {/* Placeholder notice */}
-              <div className="mt-10 p-6 bg-ecotech-green/5 rounded-lg border border-ecotech-green/20 text-center">
-                <p className="text-ecotech-grey/60 text-sm">
-                  {language === 'de'
-                    ? 'Der vollständige Bericht wird in Kürze veröffentlicht.'
-                    : 'The full report will be published shortly.'}
-                </p>
-              </div>
+              {item.gallery && item.gallery.length > 0 && (
+                <div className="mt-10 grid sm:grid-cols-2 gap-4">
+                  {item.gallery.map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={`${title} – ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-64 object-cover rounded-lg"
+                    />
+                  ))}
+                </div>
+              )}
+
+              {!item.published && (
+                <div className="mt-10 p-6 bg-ecotech-green/5 rounded-lg border border-ecotech-green/20 text-center">
+                  <p className="text-ecotech-grey/60 text-sm">
+                    {language === 'de'
+                      ? 'Der vollständige Bericht wird in Kürze veröffentlicht.'
+                      : 'The full report will be published shortly.'}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

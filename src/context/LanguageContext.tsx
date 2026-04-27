@@ -130,7 +130,7 @@ const translations = {
     'aboutpage.careers.title': 'Karriere bei uns',
     'aboutpage.careers.intro': 'Wir entwickeln technologisch führende Lösungen für die Trennung von flüssigen und festen Stoffen. Als innovatives Unternehmen im Maschinenbau sowie in der Umwelt- und Landtechnik realisieren wir effiziente Maschinen und technische Systeme für die fest-flüssig Trennung.',
     'aboutpage.careers.intro2': 'Ob Konstruktion, Entwicklung, Fertigung, Service, Projektmanagement oder Vertrieb – du bist Teil technisch anspruchsvoller Projekte mit klarer Verantwortung, kurzen Entscheidungswegen und direktem Kundenbezug.',
-    'aboutpage.careers.tagline': 'Gestalten Sie mit uns leistungsfähige Technik für nachhaltige Prozesse.',
+    'aboutpage.careers.tagline': 'Gestalte mit uns leistungsfähige Technik für nachhaltige Prozesse.',
     'aboutpage.careers.ctaLabel': 'Initiativbewerbung senden',
 
     // Sales Page
@@ -218,9 +218,9 @@ const translations = {
     'productpage.circulyizer.details.title': 'Konstruktion & Einsatz',
     'productpage.circulyizer.details': 'Für eine effiziente Separation müssen die Materialien vorab auf < 10 – 40 mm zerkleinert werden. Die Integration in eine stabile Rahmenkonstruktion erleichtert Handling, Transport sowie die Installation in neue und bestehende Recyclinganlagen.|Im einfachsten Fall wird Wasser als Trennmedium für die Dichtesortierung verwendet. Je nach Anforderung können auch Salzlösungen, Schlämme oder Wasser-Tensid-Gemische eingesetzt werden.|Der Rahmen besteht aus beschichtetem Schwarzstahl, die medienberührten Teile aus Edelstahl (V4A, 1.4571 oder gleichwertig).',
 
-    // Förderschnecken (Pauger)
-    'productpage.foerder.badge': 'In Partnerschaft mit Pauger Maschinenbau',
-    'productpage.foerder.title': 'PAUGER- Förderschnecken- Made in Austria',
+    // Förderschnecken
+    'productpage.foerder.badge': 'Ecotech Styria',
+    'productpage.foerder.title': 'Förderschnecken – Made in Austria',
     'productpage.foerder.tagline': 'Effizient. Robust. Maßgeschneidert. Präzision für Ihre Produktion',
     'productpage.foerder.about.title': 'Über uns',
     'productpage.foerder.about.items': 'Experte für Fördersysteme und Separationstechnik|Maßgeschneiderte Lösung für Industrie & Landwirtschaft|Qualität, Effizienz und Langlebigkeit',
@@ -287,10 +287,10 @@ const translations = {
     'productpage.foerder.more.title': 'Weitere Leistungen im Bereich Fördertechnik',
     'productpage.foerder.more.items': 'Förderbänder|Zellradschleusen|Zyklone|Klappkästen|Retrofit|usw.',
     'productpage.foerder.contact.title': 'Kontakt',
-    'productpage.foerder.contact.company': 'Pauger Maschinenbau GmbH',
+    'productpage.foerder.contact.company': 'Ecotech Styria GmbH',
     'productpage.foerder.contact.address': 'Judenburgerstraße 176, 8580 Köflach, Austria',
-    'productpage.foerder.contact.email': 'office@pauger-mb.at',
-    'productpage.foerder.contact.phone': '+43 03144 / 70477',
+    'productpage.foerder.contact.email': 'office@ecotechstyria.com',
+    'productpage.foerder.contact.phone': '+43 3144 / 70477',
 
     'productpage.inquiry': 'Anfrage stellen',
     'productpage.new': 'Neu',
@@ -858,9 +858,9 @@ const translations = {
     'productpage.circulyizer.details.title': 'Construction & Operation',
     'productpage.circulyizer.details': 'For efficient separation, the materials must be previously shredded to < 10 – 40 mm. Integration into a stable frame construction makes handling, transport and installation in new and existing recycling plants easier.|In the simplest case, water is used as the separation medium for density separation. Depending on requirements, salt solutions (brines), slurries or water-surfactant mixtures can also be used.|The frame is made of coated black steel and the parts in contact with the medium are made of stainless steel (V4A, 1.4571 or similar).',
 
-    // Förderschnecken (Pauger)
-    'productpage.foerder.badge': 'In partnership with Pauger Maschinenbau',
-    'productpage.foerder.title': 'PAUGER Screw Conveyors – Made in Austria',
+    // Förderschnecken
+    'productpage.foerder.badge': 'Ecotech Styria',
+    'productpage.foerder.title': 'Screw Conveyors – Made in Austria',
     'productpage.foerder.tagline': 'Efficient. Robust. Tailor-made. Precision for your production.',
     'productpage.foerder.about.title': 'About us',
     'productpage.foerder.about.items': 'Expert in conveying systems and separation technology|Tailor-made solutions for industry & agriculture|Quality, efficiency and longevity',
@@ -927,10 +927,10 @@ const translations = {
     'productpage.foerder.more.title': 'Further conveying technology services',
     'productpage.foerder.more.items': 'Conveyor belts|Rotary valves|Cyclones|Flap boxes|Retrofit|etc.',
     'productpage.foerder.contact.title': 'Contact',
-    'productpage.foerder.contact.company': 'Pauger Maschinenbau GmbH',
+    'productpage.foerder.contact.company': 'Ecotech Styria GmbH',
     'productpage.foerder.contact.address': 'Judenburgerstraße 176, 8580 Köflach, Austria',
-    'productpage.foerder.contact.email': 'office@pauger-mb.at',
-    'productpage.foerder.contact.phone': '+43 03144 / 70477',
+    'productpage.foerder.contact.email': 'office@ecotechstyria.com',
+    'productpage.foerder.contact.phone': '+43 3144 / 70477',
 
     'productpage.inquiry': 'Send Inquiry',
     'productpage.new': 'New',

@@ -53,7 +53,7 @@ function PartnerCard({ p, isDe, accentColor = 'green' }: { p: typeof partners[0]
       </div>
 
       <div className="space-y-4 text-sm">
-        {p.contactPerson !== p.company && (
+        {p.contactPerson && p.contactPerson !== p.company && (
           <div>
             <p className="font-bold text-ecotech-grey">{p.contactPerson}</p>
             {p.role && <p className="text-ecotech-grey/60">{p.role}</p>}
@@ -153,8 +153,8 @@ export function PartnerFinder() {
   }, [selectedCountry, isDe]);
 
   // Always show Ecotech HQ as fallback
-  const ecotechHQ = partners.find(p => p.id === 'at-leitner')!;
-  const showHQFallback = selectedCountry !== ALL && !visiblePartners.some(p => p.id === 'at-leitner');
+  const ecotechHQ = partners.find(p => p.id === 'at-office')!;
+  const showHQFallback = selectedCountry !== ALL && !visiblePartners.some(p => p.id === 'at-office');
 
   return (
     <section

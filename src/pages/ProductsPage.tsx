@@ -366,11 +366,11 @@ function BGI400PnPSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             <ImageGallery images={[
-              { src: '/images/product-bgi400-pnp-7965.webp', alt: 'BGI-400 Plug & Play Hauptansicht' },
-              { src: '/images/product-bgi400-pnp-7975.webp', alt: 'BGI-400 Plug & Play Detail' },
-              { src: '/images/product-bgi400-pnp-7985.webp', alt: 'BGI-400 Plug & Play Seitenansicht' },
+              { src: '/images/product-bgi400-pnp-new1.webp', alt: 'BGI-400 Plug & Play Hauptansicht' },
+              { src: '/images/product-bgi400-pnp-new2.webp', alt: 'BGI-400 Plug & Play Detail' },
+              { src: '/images/product-bgi400-pnp-new3.webp', alt: 'BGI-400 Plug & Play Seitenansicht' },
               { src: '/images/product-bgi400-pnp-7997.webp', alt: 'BGI-400 Plug & Play Perspektive' },
-              { src: '/images/product-bgi400-pnp-8005.webp', alt: 'BGI-400 Plug & Play Komponenten' },
+              { src: '/images/product-bgi400-pnp-new5.webp', alt: 'BGI-400 Plug & Play Komponenten' },
             ]} />
           </div>
 
@@ -678,7 +678,7 @@ function FoerderSchneckenSection() {
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             <ImageGallery images={[
-              { src: '/images/product-foerderschnecken-1.webp', alt: 'Rohrförderschnecken – Pauger Werkstatt' },
+              { src: '/images/product-foerderschnecken-1.webp', alt: 'Rohrförderschnecken – Werkstatt' },
               { src: '/images/product-foerderschnecken-2.webp', alt: 'Trogförderschnecke mit Schneckenwelle' },
               { src: '/images/product-foerderschnecken-6.webp', alt: 'Detailansicht Pressschnecke' },
               { src: '/images/product-foerderschnecken-5.webp', alt: 'Auftragsschweißung Schneckenflügel' },
@@ -712,7 +712,7 @@ function FoerderSchneckenSection() {
               ))}
             </ul>
 
-            <a href="mailto:office@pauger-mb.at?subject=Anfrage Förderschnecken" className="btn-primary inline-flex">
+            <a href="mailto:office@ecotechstyria.com?subject=Anfrage Förderschnecken" className="btn-primary inline-flex">
               {t('productpage.inquiry')} <ArrowRight size={18} />
             </a>
           </div>

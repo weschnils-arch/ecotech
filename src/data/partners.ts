@@ -24,16 +24,16 @@ export interface Partner {
 
 export const partners: Partner[] = [
   {
-    id: 'at-leitner',
+    id: 'at-office',
     country: 'Österreich',
     countryEn: 'Austria',
     company: 'Ecotech Styria GmbH',
-    contactPerson: 'Heinz Leitner',
+    contactPerson: '',
     street: 'Judenburgerstraße 176',
     postalCode: 'A-8580',
     city: 'Köflach',
-    phone: '+43 664 120 8711',
-    email: 'h.leitner@ecotechstyria.com',
+    phone: '+43 3144 / 70477',
+    email: 'office@ecotechstyria.com',
     website: 'https://ecotechstyria.com',
   },
   {

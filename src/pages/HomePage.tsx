@@ -13,7 +13,7 @@ import { newsItems } from '@/data/news';
 const HERO_ROTATOR_CONFIG: ReadonlyArray<{ slug: string | null; imageOverride?: string }> = [
   { slug: null },
   { slug: 'bgii-800-vorgestellt', imageOverride: '/images/product-bg2.jpg' },
-  { slug: 'wisconsin-dairy-expo', imageOverride: '/images/news-v2.webp' },
+  { slug: 'wps-farm-show-2026', imageOverride: '/images/event-wps-farm-show-1.webp' },
   { slug: 'kooperation-circulyzer' },
   { slug: 'bgi-400-plug-and-play' },
 ];
@@ -146,7 +146,28 @@ function HeroSection() {
         {/* News Quick-Link */}
         {(() => {
           const current = slides[activeSlide];
-          if (!current.slug) return <div />;
+          if (!current.slug) {
+            return (
+              <Link
+                to="/news/ifat-muenchen-2026"
+                className="group flex items-center gap-3 md:gap-4 bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/10 hover:bg-black/50 transition-all duration-300 max-w-sm"
+              >
+                <img
+                  src="/images/logo-ifat.webp"
+                  alt="IFAT Munich"
+                  className="h-8 md:h-10 w-auto rounded-lg bg-white p-1 flex-shrink-0"
+                />
+                <div className="min-w-0">
+                  <span className="text-ecotech-green text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    {language === 'de' ? 'Event — Messe IFAT 04. – 07. Mai 2026' : 'Event — IFAT Munich May 4–7, 2026'}
+                  </span>
+                  <h3 className="text-white font-bold text-xs md:text-base mt-1 line-clamp-1 group-hover:text-ecotech-green transition-colors">
+                    {language === 'de' ? 'Besuchen Sie uns an Stand A1.527.' : 'Visit us at Stand A1.527.'}
+                  </h3>
+                </div>
+              </Link>
+            );
+          }
           return (
             <Link
               to={`/news/${current.slug}` as `/news/${string}`}
