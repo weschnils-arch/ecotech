@@ -65,24 +65,72 @@ export function NewsDetailPage({ slug }: NewsDetailPageProps) {
             {/* Body content */}
             <div className="glass-card p-8 lg:p-12">
               <div className="space-y-6">
-                {body.map((paragraph, i) => (
-                  <p key={i} className="text-lg text-ecotech-grey/80 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
+                {(() => {
+                  const blocks: React.ReactNode[] = [];
+                  let bulletBuffer: string[] = [];
+                  const flushBullets = (key: string) => {
+                    if (bulletBuffer.length === 0) return;
+                    blocks.push(
+                      <ul key={key} className="list-disc pl-6 space-y-2 text-lg text-ecotech-grey/80 leading-relaxed marker:text-ecotech-green">
+                        {bulletBuffer.map((b, bi) => (
+                          <li key={bi}>{b}</li>
+                        ))}
+                      </ul>
+                    );
+                    bulletBuffer = [];
+                  };
+                  body.forEach((paragraph, i) => {
+                    if (paragraph.startsWith('__BULLET__')) {
+                      bulletBuffer.push(paragraph.replace('__BULLET__', '').trim());
+                      return;
+                    }
+                    flushBullets(`bullets-${i}`);
+                    if (paragraph.startsWith('__H__')) {
+                      blocks.push(
+                        <h2 key={i} className="text-2xl md:text-3xl font-bold text-ecotech-grey mt-4 mb-2">
+                          {paragraph.replace('__H__', '').trim()}
+                        </h2>
+                      );
+                    } else if (paragraph.startsWith('__SH__')) {
+                      blocks.push(
+                        <h3 key={i} className="text-xl md:text-2xl font-semibold text-ecotech-green mt-2 mb-1">
+                          {paragraph.replace('__SH__', '').trim()}
+                        </h3>
+                      );
+                    } else if (paragraph.startsWith('__QUOTE__')) {
+                      blocks.push(
+                        <blockquote key={i} className="border-l-4 border-ecotech-green pl-6 py-2 my-4 text-lg italic text-ecotech-grey/90 bg-ecotech-green/5 rounded-r-lg">
+                          {paragraph.replace('__QUOTE__', '').trim()}
+                        </blockquote>
+                      );
+                    } else {
+                      blocks.push(
+                        <p key={i} className="text-lg text-ecotech-grey/80 leading-relaxed">
+                          {paragraph}
+                        </p>
+                      );
+                    }
+                  });
+                  flushBullets('bullets-final');
+                  return blocks;
+                })()}
               </div>
 
               {item.gallery && item.gallery.length > 0 && (
                 <div className="mt-10 grid sm:grid-cols-2 gap-4">
-                  {item.gallery.map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt={`${title} – ${i + 1}`}
-                      loading="lazy"
-                      className="w-full h-64 object-cover rounded-lg"
-                    />
-                  ))}
+                  {item.gallery.map((src, i) => {
+                    const upperBias = src.includes('bgi400-pnp-new3');
+                    return (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`${title} – ${i + 1}`}
+                        loading="lazy"
+                        className="w-full h-64 object-cover rounded-lg"
+                        style={upperBias ? { objectPosition: '50% 25%' } : undefined}
+                      />
+                    );
+                  })}
                 </div>
               )}
 
